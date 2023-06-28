@@ -14,11 +14,25 @@
     .col{
         width: 410px;
         padding: 10px;
+
+        box-shadow: 5px 5px 20px black;
+        overflow:hidden;
     }
 
     .mainContainerImages{
-            // border: pink 3px solid;
-            // padding: 14px;
+        
+    }
+
+    .intro{
+        height: 70px;
+        width: 350px;
+        padding: 6px;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 240px;
+        background: rgb(27, 27, 27);
+        color: white;
+        transition: .5s;
     }
 }
 

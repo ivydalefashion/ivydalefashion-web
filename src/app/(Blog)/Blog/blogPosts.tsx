@@ -22,51 +22,45 @@ const BlogPostsComponent = () => {
         <Container className={styles.mainContainer}>
             <Row>
 
+                <Col  className={styles.col} sm={12} md={6} lg={4}>
+                    <Image 
+                        className={styles.mainContainerImages}
+                        src='/blogimage1.jpeg'
+                        alt="Picture of the author"
+                        width={400}
+                        height={600} 
+                    />
+                    <div className={styles.intro}>
+                        <h1>
+                            HELLO WORLD
+                        </h1>
+                        <span>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus recusandae excepturi maxime enim nisi harum laborum modi, omnis dolores libero tempore tempora iste reprehenderit perspiciatis illo explicabo eos, corrupti ratione.
+                        </span>
+                    </div>
+                </Col>
 
-            
-            <Col className={styles.col} sm={12} md={6} lg={4}>
-            <Image 
-                className={styles.mainContainerImages}
-                src='/blogimage1.jpeg'
-                alt="Picture of the author"
-                width={400}
-                height={600} 
-            />
-            </Col>
-            <Col className={styles.col}  sm={12} md={6} lg={4}>
-            <Image 
-                className={styles.mainContainerImages}
-                src='/blogimage1.jpeg'
-                alt="Picture of the author"
-                width={400} 
-                height={600} 
-            />
-            </Col>
-            <Col className={styles.col}  sm={12} md={6} lg={4}>
-            <Image 
-                className={styles.mainContainerImages}
-                src='/blogimage1.jpeg'
-                alt="Picture of the author"
-                width={400} 
-                height={600} 
-            />
-            </Col>
+                <Col className={styles.col}  sm={12} md={6} lg={4}>
+                    <Image 
+                        className={styles.mainContainerImages}
+                        src='/blogimage2.jpeg'
+                        alt="Picture of the author"
+                        width={400} 
+                        height={600} 
+                    />
+                </Col>
+
+                <Col className={styles.col}  sm={12} md={6} lg={4}>
+                    <Image 
+                        className={styles.mainContainerImages}
+                        src='/blogimage3.jpeg'
+                        alt="Picture of the author"
+                        width={400} 
+                        height={600} 
+                    />
+                </Col>
             </Row>
             
-            {/* <Image
-                className={styles.mainContainerImages}
-                src='/blogimage2.jpeg'
-                alt="Picture of the author"
-                width={400} 
-                height={600} 
-            />
-             <Image 
-                className={styles.mainContainerImages}
-                src='/blogimage3.jpeg'
-                alt="Picture of the author"
-                width={400} 
-                height={600} 
-            /> */}
         </Container>
     </main>
   )
