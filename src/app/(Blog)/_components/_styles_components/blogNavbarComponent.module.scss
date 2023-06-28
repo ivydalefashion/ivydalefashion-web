@@ -1,12 +1,20 @@
-.navbarBrand{
-    font-size: 50px;
 
-    li{
-        list-style-type: none;
-        .navbarBrandLink{
-            color: black;
-            font-weight: bold;
+.navbarMainContainer{
+    // justify-content: center;
+    display: flex;
+
+    .navbarBrand{
+        font-size: 50px;
+    
+        li{
+            list-style-type: none;
+            .navbarBrandLink{
+                color: black;
+                font-weight: bold;
+            }
         }
     }
 }
+
+
 
