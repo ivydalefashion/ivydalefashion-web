@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
+import { Container } from 'react-bootstrap'
 import BlogNavbarComponent from '../_components/BlogNavbarComponent'
 import styles from '../_styles/blog.module.scss' // styling
+import BlogPostsComponent from './blogPosts'
 
 // metadata
 export const metadata: Metadata = {
@@ -12,9 +14,19 @@ const BlogPage = () => {
   return (
     <main >
       <BlogNavbarComponent></BlogNavbarComponent>
-      <h1 className={styles.header}> Blog page,, lotta articles
 
-      </h1>
+      <div className={styles.blogPosts}>
+        <BlogPostsComponent></BlogPostsComponent>
+      </div>
+      {/* <Container className={styles.titleContainer}>
+        <h3>all things fashion...</h3>
+      </Container>
+
+      <Container className={styles.contentContainer}>
+        <h4> posts</h4>
+      </Container> */}
+      
+
     </main>
   )
 }
