@@ -5,9 +5,9 @@ import styles from './_styles_components/Header.module.scss'
 import { FaSearch,FaUserAlt,FaShoppingCart,FaHeart } from 'react-icons/fa';
 
 const MainNavbar = () =>{
+    
     return (
-
-        <Navbar  fixed="top" className={`${styles.navBar}`} bg="light" expand="lg">
+        <Navbar fixed="top" className={`${styles.navBar}`} bg="light" expand="lg">
             <Container>
                 <Navbar.Brand className={styles.navBarBrand} href="#home">IVY</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -56,7 +56,7 @@ const MainNavbar = () =>{
 
                 </Navbar.Collapse>
             </Container>
-            </Navbar>
+        </Navbar>
     )
 }
 

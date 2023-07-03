@@ -54,7 +54,7 @@ const SinginComponent = () => {
                     <br />
 
                     <Link  href="signup">
-                        {/* <a className={styles.createAccountLink}>New customer? <span>Create an account</span></a> */}
+                        <p className={styles.createAccountLink}>New customer? <span>Create an account</span></p>
                         
                     </Link>
                 </form>
