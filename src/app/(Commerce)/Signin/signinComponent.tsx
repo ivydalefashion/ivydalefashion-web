@@ -1,11 +1,9 @@
 'use client';
 import Link from 'next/link'
 import {Form, Button} from 'react-bootstrap'
-
 import styles from '../_styles/signinComponent.module.scss'
 
 const SinginComponent = () => {
-   
     return (
         <div className={`container ${styles.mainContainer} `}>
 
