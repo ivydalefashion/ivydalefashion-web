@@ -3,8 +3,9 @@ import Link from 'next/link'
 import MiniNavbar from '../_components/HeaderMini'
 // import SinginComponent from './signinComponent'
 import Footer from '../_components/Footer'
-import BrandComponent from './brandComponent'
+// import BrandComponent from './brandComponent'
 import MainNavbar from '../_components/Header'
+import CartComponent from './cartComponent'
 
 export const metadata: Metadata = {
   title: '',
@@ -17,7 +18,8 @@ const BrandPage = () => {
 		<main>
 			<MainNavbar></MainNavbar>
 			{/* <SinginComponent></SinginComponent> */}
-            <BrandComponent></BrandComponent>
+            {/* <BrandComponent></BrandComponent> */}
+            <CartComponent></CartComponent>
 			<Footer></Footer>
 		</main>
 	)

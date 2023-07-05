@@ -15,9 +15,6 @@ import ImageCard from '../_components/ImageCard'
 const BrandComponent = () => {
     
   return (
-    <div>
-        <main>
-            {/* <MainNavbar></MainNavbar> */}
             <Container className={styles.container}>
                 <Row className={styles.brandHeaderRow}>
 
@@ -71,9 +68,6 @@ const BrandComponent = () => {
                     </Col>
                 </Row>
             </Container>
-        </main>
-        
-    </div>
   )
 }
 
