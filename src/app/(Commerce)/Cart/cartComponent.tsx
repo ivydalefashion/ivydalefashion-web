@@ -76,14 +76,22 @@ const CartComponent = () => {
 												X2
 											</Col>
 										</Row>
-
-										<Row className={styles.deleteButtonRow}>
-											<Button>Delete</Button>
-										</Row>
 									</Container>
 									
 								</td>
-								<td className={styles.priceTD}>{data.price}</td>
+
+								<td className={styles.priceTD}>
+                                    <Row>
+                                        <Col lg={6} md={6} sm={6}>
+                                            {data.price}
+                                        </Col>
+                                        
+                                        <Col  lg={6} md={6} sm={6}>
+                                            X
+                                        </Col>
+                                    </Row>
+                                    
+                                </td>
 							</tr>
 							
 						))}
