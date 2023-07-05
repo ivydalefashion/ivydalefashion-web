@@ -44,8 +44,8 @@ const SignupComponent = () => {
             <div className={`container ${styles.mainContainer} `}>
 
                 <div className={`row`}>
-                    <h2 className={` ${styles.primaryLabel}`}>Log in.</h2>
-                    <label className={`${styles.secondaryLabel}`}>Please enter your email and password</label>
+                    <h2 className={` ${styles.primaryLabel}`}>Be a part of us.</h2>
+                    <label className={`${styles.secondaryLabel}`}>Please fill in the fields below:</label>
                 </div>
 
                 <div className={`row`}>
