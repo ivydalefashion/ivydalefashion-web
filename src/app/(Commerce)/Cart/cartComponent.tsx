@@ -54,6 +54,7 @@ const CartComponent = () => {
 										height={140} 
 										// blurDataURL="data:..." automatically provided
 										// placeholder="blur" // Optional blur-up while loading
+										// test
 									/>
 								</td>
 
