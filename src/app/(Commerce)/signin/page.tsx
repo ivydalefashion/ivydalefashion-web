@@ -1,8 +1,7 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
 import MiniNavbar from '../_components/HeaderMini'
-import SinginComponent from './signinComponent'
 import Footer from '../_components/Footer'
+import SigninComponent from './_signinComponent'
 
 export const metadata: Metadata = {
   title: 'Signin to IvydaleFashion',
@@ -10,11 +9,10 @@ export const metadata: Metadata = {
 }
 
 const SigninPage = () => {
-   
 	return (
 		<main>
 			<MiniNavbar></MiniNavbar>
-			<SinginComponent></SinginComponent>
+			 <SigninComponent></SigninComponent>
 			<Footer></Footer>
 		</main>
 	)

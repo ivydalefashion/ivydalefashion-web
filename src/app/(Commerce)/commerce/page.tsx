@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import CommerceComponent from './_commerceComponent'
 
 export const metadata: Metadata = {
   title: 'Ivydale Blog',
@@ -7,9 +8,9 @@ export const metadata: Metadata = {
 
 const LandingPage = () => {
     return (
-      <main >
-        <h1> Commerce page</h1>
-      </main>
+      <div>
+        <CommerceComponent></CommerceComponent>
+      </div>
     )
   }
 

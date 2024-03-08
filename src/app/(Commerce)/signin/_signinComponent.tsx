@@ -1,9 +1,10 @@
-'use client';
+"use client";
 import Link from 'next/link'
 import {Form, Button} from 'react-bootstrap'
+// import styles from '../_styles/signinComponent.module.scss'
 import styles from '../_styles/signinComponent.module.scss'
 
-const SinginComponent = () => {
+const SigninComponent = () => {
     return (
         <div className={`container ${styles.mainContainer} `}>
 
@@ -61,4 +62,4 @@ const SinginComponent = () => {
       )
 }
   
-export default SinginComponent;
+export default SigninComponent;

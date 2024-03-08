@@ -1,13 +1,14 @@
 "use client"
 import Link from 'next/link'
-import {Container} from 'react-bootstrap';
-
+import {Container} from 'react-bootstrap'
 
 export default function HomeComponent() {
 
     return(
         <div>
             <Container>
+                <h4>Theoratically, this home page should take you to the Landing page.... <Link style={tempStyleDecoration} href="/commerce">Commerce</Link></h4>
+
                 <h4 style={tempStyleDecoration}>
                     <Link href="/">Home</Link>
                 </h4>

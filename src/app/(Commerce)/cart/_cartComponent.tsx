@@ -1,5 +1,4 @@
 'use client'
-import type { NextPage } from 'next'
 import Image from 'next/image'
 import { Container, Row,Col, Button } from 'react-bootstrap'
 import styles from '../_styles/cartComponent.module.scss'
@@ -7,13 +6,13 @@ import productPicture from '../../../../public/adidasMANU.jpg'
 
 
 const testData = [
-  {
+{
 	id: 1,
-  name: "Adidas Manchester united 2022 Away shirt",
-  size: "small",
-  image: "url",
-  price: 500,
-  quantity: 2
+  	name: "Adidas Manchester united 2022 Away shirt",
+  	size: "small",
+  	image: "url",
+  	price: 500,
+  	quantity: 2
 },
 {
 	id:2,

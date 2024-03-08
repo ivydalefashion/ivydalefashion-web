@@ -1,11 +1,7 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
-import MiniNavbar from '../_components/HeaderMini'
-// import SinginComponent from './signinComponent'
 import Footer from '../_components/Footer'
-// import BrandComponent from './brandComponent'
 import MainNavbar from '../_components/Header'
-import CartComponent from './cartComponent'
+import CartComponent from './_cartComponent'
 
 export const metadata: Metadata = {
   title: '',
@@ -15,13 +11,11 @@ export const metadata: Metadata = {
 const CartPage = () => {
    
 	return (
-		<main>
+		<div>
 			<MainNavbar></MainNavbar>
-			{/* <SinginComponent></SinginComponent> */}
-            {/* <BrandComponent></BrandComponent> */}
             <CartComponent></CartComponent>
 			<Footer></Footer>
-		</main>
+		</div>
 	)
 }
 

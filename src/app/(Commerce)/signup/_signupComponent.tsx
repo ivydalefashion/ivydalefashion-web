@@ -1,12 +1,8 @@
-'use client'
-import type { NextPage } from 'next'
-import Head from 'next/head'
+"use client";
 import Link from 'next/link'
 import { useForm } from "react-hook-form";
 import styles from '../_styles/signupComponent.module.scss'
 import { Form,Button } from 'react-bootstrap'
-
-
 
 const SignupComponent = () => {
     const { register, handleSubmit } = useForm();
@@ -40,7 +36,6 @@ const SignupComponent = () => {
 
   return (
     <div>
-      
             <div className={`container ${styles.mainContainer} `}>
 
                 <div className={`row`}>
@@ -110,8 +105,6 @@ const SignupComponent = () => {
                     </form>
                 </div>
             </div>
-           
-        
     </div>
   )
 }
