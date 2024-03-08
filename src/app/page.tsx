@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
+import HomeComponent from './home/homeComponent';
 
 export const metadata: Metadata = {
   title: 'Ivydale Home',
@@ -9,13 +9,7 @@ export const metadata: Metadata = {
 const HomePage = () =>{
   return (
     <div>
-
-      <h4 style={{
-        'color': 'blue',
-        'textDecoration': 'underline'
-      }}>
-         <Link href="/Cart">cart!</Link>
-      </h4>
+      <HomeComponent></HomeComponent>
 
     </div>
     
