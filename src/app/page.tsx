@@ -8,7 +8,17 @@ export const metadata: Metadata = {
 
 const HomePage = () =>{
   return (
-    <div>HomePage</div>
+    <div>
+
+      <h4 style={{
+        'color': 'blue',
+        'textDecoration': 'underline'
+      }}>
+         <Link href="/Cart">cart!</Link>
+      </h4>
+
+    </div>
+    
   )
 }
 

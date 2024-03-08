@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: '',
 }
 
-const BrandPage = () => {
+const CartPage = () => {
    
 	return (
 		<main>
@@ -25,4 +25,4 @@ const BrandPage = () => {
 	)
 }
 
-export default BrandPage;
+export default CartPage;
