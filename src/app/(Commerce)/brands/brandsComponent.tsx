@@ -18,15 +18,16 @@ const BrandsComponent = () => {
   return (
     <Container className={styles.container}>
         <Row className={styles.titleRow}>
-        SHOP LOCAL AND INTERNATIONAL BRANDS
+            SHOP LOCAL AND INTERNATIONAL BRANDS
         </Row>
         
         <Row className={styles.logosRow}>
-        <ImageCardLogos brandName={adidasLogo}></ImageCardLogos>
-        <ImageCardLogos brandName={nikeLogo}></ImageCardLogos>
-        {/* <ImageCardLogos brandName={dickiesLogo}></ImageCardLogos> */}
-        <ImageCardLogos brandName={pumaLogo}></ImageCardLogos>
-
+            <Col lg='4' md='4' sm='12' >
+                <ImageCardLogos brandName={adidasLogo}></ImageCardLogos>
+                <ImageCardLogos brandName={nikeLogo}></ImageCardLogos>
+                {/* <ImageCardLogos brandName={dickiesLogo}></ImageCardLogos> */}
+                <ImageCardLogos brandName={pumaLogo}></ImageCardLogos>
+            </Col>
         </Row>
     </Container>
   )

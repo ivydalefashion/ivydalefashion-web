@@ -13,17 +13,8 @@ const MainNavbar = () =>{
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link ><Link  href="explore">Explore</Link></Nav.Link>
-                    <Nav.Link> <Link  href="brands">Brands</Link></Nav.Link>
+                    <Nav.Link ><Link href="brands">Shop brands</Link></Nav.Link>
                     <Nav.Link><Link href="blog">Blog</Link></Nav.Link>
-                    <NavDropdown title="Category" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Shoes</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Pants</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Jackets</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Men</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Women</NavDropdown.Item>
-                    </NavDropdown>
                 </Nav>
 
                 <Nav className="me-auto">
