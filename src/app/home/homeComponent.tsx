@@ -26,6 +26,10 @@ export default function HomeComponent() {
                 </h4>
 
                 <h4 style={tempStyleDecoration}>
+                    <Link href="/profile">Profile page</Link>
+                </h4>
+
+                <h4 style={tempStyleDecoration}>
                     <Link href="/signup">Sign up</Link>
                 </h4>
             </Container>
