@@ -3,9 +3,12 @@ import { Container } from "react-bootstrap";
 
 const CommerceComponent = () => {
     return (
-      <Container>
-        <h1> Commerce page</h1>
-      </Container>
+		<div>
+			<Container>
+				<h1> Commerce home page</h1>
+			</Container>
+		</div>
+      
     )
   }
 

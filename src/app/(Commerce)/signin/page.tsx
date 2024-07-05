@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 const SigninPage = () => {
 	return (
-		<main>
+		<div>
 			<MiniNavbar></MiniNavbar>
-			 <SigninComponent></SigninComponent>
+				<SigninComponent></SigninComponent>
 			<Footer></Footer>
-		</main>
+		</div>
 	)
 }
 

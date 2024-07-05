@@ -7,6 +7,7 @@ import { FaSearch,FaUserAlt,FaShoppingCart,FaHeart } from 'react-icons/fa';
 const MainNavbar = () =>{
     
     return (
+        <div>
         <Navbar fixed="top" className={`${styles.navBar}`} bg="light" expand="lg">
             <Container>
                 <Navbar.Brand className={styles.navBarBrand} href="#home">IVY</Navbar.Brand>
@@ -48,6 +49,7 @@ const MainNavbar = () =>{
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        </div>
     )
 }
 
