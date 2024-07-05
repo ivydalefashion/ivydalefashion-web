@@ -1,4 +1,5 @@
 'use client'
+
 import { Container, Row, Col } from 'react-bootstrap'
 import styles from '../_styles/blogPost.module.scss' // styling
 import Image from 'next/image'
@@ -14,7 +15,7 @@ import Image from 'next/image'
 
 const BlogPostsComponent = () => {
   return (
-    <main>
+    <div>
         <Container className={styles.titleContainer}>
             <h3> all things fashion...</h3>
         </Container>
@@ -57,11 +58,10 @@ const BlogPostsComponent = () => {
                         </p>
                     </div>
                 </Col>
-
             </Row>
             
         </Container>
-    </main>
+    </div>
   )
 }
 

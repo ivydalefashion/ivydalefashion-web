@@ -1,7 +1,6 @@
 "use client";
-import Link from "next/link";
+
 import Image from "next/image";
-import Styles from './_styles_components/ImageCardLogos.module.scss'
 import { Card, ListGroup } from "react-bootstrap";
 
 // This component holds the images displayed on the brands page:

@@ -1,4 +1,5 @@
 "use client";
+
 import Link from 'next/link'
 import { useForm } from "react-hook-form";
 import styles from '../_styles/signupComponent.module.scss'

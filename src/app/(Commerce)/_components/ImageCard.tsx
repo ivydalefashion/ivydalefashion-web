@@ -1,5 +1,5 @@
 'use client'
-import Link from "next/link";
+
 import Image from "next/image";
 import productImage from '../../../../public/adidasMANU.jpg'
 import styles from './_styles_components/ImageCard.module.scss'

@@ -1,5 +1,5 @@
 'use clinet'; 
-import {Navbar , Container, Nav, NavDropdown} from 'react-bootstrap'
+
 import styles from './_styles_components/HeaderMini.module.scss'
 
 const MiniNavbar = () =>{

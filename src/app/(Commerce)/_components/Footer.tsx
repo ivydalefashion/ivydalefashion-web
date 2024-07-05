@@ -1,9 +1,7 @@
 'use client'
 import { Container, Col, Row } from 'react-bootstrap';
-// import styles from '../../../styles/footer/Footer.module.scss'
 import styles from './_styles_components/Footer.module.scss'
 import { FaFacebook,FaInstagram,FaTwitter } from 'react-icons/fa';
-
 
 const Footer = () =>{
     return (

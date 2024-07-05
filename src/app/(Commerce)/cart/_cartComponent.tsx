@@ -1,4 +1,5 @@
 'use client'
+
 import Image from 'next/image'
 import { Container, Row,Col, Button } from 'react-bootstrap'
 import styles from '../_styles/cartComponent.module.scss'
@@ -33,9 +34,8 @@ const testData = [
 ]
 
 const CartComponent = () => {
-  return (
+  	return (
 		<Container className={` ${styles.mainContainer}`}>
-			
 		{
 			testData.length>0 ? 
 				(
@@ -108,9 +108,8 @@ const CartComponent = () => {
 				)
 			: "You do not have anything in your cart"
 		}
-			
-		</Container>
-  )
+	</Container>
+  	)
 }
 
 export default CartComponent;

@@ -1,4 +1,5 @@
 "use client";
+
 import { Container, Col, Row, Card, Button, Accordion, ListGroup } from "react-bootstrap";
 import MainNavbar from "../_components/Header";
 import Styles from '../_styles/profileComponent.module.scss'

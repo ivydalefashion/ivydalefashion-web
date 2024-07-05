@@ -1,8 +1,5 @@
 'use client'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import { useContext } from 'react'
+
 import { Container, Row, Col } from 'react-bootstrap'
 import styles from '../_styles/brandComponent.module.scss'
 import ImageCardLogos from '../_components/ImageCardLogos'
