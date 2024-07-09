@@ -62,7 +62,24 @@ const CommerceComponent: React.FC = () => {
           ))}
         </Carousel>
       </Container>
-    </div>
+
+	  {/* Slim Banner */}
+      <div className={styles.slimBanner}>
+        <Container fluid>
+          <div className={styles.bannerImageContainer}>
+            <img src="https://s3-alpha-sig.figma.com/img/f664/d5be/0bb33fce4b3c153d5be3e5f4ba9dc18e?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=feb2bAeX~Ya3Ksy3DKcZPQHvv5uYtH1d6MlgCcMxHByiOYyWFA9xEfzNoOLQh1LWbX23fYYV4a-qYM1ijO9E4oakqoajpU3-OJ68CkJmiqfkq6sjHwJxPJbRtWilJ41GigmGBNocR67eYlHhNrHg~jbMH0R0i~bouz9eIMJE6EMKi-gEA8TrH2FuxGD6OdgojIrVomaWjV~1wz4wE1GItAGT-x1F6brPhmtai4oI7DK7b6YbGAtt2KG6rZc57jRG8P0nmeboDv5NKGXfJppelFrCa1Gv1DhTNuKJMefEPMrVSZ3XF50XpTRxAinEICFTvKN58lv~YgCcoOiaFKY-1A__" alt="High End Street Culture" />
+            <div className={styles.bannerText}>
+              <h2>HIGH END STREET CULTURE</h2>
+            </div>
+          </div>
+        </Container>
+      </div>
+
+		  <h5>something here too</h5>
+
+
+		  {/*The end of the div */}
+    </div> 
   );
 };
 
