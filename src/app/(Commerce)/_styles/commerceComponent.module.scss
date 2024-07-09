@@ -1,6 +1,6 @@
 .landingPage {
     height: 100vh;
-    overflow: hidden;
+    // overflow: hidden;
   }
   
   .carouselImage {
@@ -39,10 +39,31 @@
     }
   }
   
-  .newArrivals {
-    padding: 2rem 10%;
-  
-    h2 {
-      font-weight: bold;
+  // ... (keep your existing styles) ...
+
+    .newArrivals {
+        padding: 2rem 0;
+    
+        h2 {
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        }
+    
+        .carousel {
+        .carousel-inner {
+            padding-bottom: 2rem;
+        }
+        }
+    
+        h3 {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        }
+    
+        p {
+        font-size: 1rem;
+        color: #666;
+        }
     }
-  }
