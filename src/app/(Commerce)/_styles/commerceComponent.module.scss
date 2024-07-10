@@ -106,3 +106,61 @@
 		}
 	}
 }
+
+// ... (keep your existing styles) ...
+
+.shopLocalBrands {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+  
+	h2 {
+	  font-weight: bold;
+	  margin-bottom: 2rem;
+	  text-align: left;
+	}
+  
+	.mainLogo {
+	  width: 100%;
+	  max-width: 200px;
+	  height: auto;
+	  margin-bottom: 1rem;
+	}
+  
+	.brandLogo {
+	  margin-bottom: 1rem;
+  
+	  div {
+		background-color: #e0e0e0;
+		height: 150px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+		color: #666;
+	  }
+	}
+  
+	.showMoreButton {
+	  text-align: right;
+	  margin-top: 1rem;
+  
+	  button {
+		padding: 0.5rem 2rem;
+		font-weight: bold;
+	  }
+	}
+  }
+  
+  @media (max-width: 768px) {
+	.shopLocalBrands {
+	  .mainLogo {
+		max-width: 150px;
+		margin: 0 auto 1rem;
+		display: block;
+	  }
+  
+	  .brandLogo div {
+		height: 100px;
+	  }
+	}
+  }

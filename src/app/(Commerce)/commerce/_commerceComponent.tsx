@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Carousel, Container, Row, Col } from 'react-bootstrap';
+import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import styles from '../_styles/commerceComponent.module.scss';
 import Header from '../_components/Header';
@@ -90,6 +90,24 @@ const CommerceComponent: React.FC = () => {
 			</div>
 
 			<h5>something here too</h5>
+
+			{/* Shop Local Brands Section */}
+			<Container className={styles.shopLocalBrands}>
+				<h2>SHOP LOCAL BRANDS</h2>
+				<Row>
+				<Col xs={12} md={3}>
+					<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
+				</Col>
+				{[...Array(7)].map((_, index) => (
+					<Col key={index} xs={6} md={3} className={styles.brandLogo}>
+					<div>BRAND LOGO</div>
+					</Col>
+				))}
+				</Row>
+				<div className={styles.showMoreButton}>
+				<Button variant="outline-dark">SHOW MORE</Button>
+				</div>
+			</Container>
 
 			{/*The end of the div */}
 		</div>
