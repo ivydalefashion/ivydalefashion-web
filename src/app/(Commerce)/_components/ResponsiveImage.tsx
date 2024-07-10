@@ -1,29 +1,29 @@
-'use client'
-import React from 'react'
+'use client';
+import React from 'react';
 import Image from 'next/image';
 
 interface ResponsiveImageProps {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
+	src: string;
+	alt: string;
+	width: number;
+	height: number;
 }
 
-const ResponsiveImage = ({ src, alt, width, height }:ResponsiveImageProps) => {
+const ResponsiveImage = ({ src, alt, width, height }: ResponsiveImageProps) => {
 	return (
-	  <div className={``}>
-		<Image
-		  src={src}
-		  alt={alt}
-		  layout="responsive"
-		  width={width}
-		  height={height}
-		  sizes="(max-width: 768px) 100vw, 
+		<div className={``}>
+			<Image
+				src={src}
+				alt={alt}
+				layout="responsive"
+				width={width}
+				height={height}
+				sizes="(max-width: 768px) 100vw, 
 				 (max-width: 1200px) 50vw, 
 				 33vw"
-		/>
-	  </div>
+			/>
+		</div>
 	);
-  };
+};
 
 export default ResponsiveImage;

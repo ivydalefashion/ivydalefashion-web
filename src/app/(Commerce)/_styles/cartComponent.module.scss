@@ -1,88 +1,86 @@
-.mainContainer{
-    margin-top: 150px;
+.mainContainer {
+	margin-top: 150px;
 
-    .table{
-        border: 1px solid black;
+	.table {
+		border: 1px solid black;
 
-        .imageTD{
-            // background-color: green;
-            // padding: 0px;
-            // max-width: 200px;
-            width: 16%;
-        }
+		.imageTD {
+			// background-color: green;
+			// padding: 0px;
+			// max-width: 200px;
+			width: 16%;
+		}
 
-        .descriptionTD{
-            // display: flex;
-            // justify-content: start;
-            .descriptionContainer{
-                display: flex;
-                justify-content: start;
-                flex-direction: column;
-                // align-items: center;
-                // text-align: center;
-                .name{
+		.descriptionTD {
+			// display: flex;
+			// justify-content: start;
+			.descriptionContainer {
+				display: flex;
+				justify-content: start;
+				flex-direction: column;
+				// align-items: center;
+				// text-align: center;
+				.name {
+				}
+				.size {
+					color: blue;
+				}
 
-                }
-                .size{
-                    color: blue;
-                }
+				.deleteButtonRow {
+					* {
+						border-radius: 0px;
+						text-transform: uppercase;
+						border: 1px solid black;
+						color: black;
+						background-color: white;
+						width: 90px;
 
-                .deleteButtonRow{
-                    *{
-                        border-radius: 0px;
-                        text-transform: uppercase;
-                        border: 1px solid black;
-                        color: black;
-                        background-color: white;
-                        width: 90px;
+						&:hover {
+							background-color: rgb(100, 55, 55);
+							color: white;
+						}
+					}
+				}
+			}
+		}
 
-                        &:hover{
-                            background-color: rgb(100, 55, 55);
-                            color: white;
-                        }
-                    }
-                }
-            }
-           
-        }
+		.priceTD {
+			// background-color: blue;
+			padding: 10px;
+			// padding: 0px;
+			margin: 0px;
+			align-items: center;
+			// background-color: blue;
+			text-align: center;
+			// vertical-align: center;
 
-        .priceTD{
-            // background-color: blue;
-            padding: 10px;
-            // padding: 0px;
-            margin: 0px;
-            align-items: center;
-            // background-color: blue;
-            text-align: center;
-            // vertical-align: center;
+			// display: flex;
+			// justify-content: center;
 
-            // display: flex;
-            // justify-content: center;
+			* {
+				margin: 0px;
+				border: 1px solid green;
+				background-color: green;
+			}
+		}
+	}
 
-            *{
-                margin: 0px;
-                border: 1px solid green;
-                background-color: green;
-            }
-        }
-    }
+	.checkoutButtonRow {
+		display: flex;
+		justify-content: end;
 
-    .checkoutButtonRow{
-        display: flex;
-        justify-content: end;
+		button {
+			border-radius: 0px;
+			text-transform: uppercase;
+			border: 1px solid black;
+			color: black;
+			background-color: white;
+			width: 300px;
 
-        button{
-            border-radius: 0px;
-            text-transform: uppercase;
-            border: 1px solid black;
-            color: black;
-            background-color: white;
-            width: 300px;
-
-            &:hover{
-                background-color: black;
-                color: white;
-            }
-        }
-    }
+			&:hover {
+				background-color: black;
+				color: white;
+			}
+		}
+	}
 }

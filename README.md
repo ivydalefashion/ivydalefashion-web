@@ -3,5 +3,5 @@
 ### Getting Started
 
 #### How to start the application:
-Run `yarn run dev`
 
+Run `yarn run dev`

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import Link from 'next/link'
-import { useForm } from "react-hook-form";
-import styles from '../_styles/signupComponent.module.scss'
-import { Form,Button } from 'react-bootstrap'
+import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import styles from '../_styles/signupComponent.module.scss';
+import { Form, Button } from 'react-bootstrap';
 
 const SignupComponent = () => {
-    const { register, handleSubmit } = useForm();
+	const { register, handleSubmit } = useForm();
 	const onSubmit = (data: any) => {
 		// //${process.env.REACT_APP_SERVER}/signup`
 		// console.log(data);
@@ -18,7 +18,6 @@ const SignupComponent = () => {
 		// })
 		// 	.then((res) => {
 		// 		console.log(res.data);
-
 		// 		if (res.data.success === true) {
 		// 			let localStorageDataObject = {
 		// 				id: res.data.data.id,
@@ -35,79 +34,80 @@ const SignupComponent = () => {
 		// 	});
 	};
 
-  return (
-    <div>
-            <div className={`container ${styles.mainContainer} `}>
+	return (
+		<div>
+			<div className={`container ${styles.mainContainer} `}>
+				<div className={`row`}>
+					<h2 className={` ${styles.primaryLabel}`}>Be a part of us.</h2>
+					<label className={`${styles.secondaryLabel}`}>
+						Please fill in the fields below:
+					</label>
+				</div>
 
-                <div className={`row`}>
-                    <h2 className={` ${styles.primaryLabel}`}>Be a part of us.</h2>
-                    <label className={`${styles.secondaryLabel}`}>Please fill in the fields below:</label>
-                </div>
+				<div className={`row`}>
+					<form className={` ${styles.mainForm}`}>
+						<Form.Group>
+							<input
+								className={`form-control shadow-none ${styles.input} ${styles.firtnameInput}`}
+								type="text"
+								name="firstname"
+								placeholder="first name"
+							/>
+						</Form.Group>
+						<Form.Group>
+							<input
+								className={`form-control shadow-none ${styles.input} ${styles.lastnameInput}`}
+								type="email"
+								name="email"
+								placeholder="last name"
+							/>
+						</Form.Group>
 
-                <div className={`row`}>
-                    <form className={` ${styles.mainForm}`}>
+						<Form.Group>
+							<input
+								className={`form-control shadow-none ${styles.input} ${styles.emailInput}`}
+								type="email"
+								name="email"
+								id=""
+								placeholder="email address"
+							/>
+						</Form.Group>
 
-                        <Form.Group>
-                            <input
-                                className={`form-control shadow-none ${styles.input} ${styles.firtnameInput}`}
-                                type="text"
-                                name="firstname"
-                                placeholder='first name'
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <input
-                                className={`form-control shadow-none ${styles.input} ${styles.lastnameInput}`}
-                                type="email"
-                                name="email"
-                                placeholder='last name'
-                            />
-                        </Form.Group>
+						<Form.Group>
+							<div className="input-group">
+								<input
+									className={`form-control shadow-none ${styles.input} ${styles.passwordInput}`}
+									type="password"
+									name="password"
+									id=""
+									placeholder="password"
+								/>
+								<button
+									type="button"
+									className={`input-group-text ${styles.forgotPasswordButton}`}
+									id="basic-addon2"
+								>
+									forgot password?
+								</button>
+							</div>
+						</Form.Group>
 
-                        <Form.Group>
-                            <input
-                                className={`form-control shadow-none ${styles.input} ${styles.emailInput}`}
-                                type="email"
-                                name="email"
-                                id=""
-                                placeholder='email address'
-                                
-                            />
-                        </Form.Group>
-                    
-                        <Form.Group>
-                            <div className="input-group">
-                                <input
-                                    className={`form-control shadow-none ${styles.input} ${styles.passwordInput}`}
-                                    type="password"
-                                    name="password"
-                                    id=""
-                                    placeholder='password'
-                                    
-                                />
-                                <button type="button" className={`input-group-text ${styles.forgotPasswordButton}`} id="basic-addon2">forgot password?</button>
-                            </div>
-                        </Form.Group>
+						<Button type="submit" className={`${styles.loginButton}`}>
+							SIGN UP
+						</Button>
 
-                        <Button
-                            type="submit"
-                        
-                            className={`${styles.loginButton}`}
-                        >
-                            SIGN UP
-                        </Button>
+						<br />
 
-                        <br />
-
-                        <Link  href="signup">
-                            <p className={styles.createAccountLink}>Already have an account? <span>Sign in</span></p>
-                            
-                        </Link>
-                    </form>
-                </div>
-            </div>
-    </div>
-  )
-}
+						<Link href="signup">
+							<p className={styles.createAccountLink}>
+								Already have an account? <span>Sign in</span>
+							</p>
+						</Link>
+					</form>
+				</div>
+			</div>
+		</div>
+	);
+};
 
 export default SignupComponent;

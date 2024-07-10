@@ -1,12 +1,7 @@
-import ArticleComponent from "./articleComponent";
+import ArticleComponent from './articleComponent';
 
-const Articlepage = ()=>{
-
-    return (
-        <div>
-            article component page
-        </div>
-    )
-}
+const Articlepage = () => {
+	return <div>article component page</div>;
+};
 
 export default Articlepage;

@@ -1,20 +1,16 @@
+.navbarMainContainer {
+	// justify-content: center;
+	display: flex;
 
-.navbarMainContainer{
-    // justify-content: center;
-    display: flex;
+	.navbarBrand {
+		font-size: 70px;
 
-    .navbarBrand{
-        font-size: 70px;
-    
-        li{
-            list-style-type: none;
-            .navbarBrandLink{
-                color: black;
-                font-weight: bold;
-            }
-        }
-    }
+		li {
+			list-style-type: none;
+			.navbarBrandLink {
+				color: black;
+				font-weight: bold;
+			}
+		}
+	}
 }
-
-
-

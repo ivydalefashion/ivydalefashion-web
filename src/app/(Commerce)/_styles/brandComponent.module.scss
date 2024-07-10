@@ -1,33 +1,30 @@
-.container{
-    margin-top: 50px;
-  
-    // background-color: green;
+.container {
+	margin-top: 50px;
 
-    .brandHeaderRow{
-        margin-bottom: 30px;
+	// background-color: green;
 
-        .logoCol{
-            // border: 1px solid black;
-            padding: 50px
-        }
+	.brandHeaderRow {
+		margin-bottom: 30px;
 
-        .detailsCol{
-            padding: 50px
-            // display: flex;
-            // align-items: center;
-        }
-    }
+		.logoCol {
+			// border: 1px solid black;
+			padding: 50px;
+		}
 
-    .secondaryRow{
+		.detailsCol {
+			padding: 50px;
+			// display: flex;
+			// align-items: center;
+		}
+	}
 
-        .categoriesCol{
+	.secondaryRow {
+		.categoriesCol {
+		}
 
-        }
-
-        .imagesCol{
-            display: flex;
-            flex-wrap: wrap;
-            
-        }
-    }
+		.imagesCol {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
 }

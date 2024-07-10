@@ -1,12 +1,11 @@
-import ProfilePageComponent from "./_profileComponent";
+import ProfilePageComponent from './_profileComponent';
 
-const ProfilePage = ()=>{
-
-    return(
-        <div>
-            <ProfilePageComponent></ProfilePageComponent>
-        </div>
-    )
-}
+const ProfilePage = () => {
+	return (
+		<div>
+			<ProfilePageComponent></ProfilePageComponent>
+		</div>
+	);
+};
 
 export default ProfilePage;

@@ -1,61 +1,55 @@
 // variables:
-$image-col-width: 410px; 
+$image-col-width: 410px;
 $image-col-padding: 10px;
 $intro-width: calc($image-col-width - $image-col-padding);
 
-.titleContainer{
-    h3{
-        color: black;
-    }
+.titleContainer {
+	h3 {
+		color: black;
+	}
 }
 
-.mainContainer{
-    display: flex;
-    flex-direction: row;
-    color: grey;
+.mainContainer {
+	display: flex;
+	flex-direction: row;
+	color: grey;
 
-    .col{
-        width: $image-col-width;
-        padding: $image-col-padding;
-        overflow:hidden;
+	.col {
+		width: $image-col-width;
+		padding: $image-col-padding;
+		overflow: hidden;
 
-        .mainContainerImages{
-        
-        }
+		.mainContainerImages {
+		}
 
-        .intro{
-            height: 70px;
-            width: $intro-width;
-        }
+		.intro {
+			height: 70px;
+			width: $intro-width;
+		}
 
-        // .intro{
-        //     height: 70px;
-        //     width: $intro-width;
-        //     // padding: 10px;
-        //     // margin: $intro-margin;
-        //     box-sizing: border-box;
-        //     position: absolute;
-        //     bottom: 400px;
-        //     // background: rgb(27, 27, 27);
-        //     color: white;
-        //     transition: .5s;
-    
-        //     p{
-        //         color: red;
-        //         font-size: 20px;
-        //         margin: 20px;
-        //         visibility: hidden;
-        //         opacity: 0;
-    
-        //     }
-        //     span{
-        //         font-weight: bold;
-        //     }
-        // }
-    }
-   
+		// .intro{
+		//     height: 70px;
+		//     width: $intro-width;
+		//     // padding: 10px;
+		//     // margin: $intro-margin;
+		//     box-sizing: border-box;
+		//     position: absolute;
+		//     bottom: 400px;
+		//     // background: rgb(27, 27, 27);
+		//     color: white;
+		//     transition: .5s;
 
-    
+		//     p{
+		//         color: red;
+		//         font-size: 20px;
+		//         margin: 20px;
+		//         visibility: hidden;
+		//         opacity: 0;
 
-    
+		//     }
+		//     span{
+		//         font-weight: bold;
+		//     }
+		// }
+	}
 }
