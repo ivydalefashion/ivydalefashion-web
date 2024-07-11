@@ -1,4 +1,5 @@
 'use client';
+
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import Link from 'next/link';
 import styles from './_styles_components/Header.module.scss';
@@ -7,7 +8,7 @@ import { FaSearch, FaUserAlt, FaShoppingCart, FaHeart } from 'react-icons/fa';
 const MainNavbar = () => {
 	return (
 		<div>
-			<Navbar fixed="top" className={`${styles.navBar}`} bg="light" expand="lg">
+			<Navbar className={`${styles.navBar}`} bg="light" expand="lg">
 				<Container>
 					<Navbar.Brand className={styles.navBarBrand} href="#home">
 						IVY

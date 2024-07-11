@@ -1,57 +1,58 @@
 'use client';
 
+import React, {useState, useEffect} from 'react'
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
 import styles from '../_styles/signupComponent.module.scss';
+import {Container, Row, Col } from 'react-bootstrap'
 import { Form, Button } from 'react-bootstrap';
+import { useRouter } from "next/navigation";
+
+// Schema:
+const schema = yup.object().shape({
+	email: yup.string().email("Invalid email").required("Email is required"),
+	password: yup.string().required("Password is required"),
+}); // end of schema
+
+// User interface:
+interface User {
+	displayName: string | null;
+	email: string | null;
+	uid: string;
+}
+
 
 const SignupComponent = () => {
-	const { register, handleSubmit } = useForm();
-	const onSubmit = (data: any) => {
-		// //${process.env.REACT_APP_SERVER}/signup`
-		// console.log(data);
-		// Axios.post(`http://localhost:8024/signup`, {
-		// 	firstname: data.firstname,
-		// 	lastname: data.lastname,
-		// 	email: data.email,
-		// 	password: data.password,
-		// })
-		// 	.then((res) => {
-		// 		console.log(res.data);
-		// 		if (res.data.success === true) {
-		// 			let localStorageDataObject = {
-		// 				id: res.data.data.id,
-		// 				firstname: res.data.data.firstname,
-		// 				lastname: res.data.data.lastname,
-		// 				email: res.data.data.email,
-		// 			};
-		// 			SetLocalStorage("randnoteUser", localStorageDataObject);
-		// 			router.push("/transactions");
-		// 		}
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log(err);
-		// 	});
-	};
+
+
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({ resolver: yupResolver(schema) });
 
 	return (
 		<div>
-			<div className={`container ${styles.mainContainer} `}>
-				<div className={`row`}>
+			<Container className={`${styles.mainContainer} `}>
+				<Row className={`row`}>
 					<h2 className={` ${styles.primaryLabel}`}>Be a part of us.</h2>
 					<label className={`${styles.secondaryLabel}`}>
 						Please fill in the fields below:
 					</label>
-				</div>
+				</Row>
 
-				<div className={`row`}>
+				<Row className={`row`}>
 					<form className={` ${styles.mainForm}`}>
 						<Form.Group>
 							<input
 								className={`form-control shadow-none ${styles.input} ${styles.firtnameInput}`}
 								type="text"
 								name="firstname"
-								placeholder="first name"
+								placeholder="First name"
 							/>
 						</Form.Group>
 						<Form.Group>
@@ -59,7 +60,7 @@ const SignupComponent = () => {
 								className={`form-control shadow-none ${styles.input} ${styles.lastnameInput}`}
 								type="email"
 								name="email"
-								placeholder="last name"
+								placeholder="Last name"
 							/>
 						</Form.Group>
 
@@ -69,7 +70,7 @@ const SignupComponent = () => {
 								type="email"
 								name="email"
 								id=""
-								placeholder="email address"
+								placeholder="Email address"
 							/>
 						</Form.Group>
 
@@ -80,15 +81,20 @@ const SignupComponent = () => {
 									type="password"
 									name="password"
 									id=""
-									placeholder="password"
+									placeholder="Password"
 								/>
-								<button
-									type="button"
-									className={`input-group-text ${styles.forgotPasswordButton}`}
-									id="basic-addon2"
-								>
-									forgot password?
-								</button>
+							</div>
+						</Form.Group>
+
+						<Form.Group>
+							<div className="input-group">
+								<input
+									className={`form-control shadow-none ${styles.input} ${styles.passwordConfirmInput}`}
+									type="password"
+									name="password"
+									id=""
+									placeholder="Confirm password"
+								/>
 							</div>
 						</Form.Group>
 
@@ -104,8 +110,8 @@ const SignupComponent = () => {
 							</p>
 						</Link>
 					</form>
-				</div>
-			</div>
+				</Row>
+			</Container>
 		</div>
 	);
 };

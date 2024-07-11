@@ -95,17 +95,17 @@ const CommerceComponent: React.FC = () => {
 			<Container className={styles.shopLocalBrands}>
 				<h2>SHOP LOCAL BRANDS</h2>
 				<Row>
-				<Col xs={12} md={3}>
-					<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
-				</Col>
-				{[...Array(7)].map((_, index) => (
-					<Col key={index} xs={6} md={3} className={styles.brandLogo}>
-					<div>BRAND LOGO</div>
+					<Col xs={12} md={3}>
+						<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
 					</Col>
-				))}
+					{[...Array(7)].map((_, index) => (
+						<Col key={index} xs={6} md={3} className={styles.brandLogo}>
+							<div>BRAND LOGO</div>
+						</Col>
+					))}
 				</Row>
 				<div className={styles.showMoreButton}>
-				<Button variant="outline-dark">SHOW MORE</Button>
+					<Button variant="outline-dark">SHOW MORE</Button>
 				</div>
 			</Container>
 

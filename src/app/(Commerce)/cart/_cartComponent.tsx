@@ -1,103 +1,81 @@
 'use client';
 
-import Image from 'next/image';
+import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import styles from '../_styles/cartComponent.module.scss';
-import productPicture from '../../../../public/adidasMANU.jpg';
+import ResponsiveImage from '../_components/ResponsiveImage';
+import AnimatedComponent from '../_components/AnimatedComponent';
 
-const testData = [
-	{
-		id: 1,
-		name: 'Adidas Manchester united 2022 Away shirt',
-		size: 'small',
-		image: 'url',
-		price: 500,
-		quantity: 2,
-	},
-	{
-		id: 2,
-		name: 'Adidas Manchester united 2022 Away shirt',
-		size: 'small',
-		image: 'url',
-		price: 500,
-		quantity: 2,
-	},
-	{
-		id: 3,
-		name: 'Adidas Manchester united 2022 Away shirt',
-		size: 'small',
-		image: 'url',
-		price: 200,
-		quantity: 2,
-	},
-];
+interface CartItem {
+	image: string;
+	name: string;
+	size: string;
+	price: number;
+}
 
-const CartComponent = () => {
+const CartPage = () => {
+	const cartItems: CartItem[] = [
+		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350 },
+		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350 },
+		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350 },
+		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350 },
+	];
+
+	const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+
 	return (
-		<Container className={` ${styles.mainContainer}`}>
-			{testData.length > 0 ? (
-				<div>
-					<table className={`table table-bordered ${styles.table}`}>
-						<tbody>
-							{testData.map((data: any) => (
-								<tr key={data.id}>
-									<td scope="row" className={styles.imageTD}>
-										<Image
-											src={productPicture}
-											alt="Picture of the author"
-											width={140}
-											height={140}
-											// blurDataURL="data:..." automatically provided
-											// placeholder="blur" // Optional blur-up while loading
-											// test
-										/>
-									</td>
-
-									<td className={styles.descriptionTD}>
-										<Container className={styles.descriptionContainer}>
-											<Row>
-												<Col lg={10} md={10} sm={10}>
-													<Row>
-														<p className={styles.name}>Skull hoodie</p>
-													</Row>
-
-													<Row>
-														<p className={styles.size}>SMALL</p>
-													</Row>
-												</Col>
-
-												<Col lg={2} md={2} sm={2}>
-													X2
-												</Col>
-											</Row>
-										</Container>
-									</td>
-
-									<td className={styles.priceTD}>
-										<Row>
-											<Col lg={6} md={6} sm={6}>
-												{data.price}
-											</Col>
-
-											<Col lg={6} md={6} sm={6}>
-												X
-											</Col>
-										</Row>
-									</td>
-								</tr>
-							))}
-						</tbody>
-					</table>
-
-					<Row className={styles.checkoutButtonRow}>
-						<Button>checkout</Button>
-					</Row>
-				</div>
-			) : (
-				'You do not have anything in your cart'
-			)}
-		</Container>
+		<div>
+			<AnimatedComponent>
+				<Container className={styles.cartPage}>
+					{cartItems.map((item, index) => (
+						<AnimatedComponent key={index}>
+							<Row className={styles.cartItem}>
+								<Col xs={3}>
+									<ResponsiveImage
+										alt=""
+										src={item.image}
+										height={100}
+										width={100}
+									></ResponsiveImage>
+								</Col>
+								<Col xs={5}>
+									<p>{item.name}</p>
+									<p>{item.size}</p>
+								</Col>
+								<Col xs={2} className={styles.price}>
+									R{item.price}
+								</Col>
+								<Col xs={2} className={styles.removeButton}>
+									<Button variant="light" className={styles.removeIcon}>
+										×
+									</Button>
+								</Col>
+							</Row>
+						</AnimatedComponent>
+					))}
+					<AnimatedComponent>
+						<Row className={styles.totalRow}>
+							<Col xs={8}>
+								<p>TOTAL</p>
+							</Col>
+							<Col xs={4} className={styles.totalPrice}>
+								<p>R{total}</p>
+							</Col>
+						</Row>
+					</AnimatedComponent>
+					<AnimatedComponent>
+						<Row className={styles.checkoutRow}>
+							<Col>
+								<Button variant="dark" className={styles.checkoutButton}>
+									CHECKOUT
+								</Button>
+							</Col>
+						</Row>
+					</AnimatedComponent>
+				</Container>
+			</AnimatedComponent>
+		</div>
 	);
 };
 
-export default CartComponent;
+export default CartPage;
