@@ -11,11 +11,19 @@ import {Container, Row, Col } from 'react-bootstrap'
 import { Form, Button } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
 
+
 // Schema:
 const schema = yup.object().shape({
-	email: yup.string().email("Invalid email").required("Email is required"),
-	password: yup.string().required("Password is required"),
-}); // end of schema
+	firstname: yup.string().required('First name  is required.'),
+	lastname: yup.string().required('Last name  is required.'),
+	email: yup.string().email("Invalid email").required("Email is required."),
+	password: yup.string()
+    	.required('Password is required.')
+    	.min(6, 'Password must be at least 6 characters.'), 
+  	confirmPassword: yup.string()
+    	.required('Confirm Password is required.')
+    	.oneOf([yup.ref('password')], 'Passwords must match.'),
+}); 
 
 // User interface:
 interface User {
@@ -27,13 +35,17 @@ interface User {
 
 const SignupComponent = () => {
 
-
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(schema) });
+
+	const onSubmit = (data:any) => {
+		console.log(data);
+		// Handle form submission here
+	  };
 
 	return (
 		<div>
@@ -46,56 +58,60 @@ const SignupComponent = () => {
 				</Row>
 
 				<Row className={`row`}>
-					<form className={` ${styles.mainForm}`}>
+					<form  onSubmit={handleSubmit(onSubmit)} className={`${styles.mainForm}`}>
 						<Form.Group>
+							{errors.firstname && <span className={styles.errorMessage}>{errors.firstname.message}</span>}
 							<input
 								className={`form-control shadow-none ${styles.input} ${styles.firtnameInput}`}
 								type="text"
-								name="firstname"
 								placeholder="First name"
+								{...register('firstname')}
+								
 							/>
 						</Form.Group>
+
+
 						<Form.Group>
+							{errors.lastname && <span className={styles.errorMessage}>{errors.lastname.message}</span>}
 							<input
 								className={`form-control shadow-none ${styles.input} ${styles.lastnameInput}`}
-								type="email"
-								name="email"
+								type="text"
+								{...register('lastname')}
 								placeholder="Last name"
 							/>
 						</Form.Group>
 
 						<Form.Group>
+							{errors.email && <span className={styles.errorMessage}>{errors.email.message}</span>}
 							<input
 								className={`form-control shadow-none ${styles.input} ${styles.emailInput}`}
 								type="email"
-								name="email"
+								{...register('email')}
 								id=""
 								placeholder="Email address"
 							/>
 						</Form.Group>
 
 						<Form.Group>
-							<div className="input-group">
-								<input
-									className={`form-control shadow-none ${styles.input} ${styles.passwordInput}`}
-									type="password"
-									name="password"
-									id=""
-									placeholder="Password"
-								/>
-							</div>
+							{errors.password && <span className={styles.errorMessage}>{errors.password.message}</span>}
+							<input
+								className={`form-control shadow-none ${styles.input} ${styles.passwordInput}`}
+								type="password"
+								{...register('password')}
+								id=""
+								placeholder="Password"
+							/>
 						</Form.Group>
 
 						<Form.Group>
-							<div className="input-group">
-								<input
-									className={`form-control shadow-none ${styles.input} ${styles.passwordConfirmInput}`}
-									type="password"
-									name="password"
-									id=""
-									placeholder="Confirm password"
-								/>
-							</div>
+							{errors.confirmPassword && <span className={styles.errorMessage}>{errors.confirmPassword.message}</span>}
+							<input
+								className={`form-control shadow-none ${styles.input} ${styles.passwordConfirmInput}`}
+								type="password"
+								{...register('confirmPassword')}
+								id=""
+								placeholder="Confirm password"
+							/>
 						</Form.Group>
 
 						<Button type="submit" className={`${styles.loginButton}`}>
@@ -104,9 +120,9 @@ const SignupComponent = () => {
 
 						<br />
 
-						<Link href="signup">
+						<Link href="signin">
 							<p className={styles.createAccountLink}>
-								Already have an account? <span>Sign in</span>
+								Already have an account? <span>Sign In</span>
 							</p>
 						</Link>
 					</form>

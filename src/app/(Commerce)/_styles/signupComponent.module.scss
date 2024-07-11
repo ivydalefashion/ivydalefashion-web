@@ -1,3 +1,5 @@
+@import "./main.module.scss";
+
 .mainContainer {
 	justify-content: center;
 	text-align: center;
@@ -13,6 +15,12 @@
 	}
 
 	.mainForm {
+
+		.errorMessage{
+			
+			color: $orange;
+		}
+
 		max-width: 100%;
 		// background-color: antiquewhite;
 
