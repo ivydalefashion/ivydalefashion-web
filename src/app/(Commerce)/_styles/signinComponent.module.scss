@@ -19,7 +19,7 @@
 			border-radius: 0px;
 			outline: none !important;
 			border: 1px solid black;
-			margin: 15px;
+			margin-bottom: 15px;
 
 			&::placeholder {
 				/* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -59,7 +59,7 @@
 			background-color: grey;
 			color: white;
 			width: 100%;
-			margin: 15px;
+			margin-bottom: 15px;
 
 			&:focus {
 				outline: none !important;
