@@ -3,8 +3,8 @@
 .mainContainer {
 	justify-content: center;
 	text-align: center;
-	max-width: 800px;
-	padding: 20px;
+	// max-width: 800px;
+	// padding: 20px;
 	// min-height: 500px;
 	height: 100vh;
 
@@ -28,7 +28,7 @@
 			border-radius: 0px;
 			outline: none !important;
 			border: 1px solid black;
-			margin: 15px;
+			margin-bottom: 15px;
 
 			&::placeholder {
 				/* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -68,7 +68,7 @@
 			background-color: grey;
 			color: white;
 			width: 100%;
-			margin: 15px;
+			margin-bottom: 15px;
 
 			&:focus {
 				outline: none !important;
