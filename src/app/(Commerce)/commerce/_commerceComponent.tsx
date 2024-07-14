@@ -6,11 +6,12 @@ import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import styles from '../_styles/commerceComponent.module.scss';
 import Header from '../_components/Header';
+import ResponsiveImage from '../_components/ResponsiveImage';
 
-const CommerceComponent: React.FC = () => {
+const CommerceComponent = () => {
 	return (
 		<div className={styles.landingPage}>
-			<Header></Header>
+			{/* <Header></Header> */}
 
 			<Carousel controls={false} indicators={false}>
 				<Carousel.Item>
@@ -60,11 +61,14 @@ const CommerceComponent: React.FC = () => {
 											whileHover={{ scale: 1.05 }}
 											transition={{ duration: 0.3 }}
 										>
-											<img
-												className="d-block w-100"
-												src={`https://s3-alpha-sig.figma.com/img/76fe/2c36/519ab52c5174bbd57b6b632a04721578?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WRO1pv~ZLFYmxnayA61jG7KYgVc5X34Xy9NoV-qepZbjiiWdFboVEsyBnAJ2J2eYWYBWcR3lVQqLTvpXdrkvp-P~8GHIhmcctrVSA6b9wiI0ICPo3zUOSXPmmMzz2jAwoPwqy-6c0Eh8a6MI37N40QD-pJhgC6hNaZ6mP307zDreJoMjgqhl0IPffQTAJF3ae5t8QCvsbUE5VOi~MGe2TcW6sS1WLqX7gVI6NaplMBziKlFyiYwrQDaQmbr2B6GM-f-T8tz9J2G8zAozPUmcBlhGIi0nA1cYqVMgYJ0MeBk5xDEGTjcEwoHIiyPCjyyrtZaUR2~UTHWYJQSo9TwW7g__`}
+											<ResponsiveImage
+												
+												// className="d-block w-100"
+												src={'https://s3-alpha-sig.figma.com/img/76fe/2c36/519ab52c5174bbd57b6b632a04721578?Expires=1721606400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WRO1pv~ZLFYmxnayA61jG7KYgVc5X34Xy9NoV-qepZbjiiWdFboVEsyBnAJ2J2eYWYBWcR3lVQqLTvpXdrkvp-P~8GHIhmcctrVSA6b9wiI0ICPo3zUOSXPmmMzz2jAwoPwqy-6c0Eh8a6MI37N40QD-pJhgC6hNaZ6mP307zDreJoMjgqhl0IPffQTAJF3ae5t8QCvsbUE5VOi~MGe2TcW6sS1WLqX7gVI6NaplMBziKlFyiYwrQDaQmbr2B6GM-f-T8tz9J2G8zAozPUmcBlhGIi0nA1cYqVMgYJ0MeBk5xDEGTjcEwoHIiyPCjyyrtZaUR2~UTHWYJQSo9TwW7g_'}
 												alt={`New Arrival ${idx * 2 + itemIdx}`}
-											/>
+												height={100}
+												width={100}
+											></ResponsiveImage>
 											<h3>ITEM NAME</h3>
 											<p>R350</p>
 										</motion.div>
