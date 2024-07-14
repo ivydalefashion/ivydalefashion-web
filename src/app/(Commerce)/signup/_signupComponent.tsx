@@ -50,15 +50,15 @@ const SignupComponent = () => {
 	return (
 		<div>
 			<Container className={`${styles.mainContainer} `}>
-				<Row className={`row`}>
+				<Row>
 					<h2 className={` ${styles.primaryLabel}`}>Be a part of us.</h2>
 					<label className={`${styles.secondaryLabel}`}>
 						Please fill in the fields below:
 					</label>
 				</Row>
 
-				<Row className={`row`}>
-					<form  onSubmit={handleSubmit(onSubmit)} className={`${styles.mainForm}`}>
+				<Row>
+					<form onSubmit={handleSubmit(onSubmit)} className={`${styles.mainForm}`}>
 						<Form.Group>
 							{errors.firstname && <span className={styles.errorMessage}>{errors.firstname.message}</span>}
 							<input
@@ -69,7 +69,6 @@ const SignupComponent = () => {
 								
 							/>
 						</Form.Group>
-
 
 						<Form.Group>
 							{errors.lastname && <span className={styles.errorMessage}>{errors.lastname.message}</span>}
