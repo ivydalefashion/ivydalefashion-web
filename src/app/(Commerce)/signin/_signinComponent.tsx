@@ -7,6 +7,7 @@ import styles from '../_styles/signinComponent.module.scss';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import AlertDismissible from '../_components/DismissableAlert'
 
 // Schema:
 const schema = yup.object().shape({
@@ -38,6 +39,8 @@ const SigninComponent = () => {
 						Please enter your email and password
 					</label>
 				</Row>
+
+				<AlertDismissible color='red' information='Username or Password incorrect.'></AlertDismissible>
 
 				<Row>
 					<form onSubmit={handleSubmit(onSubmit)}  className={` ${styles.mainForm}`}>
