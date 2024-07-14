@@ -1,5 +1,7 @@
 'use client';
+
 import React from 'react';
+import Link from 'next/link';
 import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import styles from '../_styles/commerceComponent.module.scss';
@@ -99,9 +101,14 @@ const CommerceComponent: React.FC = () => {
 						<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
 					</Col>
 					{[...Array(7)].map((_, index) => (
-						<Col key={index} xs={6} md={3} className={styles.brandLogo}>
-							<div>BRAND LOGO</div>
-						</Col>
+						
+							<Col key={index} xs={6} md={3} className={styles.brandLogo}>
+								<Link href='/brand'>
+								<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
+								</Link>
+							</Col>
+						
+						
 					))}
 				</Row>
 				<div className={styles.showMoreButton}>
