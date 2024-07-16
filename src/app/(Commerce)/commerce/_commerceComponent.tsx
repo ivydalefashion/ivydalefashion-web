@@ -12,7 +12,6 @@ import Footer from '../_components/Footer';
 const CommerceComponent = () => {
 	return (
 		<div className={styles.landingPage}>
-			{/* <Header></Header> */}
 
 			<Carousel controls={false} indicators={false}>
 				<Carousel.Item>
@@ -63,7 +62,6 @@ const CommerceComponent = () => {
 											transition={{ duration: 0.3 }}
 										>
 											<ResponsiveImage
-												// className="d-block w-100"
 												src={"/orangeHoodie.png"}
 												alt={`New Arrival ${idx * 2 + itemIdx}`}
 												height={100}
@@ -111,8 +109,6 @@ const CommerceComponent = () => {
 								<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
 								</Link>
 							</Col>
-						
-						
 					))}
 				</Row>
 				<div className={styles.showMoreButton}>

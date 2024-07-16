@@ -1,9 +1,19 @@
 'use client';
 
+import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 import { Container } from 'react-bootstrap';
+import { useRouter } from "next/navigation";
+
 
 export default function HomeComponent() {
+	const router = useRouter();
+
+	useEffect(()=>{
+		router.push('/commerce');
+	}, []);
+
+
 	return (
 		<div>
 			<Container>
