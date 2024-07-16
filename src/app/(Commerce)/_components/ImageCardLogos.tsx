@@ -17,7 +17,6 @@ const ImageCardLogos = (props: any) => {
 				/>
 			</Card>
 		</div>
-		
 	);
 };
 

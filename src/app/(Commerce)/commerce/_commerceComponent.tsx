@@ -12,7 +12,6 @@ import Footer from '../_components/Footer';
 const CommerceComponent = () => {
 	return (
 		<div className={styles.landingPage}>
-
 			<Carousel controls={false} indicators={false}>
 				<Carousel.Item>
 					<div
@@ -62,7 +61,7 @@ const CommerceComponent = () => {
 											transition={{ duration: 0.3 }}
 										>
 											<ResponsiveImage
-												src={"/orangeHoodie.png"}
+												src={'/orangeHoodie.png'}
 												alt={`New Arrival ${idx * 2 + itemIdx}`}
 												height={100}
 												width={100}
@@ -103,12 +102,15 @@ const CommerceComponent = () => {
 						<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
 					</Col>
 					{[...Array(7)].map((_, index) => (
-						
-							<Col key={index} xs={6} md={3} className={styles.brandLogo}>
-								<Link href='/brand'>
-								<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
-								</Link>
-							</Col>
+						<Col key={index} xs={6} md={3} className={styles.brandLogo}>
+							<Link href="/brand">
+								<img
+									src="/nikelogo.png"
+									alt="260 Logo"
+									className={styles.mainLogo}
+								/>
+							</Link>
+						</Col>
 					))}
 				</Row>
 				<div className={styles.showMoreButton}>

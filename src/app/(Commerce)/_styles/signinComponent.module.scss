@@ -1,5 +1,4 @@
-@import "./main.module.scss";
-
+@import './main.module.scss';
 
 .mainContainer {
 	justify-content: center;
@@ -8,21 +7,20 @@
 	padding: 20px;
 	height: 100vh;
 
-	.primaryRow{
+	.primaryRow {
 		margin-bottom: 40px;
 		.primaryLabel {
 			font-size: 50px;
 		}
 	}
-	
-	.secondaryLabel {
 
+	.secondaryLabel {
 	}
 
 	.mainForm {
 		max-width: 100%;
 
-		.errorMessage{
+		.errorMessage {
 			color: $orange;
 		}
 
@@ -50,14 +48,13 @@
 			margin-bottom: 30px;
 		}
 
-		.inputGroup{
+		.inputGroup {
 			margin-bottom: 20px;
 
 			.passwordInput {
-
 			}
 		}
-		
+
 		.forgotPasswordButton {
 			border: 1px solid black;
 			background-color: white;

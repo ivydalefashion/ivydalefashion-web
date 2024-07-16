@@ -1,23 +1,21 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Form, Button, Container , Row, Col, InputGroup} from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
 import styles from '../_styles/signinComponent.module.scss';
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import AlertDismissible from '../_components/DismissableAlert'
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import AlertDismissible from '../_components/DismissableAlert';
 
 // Schema:
 const schema = yup.object().shape({
-	email: yup.string().email("Invalid email").required("Email is required."),
-	password: yup.string()
-    	.required('Password is required.')
-}); 
+	email: yup.string().email('Invalid email').required('Email is required.'),
+	password: yup.string().required('Password is required.'),
+});
 
 const SigninComponent = () => {
-
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const {
 		register,
@@ -25,7 +23,7 @@ const SigninComponent = () => {
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(schema) });
 
-	const onSubmit = (data:any) => {
+	const onSubmit = (data: any) => {
 		console.log(data);
 		// Handle form submission here
 	};
@@ -40,16 +38,20 @@ const SigninComponent = () => {
 					</label>
 				</Row>
 
-				<AlertDismissible color='red' information='Username or Password incorrect.'></AlertDismissible>
+				<AlertDismissible
+					color="red"
+					information="Username or Password incorrect."
+				></AlertDismissible>
 
 				<Row>
-					<form onSubmit={handleSubmit(onSubmit)}  className={` ${styles.mainForm}`}>
-
+					<form onSubmit={handleSubmit(onSubmit)} className={` ${styles.mainForm}`}>
 						{/* Email input field */}
 						<Form.Group>
-						{errors.email && <span className={styles.errorMessage}>{errors.email.message}</span>}
+							{errors.email && (
+								<span className={styles.errorMessage}>{errors.email.message}</span>
+							)}
 
-						<input
+							<input
 								className={`form-control shadow-none ${styles.input} ${styles.emailInput}`}
 								type="email"
 								{...register('email')}
@@ -59,9 +61,11 @@ const SigninComponent = () => {
 						</Form.Group>
 
 						{/* Password input field (Input group)*/}
-						{errors.password && <span className={styles.errorMessage}>{errors.password.message}</span>}
+						{errors.password && (
+							<span className={styles.errorMessage}>{errors.password.message}</span>
+						)}
 
-						<InputGroup  className={`${styles.inputGroup}`}>
+						<InputGroup className={`${styles.inputGroup}`}>
 							<Form.Control
 								className={`form-control shadow-none ${styles.input} ${styles.passwordInput}`}
 								{...register('password')}
@@ -70,14 +74,15 @@ const SigninComponent = () => {
 								aria-label="Password"
 								aria-describedby="basic-addon2"
 							/>
-							<Link href='/forgotpassword'>
-								<Button variant="outline-secondary" 
-										className={`input-group-text ${styles.forgotPasswordButton}`}
-										id="button-addon2">
+							<Link href="/forgotpassword">
+								<Button
+									variant="outline-secondary"
+									className={`input-group-text ${styles.forgotPasswordButton}`}
+									id="button-addon2"
+								>
 									forgot password?
 								</Button>
 							</Link>
-							
 						</InputGroup>
 
 						{/* Login button */}

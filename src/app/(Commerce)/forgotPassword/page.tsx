@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,12 +7,7 @@ export const metadata: Metadata = {
 };
 
 const ForgotPasswordPage = () => {
-	return (
-		<div>
-			forgot password? 
-            enter your email here...
-		</div>
-	);
+	return <div>forgot password? enter your email here...</div>;
 };
 
 export default ForgotPasswordPage;

@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 	description: 'SignUp to access your Ivydalefashion account.',
 };
 
-
 const SignupPage = () => {
 	return (
 		<div>

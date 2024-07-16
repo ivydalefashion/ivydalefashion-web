@@ -1,4 +1,4 @@
-@import "./main.module.scss";
+@import './main.module.scss';
 
 .mainContainer {
 	justify-content: center;
@@ -15,9 +15,7 @@
 	}
 
 	.mainForm {
-
-		.errorMessage{
-			
+		.errorMessage {
 			color: $orange;
 		}
 
