@@ -1,5 +1,8 @@
+import React from 'react';
 import { Metadata } from 'next';
 import CommerceComponent from './_commerceComponent';
+import Footer from '../_components/Footer';
+import Header from '../_components/Header'
 
 export const metadata: Metadata = {
 	title: 'Ivydale Blog',
@@ -9,7 +12,9 @@ export const metadata: Metadata = {
 const LandingPage = () => {
 	return (
 		<div>
+			<Header></Header>
 			<CommerceComponent></CommerceComponent>
+			<Footer></Footer>
 		</div>
 	);
 };

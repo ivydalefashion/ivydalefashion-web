@@ -1,10 +1,10 @@
 .landingPage {
-	height: 100vh;
+	// height: 100vh;
 	// overflow: hidden;
 }
 
 .carouselImage {
-	height: 100vh;
+	height: 70vh;
 	background-size: cover;
 	background-position: center;
 	display: flex;
@@ -147,6 +147,7 @@
 		button {
 			padding: 0.5rem 2rem;
 			font-weight: bold;
+			border-radius: 0px;
 		}
 	}
 }
