@@ -4,15 +4,15 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import styles from '../_styles/buyComponent.module.scss'
+import styles from '../_styles/buyComponent.module.scss';
 
 const BuyComponent = () => {
 	const [quantity, setQuantity] = useState(1);
 
 	return (
 		<div className={styles.main}>
-			<Container className={styles.mainContainer} >
-				<h1 className={styles.mainHeader} >BUY PAGE</h1>
+			<Container className={styles.mainContainer}>
+				<h1 className={styles.mainHeader}>BUY PAGE</h1>
 				<Row className={styles.mainRow}>
 					<Col className={styles.imagesCol} md={6}>
 						<Row>
@@ -59,26 +59,28 @@ const BuyComponent = () => {
 								<Form.Group className="mb-3">
 									<Form.Label>SIZE</Form.Label>
 									<div className={styles.sizeOptions}>
-									{['S', 'M', 'L', 'XL'].map((size) => (
-										<div key={size} className={styles.sizeOption}>
-										<input
-											type="radio"
-											id={`size-${size}`}
-											name="size"
-											className={styles.sizeRadio}
-										/>
-										<label htmlFor={`size-${size}`} className={styles.sizeLabel}>
-											{size}
-										</label>
-										</div>
-									))}
+										{['S', 'M', 'L', 'XL'].map((size) => (
+											<div key={size} className={styles.sizeOption}>
+												<input
+													type="radio"
+													id={`size-${size}`}
+													name="size"
+													className={styles.sizeRadio}
+												/>
+												<label
+													htmlFor={`size-${size}`}
+													className={styles.sizeLabel}
+												>
+													{size}
+												</label>
+											</div>
+										))}
 									</div>
 								</Form.Group>
 
 								<Form.Group className="mb-3">
 									<Form.Label>QUANTITY</Form.Label>
 									<div className="d-flex align-items-center">
-										
 										{/* Decrement button */}
 										<Button
 											className={styles.decrementButton}

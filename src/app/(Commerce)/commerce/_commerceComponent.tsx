@@ -56,7 +56,6 @@ const CommerceComponent = () => {
 							<Row>
 								{[1, 2, 3, 4].map((itemIdx) => (
 									<Col key={itemIdx} xs={6} md={3}>
-
 										<Link href="buy">
 											<motion.div
 												whileHover={{ scale: 1.05 }}
