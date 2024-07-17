@@ -1,3 +1,5 @@
+@import "./main.module.scss";
+
 .main{
     margin-bottom: 50px;
 
@@ -19,6 +21,56 @@
                 }
                 .quantityDisplay{
                     width: 50px;
+                }
+
+                .form{
+                    .sizeOptions {
+                        display: flex;
+                        gap: 10px;
+                      
+                        .sizeOption {
+                          position: relative;
+                      
+                          .sizeRadio {
+                            position: absolute;
+                            opacity: 0;
+                            width: 0;
+                            height: 0;
+                      
+                            &:checked + .sizeLabel {
+                            //   background-color: #007bff;
+                              color: white;
+                              background-color: $orange;
+                            }
+                      
+                            &:focus + .sizeLabel {
+                              box-shadow: 0 0 0 3px $orange;
+                            }
+                          }
+                      
+                          .sizeLabel {
+                            display: inline-block;
+                            padding: 8px 16px;
+                            // border: 2px solid #007bff;
+                            border: 1px solid black;
+                            border-radius: 0px;
+                            // color: #007bff;
+                            color: black;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                          }
+                        }
+                      }
+
+                    .addToCartButton{
+                        border-radius: 0px;
+                        width: 100%;
+                        margin-bottom: 12px;
+                    }
+                    .buyNowButton{
+                        border-radius: 0px;
+                        width: 100%;
+                    }
                 }
             }
         }

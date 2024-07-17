@@ -55,20 +55,23 @@ const BuyComponent = () => {
 							<h3>R350</h3>
 							<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
 
-							<Form>
+							<Form className={styles.form}>
 								<Form.Group className="mb-3">
 									<Form.Label>SIZE</Form.Label>
-									<div>
-										{['S', 'M', 'L', 'XL'].map((size) => (
-											<Form.Check
-												inline
-												type="radio"
-												label={size}
-												name="size"
-												id={`size-${size}`}
-												key={size}
-											/>
-										))}
+									<div className={styles.sizeOptions}>
+									{['S', 'M', 'L', 'XL'].map((size) => (
+										<div key={size} className={styles.sizeOption}>
+										<input
+											type="radio"
+											id={`size-${size}`}
+											name="size"
+											className={styles.sizeRadio}
+										/>
+										<label htmlFor={`size-${size}`} className={styles.sizeLabel}>
+											{size}
+										</label>
+										</div>
+									))}
 									</div>
 								</Form.Group>
 
@@ -107,10 +110,10 @@ const BuyComponent = () => {
 									</div>
 								</Form.Group>
 
-								<Button variant="outline-dark" className="w-100 mb-2">
+								<Button variant="outline-dark" className={styles.addToCartButton}>
 									ADD TO CART
 								</Button>
-								<Button variant="secondary" className="w-100">
+								<Button variant="outline-dark" className={styles.buyNowButton}>
 									BUY NOW
 								</Button>
 							</Form>
