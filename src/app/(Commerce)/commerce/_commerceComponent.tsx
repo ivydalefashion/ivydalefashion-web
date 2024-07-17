@@ -56,19 +56,22 @@ const CommerceComponent = () => {
 							<Row>
 								{[1, 2, 3, 4].map((itemIdx) => (
 									<Col key={itemIdx} xs={6} md={3}>
-										<motion.div
-											whileHover={{ scale: 1.05 }}
-											transition={{ duration: 0.3 }}
-										>
-											<ResponsiveImage
-												src={'/orangeHoodie.png'}
-												alt={`New Arrival ${idx * 2 + itemIdx}`}
-												height={100}
-												width={100}
-											></ResponsiveImage>
-											<h3>ITEM NAME</h3>
-											<p>R350</p>
-										</motion.div>
+
+										<Link href="buy">
+											<motion.div
+												whileHover={{ scale: 1.05 }}
+												transition={{ duration: 0.3 }}
+											>
+												<ResponsiveImage
+													src={'/orangeHoodie.png'}
+													alt={`New Arrival ${idx * 2 + itemIdx}`}
+													height={100}
+													width={100}
+												></ResponsiveImage>
+												<h3>ITEM NAME</h3>
+												<p>R350</p>
+											</motion.div>
+										</Link>
 									</Col>
 								))}
 							</Row>

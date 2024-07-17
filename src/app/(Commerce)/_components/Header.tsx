@@ -11,7 +11,7 @@ const MainNavbar = () => {
 		<div>
 			<Navbar className={`${styles.navBar}`} bg="light" expand="lg">
 				<Container>
-					<Navbar.Brand className={styles.navBarBrand} href="#home">
+					<Navbar.Brand className={styles.navBarBrand} href="/commerce">
 						IVY
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />

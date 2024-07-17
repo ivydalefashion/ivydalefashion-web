@@ -4,16 +4,17 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import styles from '../_styles/buyComponent.module.scss'
 
 const BuyComponent = () => {
 	const [quantity, setQuantity] = useState(1);
 
 	return (
-		<div>
-			<Container className="mt-5">
-				<h1 className="mb-4">BUY PAGE</h1>
-				<Row>
-					<Col md={6}>
+		<div className={styles.main}>
+			<Container className={styles.mainContainer} >
+				<h1 className={styles.mainHeader} >BUY PAGE</h1>
+				<Row className={styles.mainRow}>
+					<Col className={styles.imagesCol} md={6}>
 						<Row>
 							<Col xs={2}>
 								{[1, 2, 3, 4].map((num) => (
@@ -44,7 +45,7 @@ const BuyComponent = () => {
 							</Col>
 						</Row>
 					</Col>
-					<Col md={6}>
+					<Col className={styles.descriptionCol} md={6}>
 						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
@@ -74,22 +75,30 @@ const BuyComponent = () => {
 								<Form.Group className="mb-3">
 									<Form.Label>QUANTITY</Form.Label>
 									<div className="d-flex align-items-center">
+										
+										{/* Decrement button */}
 										<Button
+											className={styles.decrementButton}
 											variant="outline-secondary"
 											onClick={() => setQuantity(Math.max(1, quantity - 1))}
 										>
 											-
 										</Button>
+
+										{/* Quantity display */}
 										<Form.Control
+											className={`${styles.quantityDisplay} mx-2`}
 											type="number"
 											value={quantity}
 											onChange={(e) =>
 												setQuantity(parseInt(e.target.value) || 1)
 											}
-											className="mx-2"
-											style={{ width: '60px' }}
+											// style={{ width: '60px' }}
 										/>
+
+										{/* Increment button */}
 										<Button
+											className={styles.incrementButton}
 											variant="outline-secondary"
 											onClick={() => setQuantity(quantity + 1)}
 										>

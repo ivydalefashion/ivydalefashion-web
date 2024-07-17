@@ -1,0 +1,26 @@
+.main{
+    margin-bottom: 50px;
+
+    .mainContainer{
+        margin-top: 5px;
+        
+        .mainHeader{
+            margin-bottom: 4px;
+        }
+
+        .mainRow{
+            .imagesCol{
+
+            }
+
+            .descriptionCol{
+                .incrementButton, .decrementButton, .quantityDisplay{
+                    border-radius: 0px;
+                }
+                .quantityDisplay{
+                    width: 50px;
+                }
+            }
+        }
+    }
+}
