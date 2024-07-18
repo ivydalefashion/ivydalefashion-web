@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
 import styles from '../_styles/signinComponent.module.scss';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -28,10 +28,8 @@ const SigninComponent = () => {
 	const onSubmit = (data: any) => {
 		console.log(data);
 		// Handle form submission here
-		
-			router.push('/commerce');
-		
-		
+
+		router.push('/commerce');
 	};
 
 	return (

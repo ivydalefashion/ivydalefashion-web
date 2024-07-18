@@ -14,7 +14,11 @@ const BuyComponent = () => {
 	return (
 		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
-				<AlertDismissible color="" heading="Item has been added to your cart" information={``}></AlertDismissible>
+				<AlertDismissible
+					color=""
+					heading="Item has been added to your cart"
+					information={``}
+				></AlertDismissible>
 				<h1 className={styles.mainHeader}>BUY PAGE</h1>
 				<Row className={styles.mainRow}>
 					<Col className={styles.imagesCol} md={6}>
@@ -117,13 +121,12 @@ const BuyComponent = () => {
 								<Button variant="outline-dark" className={styles.addToCartButton}>
 									ADD TO CART
 								</Button>
-								
+
 								<Link href={`/cart`}>
 									<Button variant="outline-dark" className={styles.buyNowButton}>
 										BUY NOW
 									</Button>
 								</Link>
-								
 							</Form>
 						</motion.div>
 					</Col>

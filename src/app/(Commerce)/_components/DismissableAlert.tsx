@@ -20,8 +20,15 @@ const AlertDismissible = (props: alertProps) => {
 			onClose={() => setShow(false)}
 			dismissible
 		>
-			<Alert.Heading> {props.heading ? (<div>{props.heading}</div>): <>Oops! Looks like we have an error</>} </Alert.Heading>
-			<p>{props.information ? <div>{props.information}</div>: <></>}</p>
+			<Alert.Heading>
+				{' '}
+				{props.heading ? (
+					<div>{props.heading}</div>
+				) : (
+					<>Oops! Looks like we have an error</>
+				)}{' '}
+			</Alert.Heading>
+			<p>{props.information ? <div>{props.information}</div> : <></>}</p>
 		</Alert>
 	);
 };
