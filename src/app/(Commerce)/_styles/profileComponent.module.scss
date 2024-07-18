@@ -1,12 +1,18 @@
 .main {
 	// background-color: green;
 	.mainContainer {
-		margin-top: 100px;
+		margin-top: 50px;
 		// background-color: green;
 
-		.profileCol,
-		.detailsCol {
-			// border: 1px solid black;
+		.profileCol{
+			.accordion{
+				.accordionSettings{
+					.accordionSettingsButton{
+						border-radius: 0px;
+						width: 100%;
+					}
+				}
+			}
 		}
 	}
 }

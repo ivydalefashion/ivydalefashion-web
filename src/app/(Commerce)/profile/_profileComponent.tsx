@@ -2,20 +2,21 @@
 
 import { Container, Col, Row, Card, Button, Accordion, ListGroup } from 'react-bootstrap';
 import MainNavbar from '../_components/Header';
-import Styles from '../_styles/profileComponent.module.scss';
+import styles from '../_styles/profileComponent.module.scss';
+import Link from 'next/link'
 
 const ProfilePageComponent = () => {
 	return (
-		<div className={`${Styles.main}`}>
+		<div className={`${styles.main}`}>
 			<MainNavbar></MainNavbar>
 
-			<Container className={`${Styles.mainContainer}`}>
+			<Container className={`${styles.mainContainer}`}>
 				<Row>
-					<Col className={`${Styles.profileCol}`} lg={4} md={4} sm={12}>
+					<Col className={`${styles.profileCol}`} lg={4} md={4} sm={12}>
 						<Card style={{ width: '300px' }}>
 							<Card.Header as="h5">MY PROFILE</Card.Header>
 							<Card.Body>
-								<Accordion>
+								<Accordion className={styles.accordion}>
 									<Accordion.Item eventKey="0">
 										<Accordion.Header>
 											<i className="bi bi-cart"></i> Orders
@@ -26,6 +27,7 @@ const ProfilePageComponent = () => {
 												<ListGroup.Item>Invoices</ListGroup.Item>
 												<ListGroup.Item>Returns</ListGroup.Item>
 												<ListGroup.Item>Personal Details</ListGroup.Item>
+												
 											</ListGroup>
 										</Accordion.Body>
 									</Accordion.Item>
@@ -65,12 +67,28 @@ const ProfilePageComponent = () => {
 											</ListGroup>
 										</Accordion.Body>
 									</Accordion.Item>
+
+									<Accordion.Item className={styles.accordionSettings} eventKey="4">
+										<Accordion.Header>
+											<i className="bi bi-heart"></i> My Settings
+										</Accordion.Header>
+										<Accordion.Body>
+											<ListGroup variant="flush">
+												<ListGroup.Item>
+													<Link href="/signin">
+														<Button className={styles.accordionSettingsButton} variant='danger'>Sign Out</Button>
+													</Link>
+													
+												</ListGroup.Item>
+											</ListGroup>
+										</Accordion.Body>
+									</Accordion.Item>
 								</Accordion>
 							</Card.Body>
 						</Card>
 					</Col>
 
-					<Col className={`${Styles.detailsCol}`} lg={8} md={8} sm={12}>
+					<Col className={`${styles.detailsCol}`} lg={8} md={8} sm={12}>
 						<h2>Personal Details</h2>
 						<Card className="mb-3">
 							<Card.Body>
