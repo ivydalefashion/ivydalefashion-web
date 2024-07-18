@@ -1,3 +1,5 @@
+@import './main.module.scss';
+
 .main {
 	// background-color: green;
 	.mainContainer {
@@ -9,19 +11,21 @@
 				border-radius: 0px;
 				border: 1px solid black;
 
-				
+
 				.accordion {
 					.accordionItem {
 					  margin-bottom: 10px;
 					  border: none;
-				  
+					//   border-radius: 0px;
 					  .accordionHeader {
+						
 						button {
-						  border-radius: 5px;
+							border-radius: 0px;
+						//   border-radius: 5px;
 						  padding: 15px;
 						  display: flex;
 						  align-items: center;
-						  background-color: #f8f9fa;
+						//   background-color: #f8f9fa;
 						  color: #495057;
 						  font-weight: 600;
 						  transition: all 0.3s ease;
@@ -50,7 +54,7 @@
 					  &.active {
 						.accordionHeader {
 						  button {
-							background-color: #007bff;
+							background-color: $dark-blue;
 							color: white;
 				  
 							i {
@@ -74,3 +78,4 @@
 		}
 	}
 }
+
