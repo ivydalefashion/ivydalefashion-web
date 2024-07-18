@@ -5,14 +5,72 @@
 		// background-color: green;
 
 		.profileCol{
-			.accordion{
-				.accordionSettings{
-					.accordionSettingsButton{
-						border-radius: 0px;
-						width: 100%;
+			.profileCard{
+				border-radius: 0px;
+				border: 1px solid black;
+
+				
+				.accordion {
+					.accordionItem {
+					  margin-bottom: 10px;
+					  border: none;
+				  
+					  .accordionHeader {
+						button {
+						  border-radius: 5px;
+						  padding: 15px;
+						  display: flex;
+						  align-items: center;
+						  background-color: #f8f9fa;
+						  color: #495057;
+						  font-weight: 600;
+						  transition: all 0.3s ease;
+						  border: 1px solid #e9ecef;
+				  
+						  &::after {
+							margin-left: auto;
+						  }
+				  
+						  i {
+							margin-right: 15px;
+							font-size: 1.2em;
+							color: #6c757d;
+						  }
+				  
+						  &:hover {
+							background-color: #e9ecef;
+						  }
+				  
+						  &:focus {
+							box-shadow: none;
+						  }
+						}
+					  }
+				  
+					  &.active {
+						.accordionHeader {
+						  button {
+							background-color: #007bff;
+							color: white;
+				  
+							i {
+							  color: white;
+							}
+						  }
+						}
+					  }
+				  
+					  .accordion-body {
+						background-color: #ffffff;
+						border: 1px solid #e9ecef;
+						border-top: none;
+						border-radius: 0 0 5px 5px;
+						padding: 15px;
+					  }
 					}
-				}
+				  }
 			}
+			
 		}
 	}
 }

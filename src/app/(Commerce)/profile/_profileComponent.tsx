@@ -1,11 +1,20 @@
 'use client';
 
+import React, {useState} from 'react';
 import { Container, Col, Row, Card, Button, Accordion, ListGroup } from 'react-bootstrap';
 import MainNavbar from '../_components/Header';
 import styles from '../_styles/profileComponent.module.scss';
 import Link from 'next/link'
 
 const ProfilePageComponent = () => {
+
+	const [activeKey, setActiveKey] = useState<any>(null);
+
+	const handleAccordionToggle = (eventKey:any) => {
+	  setActiveKey(activeKey === eventKey ? null : eventKey);
+	};
+
+
 	return (
 		<div className={`${styles.main}`}>
 			<MainNavbar></MainNavbar>
@@ -13,27 +22,31 @@ const ProfilePageComponent = () => {
 			<Container className={`${styles.mainContainer}`}>
 				<Row>
 					<Col className={`${styles.profileCol}`} lg={4} md={4} sm={12}>
-						<Card style={{ width: '300px' }}>
-							<Card.Header as="h5">MY PROFILE</Card.Header>
+						<h3>Profile</h3>
+						<Card className={`${styles.profileCard}`} style={{ width: '300px' }}>
+							{/* <Card.Header as="h5">MY PROFILE</Card.Header> */}
 							<Card.Body>
-								<Accordion className={styles.accordion}>
-									<Accordion.Item eventKey="0">
-										<Accordion.Header>
-											<i className="bi bi-cart"></i> Orders
-										</Accordion.Header>
-										<Accordion.Body>
+							<Accordion activeKey={activeKey} onSelect={handleAccordionToggle} className={styles.accordion}>
+								<Accordion.Item 
+									eventKey="0" 
+									className={`${styles.accordionItem} ${activeKey === "0" ? styles.active : ''}`}
+								>
+									<Accordion.Header className={styles.accordionHeader}>
+									<i className="bi bi-cart"></i> Orders
+									</Accordion.Header>
+									<Accordion.Body className={`${styles.accordionBody}`}>
 											<ListGroup variant="flush">
-												<ListGroup.Item>Orders</ListGroup.Item>
+												<ListGroup.Item >Orders</ListGroup.Item>
 												<ListGroup.Item>Invoices</ListGroup.Item>
 												<ListGroup.Item>Returns</ListGroup.Item>
 												<ListGroup.Item>Personal Details</ListGroup.Item>
 												
 											</ListGroup>
 										</Accordion.Body>
-									</Accordion.Item>
+								</Accordion.Item>
 
-									<Accordion.Item eventKey="1">
-										<Accordion.Header>
+									<Accordion.Item className={`${styles.accordionItem}`} eventKey="1">
+										<Accordion.Header className={`${styles.accordionHeader}`}>
 											<i className="bi bi-credit-card"></i> Payment Details
 										</Accordion.Header>
 										<Accordion.Body>
@@ -43,8 +56,8 @@ const ProfilePageComponent = () => {
 										</Accordion.Body>
 									</Accordion.Item>
 
-									<Accordion.Item eventKey="2">
-										<Accordion.Header>
+									<Accordion.Item className={`${styles.accordionItem}`} eventKey="2">
+										<Accordion.Header className={`${styles.accordionHeader}`}>
 											<i className="bi bi-person"></i> Customer Information
 										</Accordion.Header>
 										<Accordion.Body>
@@ -57,8 +70,8 @@ const ProfilePageComponent = () => {
 										</Accordion.Body>
 									</Accordion.Item>
 
-									<Accordion.Item eventKey="3">
-										<Accordion.Header>
+									<Accordion.Item className={`${styles.accordionItem}`} eventKey="3">
+										<Accordion.Header className={`${styles.accordionHeader}`}>
 											<i className="bi bi-heart"></i> My Wishlist
 										</Accordion.Header>
 										<Accordion.Body>
@@ -68,8 +81,8 @@ const ProfilePageComponent = () => {
 										</Accordion.Body>
 									</Accordion.Item>
 
-									<Accordion.Item className={styles.accordionSettings} eventKey="4">
-										<Accordion.Header>
+									<Accordion.Item className={`${styles.accordionItem} ${styles.accordionSettings}`} eventKey="4">
+										<Accordion.Header className={`${styles.accordionHeader}`}>
 											<i className="bi bi-heart"></i> My Settings
 										</Accordion.Header>
 										<Accordion.Body>
