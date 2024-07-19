@@ -11,6 +11,8 @@ import Nav from 'react-bootstrap/Nav';
 // Components:
 import InvoicesComponent from './invoicesComponent';
 import OrdersComponent from './ordersComponent';
+import ReturnsComponent from './returnsComponent'
+import PersonalDetailsComponent from './personalDetailsComponent'
 
 const ProfilePageComponent = () => {
 	const [activeKey, setActiveKey] = useState<any>(null);
@@ -54,19 +56,19 @@ const ProfilePageComponent = () => {
 												>
 													<ListGroup variant="flush">
 														{/* tab one */}
-														<Nav.Link eventKey="orders">
-															<ListGroup.Item>Orders</ListGroup.Item>
+														<Nav.Link className={styles.navlink} eventKey="orders">
+															<ListGroup.Item className={styles.listgroupItem} >Orders</ListGroup.Item>
 														</Nav.Link>
-														<Nav.Link eventKey="invoices">
-															<ListGroup.Item>
+														<Nav.Link className={styles.navlink} eventKey="invoices">
+															<ListGroup.Item className={styles.listgroupItem}>
 																Invoices
 															</ListGroup.Item>
 														</Nav.Link>
-														<Nav.Link eventKey="returns">
-															<ListGroup.Item>Returns</ListGroup.Item>
+														<Nav.Link className={styles.navlink} eventKey="returns">
+															<ListGroup.Item className={styles.listgroupItem}>Returns</ListGroup.Item>
 														</Nav.Link>
-														<Nav.Link eventKey="personaldetails">
-															<ListGroup.Item>
+														<Nav.Link className={styles.navlink} eventKey="personaldetails">
+															<ListGroup.Item className={styles.listgroupItem}>
 																PersonalDetails
 															</ListGroup.Item>
 														</Nav.Link>
@@ -174,6 +176,12 @@ const ProfilePageComponent = () => {
 								</Tab.Pane>
 								<Tab.Pane eventKey="invoices">
 									<InvoicesComponent></InvoicesComponent>
+								</Tab.Pane>
+								<Tab.Pane eventKey="returns">
+									<ReturnsComponent></ReturnsComponent>
+								</Tab.Pane>
+								<Tab.Pane eventKey="personaldetails">
+									<PersonalDetailsComponent></PersonalDetailsComponent>
 								</Tab.Pane>
 							</Tab.Content>
 						</Col>

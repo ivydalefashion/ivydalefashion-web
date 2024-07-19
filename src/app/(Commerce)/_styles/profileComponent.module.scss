@@ -10,9 +10,11 @@
 			.profileCard {
 				border-radius: 0px;
 				border: 1px solid black;
-
 				.accordion {
+
 					.accordionItem {
+						background-color: red;
+
 						margin-bottom: 10px;
 						border: none;
 						//   border-radius: 0px;
@@ -63,11 +65,29 @@
 						}
 
 						.accordion-body {
-							background-color: #ffffff;
-							border: 1px solid #e9ecef;
+							border: 1px solid yellow;
+							// background-color: #ffffff;
+							// border: 1px solid #e9ecef;
 							border-top: none;
 							border-radius: 0 0 5px 5px;
 							padding: 15px;
+
+							background-color: red;
+							color: red;
+							border: 1px solid red;
+							.navlink{
+								border: 1px solid red;
+								.listgroupItem{
+									// background-color: pink;
+									a{
+										background-color: green;
+									}
+								}
+
+								.nav-pills .nav-link.active{
+									background-color: green;
+								}
+							}
 						}
 					}
 				}
