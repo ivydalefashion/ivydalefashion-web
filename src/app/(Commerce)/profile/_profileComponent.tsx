@@ -5,6 +5,13 @@ import { Container, Col, Row, Card, Button, Accordion, ListGroup } from 'react-b
 import MainNavbar from '../_components/Header';
 import styles from '../_styles/profileComponent.module.scss';
 import Link from 'next/link';
+import Tab from 'react-bootstrap/Tab';
+import Nav from 'react-bootstrap/Nav';
+
+// Components:
+import InvoicesComponent from './invoicesComponent'
+import OrdersComponent from './ordersComponent'
+
 
 const ProfilePageComponent = () => {
 	const [activeKey, setActiveKey] = useState<any>(null);
@@ -17,9 +24,11 @@ const ProfilePageComponent = () => {
 		<div className={`${styles.main}`}>
 			<MainNavbar></MainNavbar>
 
+			<Tab.Container id="left-tabs-example" defaultActiveKey="first">
 			<Container className={`${styles.mainContainer}`}>
 				<Row>
 					<Col className={`${styles.profileCol}`} lg={4} md={4} sm={12}>
+						<Nav variant="pills" className="flex-column">
 						<h3>Profile</h3>
 						<Card className={`${styles.profileCard}`} style={{ width: '300px' }}>
 							{/* <Card.Header as="h5">MY PROFILE</Card.Header> */}
@@ -28,7 +37,8 @@ const ProfilePageComponent = () => {
 									activeKey={activeKey}
 									onSelect={handleAccordionToggle}
 									className={styles.accordion}
-								>
+								>	
+
 									<Accordion.Item
 										eventKey="0"
 										className={`${styles.accordionItem} ${activeKey === '0' ? styles.active : ''}`}
@@ -38,7 +48,12 @@ const ProfilePageComponent = () => {
 										</Accordion.Header>
 										<Accordion.Body className={`${styles.accordionBody}`}>
 											<ListGroup variant="flush">
-												<ListGroup.Item>Orders</ListGroup.Item>
+
+												{/* tab one */}
+												<Nav.Link eventKey="orders"><ListGroup.Item>Orders</ListGroup.Item></Nav.Link>
+												<Nav.Link eventKey="invoices"><ListGroup.Item>Invoices</ListGroup.Item></Nav.Link>
+
+
 												<ListGroup.Item>Invoices</ListGroup.Item>
 												<ListGroup.Item>Returns</ListGroup.Item>
 												<ListGroup.Item>Personal Details</ListGroup.Item>
@@ -69,9 +84,14 @@ const ProfilePageComponent = () => {
 										</Accordion.Header>
 										<Accordion.Body>
 											<ListGroup variant="flush">
+
+												{/* tab 2 */}
+											<Nav.Link eventKey="second">
 												<ListGroup.Item>
 													Personal Information
 												</ListGroup.Item>
+												</Nav.Link>
+												
 												<ListGroup.Item>Billing Address</ListGroup.Item>
 											</ListGroup>
 										</Accordion.Body>
@@ -118,9 +138,19 @@ const ProfilePageComponent = () => {
 								</Accordion>
 							</Card.Body>
 						</Card>
+						</Nav>
 					</Col>
 
+					
+
 					<Col className={`${styles.detailsCol}`} lg={8} md={8} sm={12}>
+						<Tab.Content>
+							<Tab.Pane eventKey="orders"><OrdersComponent></OrdersComponent></Tab.Pane>
+							<Tab.Pane eventKey="invoices"><InvoicesComponent></InvoicesComponent></Tab.Pane>
+						</Tab.Content>
+					</Col>
+
+					{/* <Col className={`${styles.detailsCol}`} lg={8} md={8} sm={12}>
 						<h2>Personal Details</h2>
 						<Card className="mb-3">
 							<Card.Body>
@@ -185,9 +215,10 @@ const ProfilePageComponent = () => {
 								</Row>
 							</Card.Body>
 						</Card>
-					</Col>
+					</Col> */}
 				</Row>
 			</Container>
+			</Tab.Container>
 		</div>
 	);
 };
