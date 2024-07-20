@@ -1,13 +1,4 @@
-// .navbarContainerStyles{
-
-//     background-color: rgba(162, 241, 253, 0.123);
-
-//     .navbarBrandStyle{
-//         color: black;
-//         font-size: 40px;
-//     }
-
-// }
+@import '../../_styles//main.module.scss';
 
 .navBar {
 	.navBarBrand {
@@ -16,23 +7,74 @@
 		font-weight: bold;
 	}
 
-	.searchBar {
-		border-radius: 15px;
-		border-right: 0px;
-		// width: 100%;
-		// margin-left: 0px;
+	// Search
+	.input {
+		border-radius: 0px;
+		border-top-left-radius: 20px;
+		border-bottom-left-radius: 20px;
+		outline: none !important;
+		border: 1px solid black;
+
+		&::placeholder {
+			/* Chrome, Firefox, Opera, Safari 10.1+ */
+			color: grey;
+			opacity: 1; /* Firefox */
+		}
+		&:-ms-input-placeholder {
+			/* Internet Explorer 10-11 */
+			color: black;
+		}
+
+		&::-ms-input-placeholder {
+			/* Microsoft Edge */
+			color: black;
+		}
 	}
-	.searchButtonSpan {
+	// error input display when user doesnt input text
+	.errorInput {
+		border-color: red !important;
+		&::placeholder {
+		  color: red;
+		}
+	}
+	  
+
+
+	
+	// .inputGroup {
+	// 	margin-bottom: 20px;
+
+	// 	.passwordInput {
+	// 	}
+	// }
+
+	.searchButton {
+		border: 1px solid black;
 		background-color: white;
+		border-radius: 0px;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
 		color: black;
-		border-radius: 15px;
-		border-left: 0px;
+
+		&:hover{
+			background-color: black;
+			color: white;
+		}
 	}
 
 	.navNavigationIcons {
 		.navNavigationIconsNavLink {
 			color: black;
 			font-size: 20px;
+
+			section{
+				.icon{
+					&:hover{
+						color: $orange;
+					}
+				}
+				
+			}
 		}
 	}
 }
