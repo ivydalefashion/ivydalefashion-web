@@ -7,11 +7,12 @@ interface ResponsiveImageProps {
 	alt: string;
 	width: number;
 	height: number;
+	className?: any;
 }
 
-const ResponsiveImage = ({ src, alt, width, height }: ResponsiveImageProps) => {
+const ResponsiveImage = ({ src, alt, width, height, className}: ResponsiveImageProps) => {
 	return (
-		<div className={``}>
+		<div className={className}>
 			<Image
 				src={src}
 				alt={alt}
