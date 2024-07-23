@@ -18,7 +18,6 @@ const BlogPage = () => {
 			<div className={styles.blogPosts}>
 				<BlogPostsComponent></BlogPostsComponent>
 			</div>
-			
 		</div>
 	);
 };

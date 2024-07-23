@@ -61,27 +61,29 @@ const BrandComponent = () => {
 
 						{[1, 2, 3, 4, 5, 6].map((item: any) => (
 							<Col className={``} lg={4} md={4} sm={12}>
-							<Card className={styles.card} style={{}}>
-								<ResponsiveImage
-									src={'/orangeHoodie.png'}
-									alt={`New Arrival `}
-									height={100}
-									width={100}
-								></ResponsiveImage>
+								<Card className={styles.card} style={{}}>
+									<ResponsiveImage
+										src={'/orangeHoodie.png'}
+										alt={`New Arrival `}
+										height={100}
+										width={100}
+									></ResponsiveImage>
 
-								<Card.Body className={` ${styles.cardBody}`}>
-									<Card.Title className={`${styles.titleText}`}>
-										Manchester united jersey 2022 Away
-									</Card.Title>
-									<Card.Text className={`${styles.priceText}`}>R600</Card.Text>
-									<Button
-										className={`${styles.addToCartButton}`}
-										variant="success"
-									>
-										Add to cart
-									</Button>
-								</Card.Body>
-							</Card>
+									<Card.Body className={` ${styles.cardBody}`}>
+										<Card.Title className={`${styles.titleText}`}>
+											Manchester united jersey 2022 Away
+										</Card.Title>
+										<Card.Text className={`${styles.priceText}`}>
+											R600
+										</Card.Text>
+										<Button
+											className={`${styles.addToCartButton}`}
+											variant="success"
+										>
+											Add to cart
+										</Button>
+									</Card.Body>
+								</Card>
 							</Col>
 						))}
 					</Col>

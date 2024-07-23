@@ -16,7 +16,6 @@ const AnimatedComponent: React.FC<AnimatedComponentProps> = ({ children }) => {
 				{children}
 			</motion.div>
 		</div>
-		
 	);
 };
 

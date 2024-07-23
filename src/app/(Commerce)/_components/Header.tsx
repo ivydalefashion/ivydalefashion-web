@@ -42,12 +42,8 @@ const MainNavbar = () => {
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
-							<Nav.Link href="/brands">
-								Shop brands
-							</Nav.Link>
-							<Nav.Link href="/blog">
-								Blog
-							</Nav.Link>
+							<Nav.Link href="/brands">Shop brands</Nav.Link>
+							<Nav.Link href="/blog">Blog</Nav.Link>
 						</Nav>
 
 						<Nav className="me-auto">
@@ -75,7 +71,7 @@ const MainNavbar = () => {
 						</Nav>
 
 						<Nav className={styles.navNavigationIcons}>
-							<Nav.Link  href="/wishlist" className={styles.navNavigationIconsNavLink}>
+							<Nav.Link href="/wishlist" className={styles.navNavigationIconsNavLink}>
 								<section>
 									<FaHeart
 										className={styles.icon}
@@ -85,7 +81,11 @@ const MainNavbar = () => {
 									></FaHeart>
 								</section>
 							</Nav.Link>
-							<Nav.Link href="/profile" className={styles.navNavigationIconsNavLink} eventKey={2}>
+							<Nav.Link
+								href="/profile"
+								className={styles.navNavigationIconsNavLink}
+								eventKey={2}
+							>
 								<section>
 									<FaUserAlt
 										className={styles.icon}
@@ -95,7 +95,11 @@ const MainNavbar = () => {
 									></FaUserAlt>
 								</section>
 							</Nav.Link>
-							<Nav.Link href="/cart" className={styles.navNavigationIconsNavLink} eventKey={3}>
+							<Nav.Link
+								href="/cart"
+								className={styles.navNavigationIconsNavLink}
+								eventKey={3}
+							>
 								<section>
 									<FaShoppingCart
 										className={styles.icon}

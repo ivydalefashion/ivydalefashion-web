@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react'
+import React from 'react';
 import Link from 'next/link';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -26,7 +26,6 @@ const BlogNavbarComponent = () => {
 				</Container>
 			</Navbar>
 		</div>
-		
 	);
 };
 

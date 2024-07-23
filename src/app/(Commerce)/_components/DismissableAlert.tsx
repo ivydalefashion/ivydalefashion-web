@@ -32,7 +32,6 @@ const AlertDismissible = (props: alertProps) => {
 				<div>{props.information ? <div>{props.information}</div> : <div></div>}</div>
 			</Alert>
 		</div>
-		
 	);
 };
 
