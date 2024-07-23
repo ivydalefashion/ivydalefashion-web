@@ -17,7 +17,7 @@ const schema = yup.object().shape({
 });
 
 const MainNavbar = () => {
-	const router = useRouter();
+	// const router = useRouter();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const {
 		register,
@@ -29,7 +29,7 @@ const MainNavbar = () => {
 		console.log(data);
 		// Handle form submission here
 
-		router.push('/commerce');
+		// router.push('/commerce');
 	};
 
 	return (
@@ -42,11 +42,11 @@ const MainNavbar = () => {
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="me-auto">
-							<Nav.Link>
-								<Link href="brands">Shop brands</Link>
+							<Nav.Link href="/brands">
+								Shop brands
 							</Nav.Link>
-							<Nav.Link>
-								<Link href="blog">Blog</Link>
+							<Nav.Link href="/blog">
+								Blog
 							</Nav.Link>
 						</Nav>
 
@@ -61,7 +61,7 @@ const MainNavbar = () => {
 										aria-label="search"
 										aria-describedby="basic-addon2"
 									/>
-									{/* <Link href="/search"> */}
+
 									<Button
 										variant="outline-secondary"
 										className={`input-group-text ${styles.searchButton}`}
@@ -70,46 +70,39 @@ const MainNavbar = () => {
 									>
 										Search
 									</Button>
-									{/* </Link> */}
 								</InputGroup>
 							</Form>
 						</Nav>
 
 						<Nav className={styles.navNavigationIcons}>
-							<Nav.Link className={styles.navNavigationIconsNavLink}>
+							<Nav.Link  href="/wishlist" className={styles.navNavigationIconsNavLink}>
 								<section>
-									<Link href="/wishlist">
-										<FaHeart
-											className={styles.icon}
-											data-toggle="tooltip"
-											data-placement="top"
-											title="Wishlist"
-										></FaHeart>
-									</Link>
+									<FaHeart
+										className={styles.icon}
+										data-toggle="tooltip"
+										data-placement="top"
+										title="Wishlist"
+									></FaHeart>
 								</section>
 							</Nav.Link>
-							<Nav.Link className={styles.navNavigationIconsNavLink} eventKey={2}>
+							<Nav.Link href="/profile" className={styles.navNavigationIconsNavLink} eventKey={2}>
 								<section>
-									<Link href="/profile">
-										<FaUserAlt
-											className={styles.icon}
-											data-toggle="tooltip"
-											data-placement="top"
-											title="Profile"
-										></FaUserAlt>
-									</Link>
+									<FaUserAlt
+										className={styles.icon}
+										data-toggle="tooltip"
+										data-placement="top"
+										title="Profile"
+									></FaUserAlt>
 								</section>
 							</Nav.Link>
-							<Nav.Link className={styles.navNavigationIconsNavLink} eventKey={3}>
+							<Nav.Link href="/cart" className={styles.navNavigationIconsNavLink} eventKey={3}>
 								<section>
-									<Link href="/cart">
-										<FaShoppingCart
-											className={styles.icon}
-											data-toggle="tooltip"
-											data-placement="top"
-											title="Cart"
-										></FaShoppingCart>
-									</Link>
+									<FaShoppingCart
+										className={styles.icon}
+										data-toggle="tooltip"
+										data-placement="top"
+										title="Cart"
+									></FaShoppingCart>
 								</section>
 							</Nav.Link>
 						</Nav>

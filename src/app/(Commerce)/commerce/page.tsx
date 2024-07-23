@@ -14,7 +14,7 @@ const LandingPage = () => {
 		<div>
 			<Header></Header>
 			<CommerceComponent></CommerceComponent>
-			<Footer></Footer>
+			{/* <Footer></Footer> */}
 		</div>
 	);
 };
