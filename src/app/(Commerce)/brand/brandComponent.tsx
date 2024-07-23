@@ -63,7 +63,7 @@ const BrandComponent = () => {
 
 						{[1,2,3,4,5,6].map((item: any)=>
 						(
-							<Card className={styles.card} style={{ width: '20rem' }}>
+							<Card className={styles.card} style={{ }}>
 								<ResponsiveImage
 									src={'/orangeHoodie.png'}
 									alt={`New Arrival `}
