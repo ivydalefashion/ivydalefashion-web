@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from '../_styles/brandsComponent.module.scss';
 import ResponsiveImage from '../_components/ResponsiveImage';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const BrandLogo = ({ src, alt, description }: any) => {
 	const [isHovered, setIsHovered] = useState(false);

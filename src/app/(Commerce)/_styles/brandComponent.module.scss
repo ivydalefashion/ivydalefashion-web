@@ -26,27 +26,26 @@
 			justify-content: space-around;
 			// border: 1px solid red;
 
-			.card{
-				width: '20rem' ;
+			.card {
+				width: '20rem';
 				border-radius: 0px;
 				margin: 5px;
 				border: 1px solid black;
 
-				.addToCartButton{
+				.addToCartButton {
 					border-radius: 0px;
 					background-color: white;
 					color: black;
 					border: 1px solid black;
 
-					&:hover{
+					&:hover {
 						background-color: black;
 						color: white;
-
 					}
 				}
 
 				// small screens
-				@media(max-width: 768px){
+				@media (max-width: 768px) {
 					// width: 100%;
 					width: '24rem';
 					// background-color: green;

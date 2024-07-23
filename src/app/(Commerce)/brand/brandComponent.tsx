@@ -13,7 +13,6 @@ const BrandComponent = () => {
 	return (
 		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
-
 				{/* First row */}
 				<Row className={styles.brandHeaderRow}>
 					<Col className={styles.logoCol} lg={4} md={4} sm={12}>
@@ -58,28 +57,31 @@ const BrandComponent = () => {
 					</Col>
 
 					<Col className={styles.imagesCol} lg={10} md={10} sm={12}>
+						{/* Card with image */}
 
-					{/* Card with image */}
-
-						{[1,2,3,4,5,6].map((item: any)=>
-						(
-							<Card className={styles.card} style={{ }}>
+						{[1, 2, 3, 4, 5, 6].map((item: any) => (
+							<Card className={styles.card} style={{}}>
 								<ResponsiveImage
 									src={'/orangeHoodie.png'}
 									alt={`New Arrival `}
 									height={100}
 									width={100}
 								></ResponsiveImage>
-								
+
 								<Card.Body className={` ${styles.cardBody}`}>
-									<Card.Title className={`${styles.titleText}`}>Manchester united jersey 2022 Away</Card.Title>
-									<Card.Text  className={`${styles.priceText}`}>R600</Card.Text>
-									<Button className={`${styles.addToCartButton}`} variant='success'>Add to cart</Button>
+									<Card.Title className={`${styles.titleText}`}>
+										Manchester united jersey 2022 Away
+									</Card.Title>
+									<Card.Text className={`${styles.priceText}`}>R600</Card.Text>
+									<Button
+										className={`${styles.addToCartButton}`}
+										variant="success"
+									>
+										Add to cart
+									</Button>
 								</Card.Body>
 							</Card>
 						))}
-
-						
 					</Col>
 				</Row>
 			</Container>
