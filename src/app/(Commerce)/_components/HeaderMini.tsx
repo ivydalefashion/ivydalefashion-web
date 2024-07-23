@@ -1,5 +1,5 @@
-'use clinet';
-
+'use client';
+import React from 'react'
 import styles from './_styles_components/HeaderMini.module.scss';
 
 const MiniNavbar = () => {

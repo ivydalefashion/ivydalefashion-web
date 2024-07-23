@@ -14,22 +14,25 @@ const AlertDismissible = (props: alertProps) => {
 	const [show, setShow] = useState(true);
 
 	return (
-		<Alert
-			variant="warning"
-			className={` ${styles.alert} ${props.color === 'blue' ? styles.success : styles.error}`}
-			onClose={() => setShow(false)}
-			dismissible
-		>
-			<Alert.Heading>
-				{' '}
-				{props.heading ? (
-					<div>{props.heading}</div>
-				) : (
-					<>Oops! Looks like we have an error</>
-				)}{' '}
-			</Alert.Heading>
-			<p>{props.information ? <div>{props.information}</div> : <></>}</p>
-		</Alert>
+		<div>
+			<Alert
+				variant="warning"
+				className={` ${styles.alert} ${props.color === 'blue' ? styles.success : styles.error}`}
+				onClose={() => setShow(false)}
+				dismissible
+			>
+				<Alert.Heading>
+					{' '}
+					{props.heading ? (
+						<div>{props.heading}</div>
+					) : (
+						<div>Oops! Looks like we have an error</div>
+					)}{' '}
+				</Alert.Heading>
+				<div>{props.information ? <div>{props.information}</div> : <div></div>}</div>
+			</Alert>
+		</div>
+		
 	);
 };
 

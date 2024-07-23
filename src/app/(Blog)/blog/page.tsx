@@ -1,3 +1,4 @@
+import React from 'react';
 import { Metadata } from 'next';
 import BlogNavbarComponent from '../_components/BlogNavbarComponent';
 import styles from '../_styles/blog.module.scss'; // styling
@@ -17,13 +18,7 @@ const BlogPage = () => {
 			<div className={styles.blogPosts}>
 				<BlogPostsComponent></BlogPostsComponent>
 			</div>
-			{/* <Container className={styles.titleContainer}>
-        <h3>all things fashion...</h3>
-      </Container>
-
-      <Container className={styles.contentContainer}>
-        <h4> posts</h4>
-      </Container> */}
+			
 		</div>
 	);
 };

@@ -1,3 +1,5 @@
+
+import React from 'react';
 import ArticleComponent from './articleComponent';
 
 const Articlepage = () => {
