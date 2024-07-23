@@ -13,10 +13,9 @@ const ForgotPasswordComponent = () => {
 
 	return (
 		<div className={styles.main}>
-            <Container>
-            <h5>Forogt your password? </h5>
-            </Container>
-			
+			<Container>
+				<h5>Forogt your password? </h5>
+			</Container>
 		</div>
 	);
 };

@@ -11,7 +11,6 @@
 				border-radius: 0px;
 				border: 1px solid black;
 				.accordion {
-
 					.accordionItem {
 						background-color: red;
 
@@ -75,16 +74,16 @@
 							background-color: red;
 							color: red;
 							border: 1px solid red;
-							.navlink{
+							.navlink {
 								border: 1px solid red;
-								.listgroupItem{
+								.listgroupItem {
 									// background-color: pink;
-									a{
+									a {
 										background-color: green;
 									}
 								}
 
-								.nav-pills .nav-link.active{
+								.nav-pills .nav-link.active {
 									background-color: green;
 								}
 							}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, InputGroup, Button, Form } from 'react-bootstrap';
 import Link from 'next/link';
 import styles from './_styles_components/Header.module.scss';
@@ -15,8 +15,6 @@ import * as yup from 'yup';
 const schema = yup.object().shape({
 	search: yup.string().required('Search cannot be empty.'),
 });
-
-
 
 const MainNavbar = () => {
 	const router = useRouter();
@@ -64,14 +62,14 @@ const MainNavbar = () => {
 										aria-describedby="basic-addon2"
 									/>
 									{/* <Link href="/search"> */}
-										<Button
-											variant="outline-secondary"
-											className={`input-group-text ${styles.searchButton}`}
-											id="button-addon2"
-											type='submit'
-										>
-											Search
-										</Button>
+									<Button
+										variant="outline-secondary"
+										className={`input-group-text ${styles.searchButton}`}
+										id="button-addon2"
+										type="submit"
+									>
+										Search
+									</Button>
 									{/* </Link> */}
 								</InputGroup>
 							</Form>
@@ -81,21 +79,36 @@ const MainNavbar = () => {
 							<Nav.Link className={styles.navNavigationIconsNavLink}>
 								<section>
 									<Link href="/wishlist">
-										<FaHeart className={styles.icon} data-toggle="tooltip" data-placement="top" title="Wishlist"></FaHeart>
+										<FaHeart
+											className={styles.icon}
+											data-toggle="tooltip"
+											data-placement="top"
+											title="Wishlist"
+										></FaHeart>
 									</Link>
 								</section>
 							</Nav.Link>
 							<Nav.Link className={styles.navNavigationIconsNavLink} eventKey={2}>
 								<section>
 									<Link href="/profile">
-										<FaUserAlt className={styles.icon} data-toggle="tooltip" data-placement="top" title="Profile"></FaUserAlt>
+										<FaUserAlt
+											className={styles.icon}
+											data-toggle="tooltip"
+											data-placement="top"
+											title="Profile"
+										></FaUserAlt>
 									</Link>
 								</section>
 							</Nav.Link>
 							<Nav.Link className={styles.navNavigationIconsNavLink} eventKey={3}>
 								<section>
 									<Link href="/cart">
-										<FaShoppingCart className={styles.icon} data-toggle="tooltip" data-placement="top" title="Cart"></FaShoppingCart>
+										<FaShoppingCart
+											className={styles.icon}
+											data-toggle="tooltip"
+											data-placement="top"
+											title="Cart"
+										></FaShoppingCart>
 									</Link>
 								</section>
 							</Nav.Link>

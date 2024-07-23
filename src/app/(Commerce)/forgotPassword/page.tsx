@@ -16,8 +16,7 @@ const ForgotPasswordPage = () => {
 			<ForgotPasswordComponent></ForgotPasswordComponent>
 			<Footer></Footer>
 		</div>
-		
-	)
+	);
 };
 
 export default ForgotPasswordPage;

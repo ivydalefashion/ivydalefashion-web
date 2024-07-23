@@ -10,7 +10,7 @@ interface ResponsiveImageProps {
 	className?: any;
 }
 
-const ResponsiveImage = ({ src, alt, width, height, className}: ResponsiveImageProps) => {
+const ResponsiveImage = ({ src, alt, width, height, className }: ResponsiveImageProps) => {
 	return (
 		<div className={className}>
 			<Image

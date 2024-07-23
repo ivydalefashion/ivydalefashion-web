@@ -11,8 +11,8 @@ import Nav from 'react-bootstrap/Nav';
 // Components:
 import InvoicesComponent from './invoicesComponent';
 import OrdersComponent from './ordersComponent';
-import ReturnsComponent from './returnsComponent'
-import PersonalDetailsComponent from './personalDetailsComponent'
+import ReturnsComponent from './returnsComponent';
+import PersonalDetailsComponent from './personalDetailsComponent';
 
 const ProfilePageComponent = () => {
 	const [activeKey, setActiveKey] = useState<any>(null);
@@ -56,19 +56,43 @@ const ProfilePageComponent = () => {
 												>
 													<ListGroup variant="flush">
 														{/* tab one */}
-														<Nav.Link className={styles.navlink} eventKey="orders">
-															<ListGroup.Item className={styles.listgroupItem} >Orders</ListGroup.Item>
+														<Nav.Link
+															className={styles.navlink}
+															eventKey="orders"
+														>
+															<ListGroup.Item
+																className={styles.listgroupItem}
+															>
+																Orders
+															</ListGroup.Item>
 														</Nav.Link>
-														<Nav.Link className={styles.navlink} eventKey="invoices">
-															<ListGroup.Item className={styles.listgroupItem}>
+														<Nav.Link
+															className={styles.navlink}
+															eventKey="invoices"
+														>
+															<ListGroup.Item
+																className={styles.listgroupItem}
+															>
 																Invoices
 															</ListGroup.Item>
 														</Nav.Link>
-														<Nav.Link className={styles.navlink} eventKey="returns">
-															<ListGroup.Item className={styles.listgroupItem}>Returns</ListGroup.Item>
+														<Nav.Link
+															className={styles.navlink}
+															eventKey="returns"
+														>
+															<ListGroup.Item
+																className={styles.listgroupItem}
+															>
+																Returns
+															</ListGroup.Item>
 														</Nav.Link>
-														<Nav.Link className={styles.navlink} eventKey="personaldetails">
-															<ListGroup.Item className={styles.listgroupItem}>
+														<Nav.Link
+															className={styles.navlink}
+															eventKey="personaldetails"
+														>
+															<ListGroup.Item
+																className={styles.listgroupItem}
+															>
 																PersonalDetails
 															</ListGroup.Item>
 														</Nav.Link>
