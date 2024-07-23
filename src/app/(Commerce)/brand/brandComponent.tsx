@@ -60,6 +60,7 @@ const BrandComponent = () => {
 						{/* Card with image */}
 
 						{[1, 2, 3, 4, 5, 6].map((item: any) => (
+							<Col className={``} lg={4} md={4} sm={12}>
 							<Card className={styles.card} style={{}}>
 								<ResponsiveImage
 									src={'/orangeHoodie.png'}
@@ -81,6 +82,7 @@ const BrandComponent = () => {
 									</Button>
 								</Card.Body>
 							</Card>
+							</Col>
 						))}
 					</Col>
 				</Row>
