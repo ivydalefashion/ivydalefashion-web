@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, ListGroup } from 'react-bootstrap';
 import styles from '../_styles/cartComponent.module.scss';
 import ResponsiveImage from '../_components/ResponsiveImage';
 import AnimatedComponent from '../_components/AnimatedComponent';
@@ -24,36 +24,41 @@ const CartPage = () => {
 	const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
 	return (
-		<div>
-			<AnimatedComponent>
-				<Container className={styles.cartPage}>
+		<div className={styles.main}>
+			<Container className={styles.mainContainer}>
+				<ListGroup variant="flush">
 					{cartItems.map((item, index) => (
 						<AnimatedComponent key={index}>
-							<Row className={styles.cartItem}>
-								<Col xs={3}>
-									<ResponsiveImage
-										alt=""
-										src={item.image}
-										height={100}
-										width={100}
-									></ResponsiveImage>
-								</Col>
-								<Col xs={5}>
-									<p>{item.name}</p>
-									<p>{item.size}</p>
-								</Col>
-								<Col xs={2} className={styles.price}>
-									R{item.price}
-								</Col>
-								<Col xs={2} className={styles.removeButton}>
-									<Button variant="light" className={styles.removeIcon}>
-										×
-									</Button>
-								</Col>
-							</Row>
+							<ListGroup.Item className={styles.cartItem}>
+								<Row className={styles.cartRow}>
+									<Col className={styles.imageCol} lg={2} xs={3}>
+										<ResponsiveImage
+											className={styles.image}
+											alt=""
+											src={item.image}
+											height={50}
+											width={50}
+										/>
+									</Col>
+									<Col xs={5}>
+										<p>{item.name}</p>
+										<p>{item.size}</p>
+									</Col>
+									<Col xs={2} className={styles.price}>
+										R{item.price}
+									</Col>
+									<Col xs={2} className={styles.removeButton}>
+										<Button variant="light" className={styles.removeIcon}>
+											×
+										</Button>
+									</Col>
+								</Row>
+							</ListGroup.Item>
 						</AnimatedComponent>
 					))}
-					<AnimatedComponent>
+				</ListGroup>
+				<AnimatedComponent>
+					<ListGroup.Item className={styles.totalItem}>
 						<Row className={styles.totalRow}>
 							<Col xs={8}>
 								<p>TOTAL</p>
@@ -62,8 +67,10 @@ const CartPage = () => {
 								<p>R{total}</p>
 							</Col>
 						</Row>
-					</AnimatedComponent>
-					<AnimatedComponent>
+					</ListGroup.Item>
+				</AnimatedComponent>
+				<AnimatedComponent>
+					<ListGroup.Item className={styles.checkoutItem}>
 						<Row className={styles.checkoutRow}>
 							<Col>
 								<Button variant="dark" className={styles.checkoutButton}>
@@ -71,9 +78,9 @@ const CartPage = () => {
 								</Button>
 							</Col>
 						</Row>
-					</AnimatedComponent>
-				</Container>
-			</AnimatedComponent>
+					</ListGroup.Item>
+				</AnimatedComponent>
+			</Container>
 		</div>
 	);
 };
