@@ -33,7 +33,7 @@ const CartComponent = () => {
 
 	const handleCheckout = () => {
     	console.log('Proceeding to checkout');
-		router.push('/shippingmethod');
+		router.push('/shippinginformation');
 	};
 
 	const total = cartItems.reduce((sum, item) => sum + item.price, 0);

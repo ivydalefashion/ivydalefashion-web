@@ -3,17 +3,17 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
-import styles from '../_styles/signinComponent.module.scss';
+import styles from '../_styles/shippingInformationComponent.module.scss'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import AlertDismissible from '../_components/DismissableAlert';
 
-const ShippingDetailsComponent = () => {
+const ShippingInformationComponent = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	return (
-		<div>
+		<div className={styles.main}>
 			<Container>
 				<Row>
 					<Col md={8}>
@@ -99,4 +99,4 @@ const ShippingDetailsComponent = () => {
 	);
 };
 
-export default ShippingDetailsComponent;
+export default ShippingInformationComponent;

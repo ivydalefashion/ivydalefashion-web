@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import ShippingDetailsComponent from './_shippingDetailsComponent';
+import ShippingInformationComponent from './_shippingInformationComponent';
 import Header from '../_components/Header';
 import Footer from '../_components/Footer';
 
@@ -13,7 +13,7 @@ const ShippingPage = () => {
 	return (
 		<div>
 			<Header></Header>
-			<ShippingDetailsComponent></ShippingDetailsComponent>
+			<ShippingInformationComponent></ShippingInformationComponent>
 			<Footer></Footer>
 		</div>
 	);
