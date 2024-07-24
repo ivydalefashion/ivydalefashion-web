@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Container, Row, Col, Button, ListGroup } from 'react-bootstrap';
 import styles from '../_styles/cartComponent.module.scss';
 import ResponsiveImage from '../_components/ResponsiveImage';
 import AnimatedComponent from '../_components/AnimatedComponent';
+import {useRouter} from 'next/navigation'
 
 interface CartItem {
 	image: string;
@@ -15,43 +16,32 @@ interface CartItem {
 }
 
 const CartComponent = () => {
+	const router = useRouter();
+
 	const cartItems: CartItem[] = [
-		{
-			image: '/adidasMANU.jpg',
-			name: 'SKULL HOODIE X1',
-			size: 'SMALL',
-			price: 350,
-			description: 'Comfortable cotton blend hoodie with skull print.',
-		},
-		{
-			image: '/adidasMANU.jpg',
-			name: 'SKULL HOODIE X1',
-			size: 'SMALL',
-			price: 350,
-			description: 'Comfortable cotton blend hoodie with skull print.',
-		},
-		{
-			image: '/adidasMANU.jpg',
-			name: 'SKULL HOODIE X1',
-			size: 'SMALL',
-			price: 350,
-			description: 'Comfortable cotton blend hoodie with skull print.',
-		},
-		{
-			image: '/adidasMANU.jpg',
-			name: 'SKULL HOODIE X1',
-			size: 'SMALL',
-			price: 350,
-			description: 'Comfortable cotton blend hoodie with skull print.',
-		},
+		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350, description: 'Comfortable cotton blend hoodie with skull print.' },
+		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350, description: 'Comfortable cotton blend hoodie with skull print.' },
+		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350, description: 'Comfortable cotton blend hoodie with skull print.' },
+		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350, description: 'Comfortable cotton blend hoodie with skull print.' },
 	];
+
+	useEffect(() => {
+		
+		console.log('Cart page loaded');
+	}, []);
+
+
+	const handleCheckout = () => {
+    	console.log('Proceeding to checkout');
+		router.push('/shippingmethod');
+	};
 
 	const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
 	return (
 		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
-				
+
 				<h1 className={styles.cartTitle}>Your Cart</h1>
 
 				<Row>
@@ -108,7 +98,7 @@ const CartComponent = () => {
 									<span>Total</span>
 									<span className={styles.totalPrice}>R{total}</span>
 								</div>
-								<Button variant="dark" className={styles.checkoutButton}>
+								<Button variant="dark" onClick={handleCheckout} className={styles.checkoutButton}>
 									Proceed to Checkout
 								</Button>
 							</div>
