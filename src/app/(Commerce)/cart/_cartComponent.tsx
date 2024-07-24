@@ -14,7 +14,7 @@ interface CartItem {
 	description: string;
 }
 
-const CartPage = () => {
+const CartComponent = () => {
 	const cartItems: CartItem[] = [
 		{
 			image: '/adidasMANU.jpg',
@@ -51,8 +51,12 @@ const CartPage = () => {
 	return (
 		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
+				
 				<h1 className={styles.cartTitle}>Your Cart</h1>
+
 				<Row>
+
+					{/* Cart on the left hand side of the page: */}
 					<Col md={8}>
 						<ListGroup variant="flush">
 							{cartItems.map((item, index) => (
@@ -90,6 +94,8 @@ const CartPage = () => {
 							))}
 						</ListGroup>
 					</Col>
+
+					{/* Cart summary on right hand side of the page: */}
 					<Col md={4}>
 						<AnimatedComponent>
 							<div className={styles.cartSummary}>
@@ -114,4 +120,4 @@ const CartPage = () => {
 	);
 };
 
-export default CartPage;
+export default CartComponent;
