@@ -1,116 +1,116 @@
-// .main{
-// 	.mainContainer{
-// 		border: 1px dashed green;
-// 		margin-top: 50px;
-// 		.cartRow{
-// 			border: 3px solid pink;
-// 			.imageCol{
-// 				border: 1px dotted blue;
-// 				.image{
-// 					border: 1px solid red;
+.main {
+	background-color: #f8f9fa;
+	min-height: 100vh;
+	padding: 2rem 0;
+}
 
-// 				}
-// 			}
+.mainContainer {
+	background-color: white;
+	border-radius: 0px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
 
-// 		}
-// 	}
-// }
+.cartTitle {
+	margin-bottom: 2rem;
+	font-weight: bold;
+}
 
 .cartItem {
-	// Add any specific styles for cart items
+	padding: 1.5rem 0;
+	border-bottom: 1px solid #e9ecef;
+
+	.cartRow {
+		align-items: center;
+	}
+
+	.imageCol {
+		text-align: center;
+
+		.image {
+			object-fit: cover;
+			border-radius: 4px;
+		}
+	}
+
+	.detailsCol {
+		h5 {
+			margin-bottom: 0.5rem;
+		}
+
+		.itemSize {
+			color: #6c757d;
+			margin-bottom: 0.5rem;
+		}
+
+		.itemDescription {
+			font-size: 0.9rem;
+			color: #495057;
+		}
+	}
+
+	.priceCol {
+		text-align: right;
+
+		.price {
+			font-weight: bold;
+			margin-bottom: 0.5rem;
+			font-size: 1.1rem;
+		}
+
+		.removeButton {
+			padding: 0;
+			color: #dc3545;
+			text-decoration: none;
+			font-size: 0.9rem;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 }
 
-.totalItem {
-	// Add styles for the total row
+.cartSummary {
+	background-color: #f8f9fa;
+	border-radius: 8px;
+	padding: 1.5rem;
+	position: sticky;
+	top: 2rem;
+
+	.summaryTitle {
+		margin-bottom: 1.5rem;
+		font-weight: bold;
+	}
+
+	.subtotalRow,
+	.totalRow {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 1rem;
+	}
+
+	.totalRow {
+		font-weight: bold;
+		font-size: 1.2rem;
+		border-top: 1px solid #dee2e6;
+		padding-top: 1rem;
+		margin-top: 1rem;
+	}
+
+	.checkoutButton {
+		margin-top: 1.5rem;
+		width: 100%;
+		padding: 0.75rem;
+		font-size: 1.1rem;
+	}
 }
 
-.checkoutItem {
-	// Add styles for the checkout button row
+@media (max-width: 767px) {
+	.cartSummary {
+		margin-top: 2rem;
+		position: static;
+	}
 }
-
-// .mainContainer {
-// 	margin-top: 150px;
-
-// 	.table {
-// 		border: 1px solid black;
-
-// 		.imageTD {
-// 			// background-color: green;
-// 			// padding: 0px;
-// 			// max-width: 200px;
-// 			width: 16%;
-// 		}
-
-// 		.descriptionTD {
-// 			// display: flex;
-// 			// justify-content: start;
-// 			.descriptionContainer {
-// 				display: flex;
-// 				justify-content: start;
-// 				flex-direction: column;
-// 				// align-items: center;
-// 				// text-align: center;
-// 				.name {
-// 				}
-// 				.size {
-// 					color: blue;
-// 				}
-
-// 				.deleteButtonRow {
-// 					* {
-// 						border-radius: 0px;
-// 						text-transform: uppercase;
-// 						border: 1px solid black;
-// 						color: black;
-// 						background-color: white;
-// 						width: 90px;
-
-// 						&:hover {
-// 							background-color: rgb(100, 55, 55);
-// 							color: white;
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-
-// 		.priceTD {
-// 			// background-color: blue;
-// 			padding: 10px;
-// 			// padding: 0px;
-// 			margin: 0px;
-// 			align-items: center;
-// 			// background-color: blue;
-// 			text-align: center;
-// 			// vertical-align: center;
-
-// 			// display: flex;
-// 			// justify-content: center;
-
-// 			* {
-// 				margin: 0px;
-// 				border: 1px solid green;
-// 				background-color: green;
-// 			}
-// 		}
-// 	}
-
-// 	.checkoutButtonRow {
-// 		display: flex;
-// 		justify-content: end;
-
-// 		button {
-// 			border-radius: 0px;
-// 			text-transform: uppercase;
-// 			border: 1px solid black;
-// 			color: black;
-// 			background-color: white;
-// 			width: 300px;
-
-// 			&:hover {
-// 				background-color: black;
-// 				color: white;
-// 			}
-// 		}
-// 	}
-// }

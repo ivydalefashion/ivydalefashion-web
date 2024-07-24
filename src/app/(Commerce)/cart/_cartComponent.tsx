@@ -11,14 +11,39 @@ interface CartItem {
 	name: string;
 	size: string;
 	price: number;
+	description: string;
 }
 
 const CartPage = () => {
 	const cartItems: CartItem[] = [
-		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350 },
-		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350 },
-		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350 },
-		{ image: '/adidasMANU.jpg', name: 'SKULL HOODIE X1', size: 'SMALL', price: 350 },
+		{
+			image: '/adidasMANU.jpg',
+			name: 'SKULL HOODIE X1',
+			size: 'SMALL',
+			price: 350,
+			description: 'Comfortable cotton blend hoodie with skull print.',
+		},
+		{
+			image: '/adidasMANU.jpg',
+			name: 'SKULL HOODIE X1',
+			size: 'SMALL',
+			price: 350,
+			description: 'Comfortable cotton blend hoodie with skull print.',
+		},
+		{
+			image: '/adidasMANU.jpg',
+			name: 'SKULL HOODIE X1',
+			size: 'SMALL',
+			price: 350,
+			description: 'Comfortable cotton blend hoodie with skull print.',
+		},
+		{
+			image: '/adidasMANU.jpg',
+			name: 'SKULL HOODIE X1',
+			size: 'SMALL',
+			price: 350,
+			description: 'Comfortable cotton blend hoodie with skull print.',
+		},
 	];
 
 	const total = cartItems.reduce((sum, item) => sum + item.price, 0);
@@ -26,60 +51,64 @@ const CartPage = () => {
 	return (
 		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
-				<ListGroup variant="flush">
-					{cartItems.map((item, index) => (
-						<AnimatedComponent key={index}>
-							<ListGroup.Item className={styles.cartItem}>
-								<Row className={styles.cartRow}>
-									<Col className={styles.imageCol} lg={2} xs={3}>
-										<ResponsiveImage
-											className={styles.image}
-											alt=""
-											src={item.image}
-											height={50}
-											width={50}
-										/>
-									</Col>
-									<Col xs={5}>
-										<p>{item.name}</p>
-										<p>{item.size}</p>
-									</Col>
-									<Col xs={2} className={styles.price}>
-										R{item.price}
-									</Col>
-									<Col xs={2} className={styles.removeButton}>
-										<Button variant="light" className={styles.removeIcon}>
-											×
-										</Button>
-									</Col>
-								</Row>
-							</ListGroup.Item>
-						</AnimatedComponent>
-					))}
-				</ListGroup>
-				<AnimatedComponent>
-					<ListGroup.Item className={styles.totalItem}>
-						<Row className={styles.totalRow}>
-							<Col xs={8}>
-								<p>TOTAL</p>
-							</Col>
-							<Col xs={4} className={styles.totalPrice}>
-								<p>R{total}</p>
-							</Col>
-						</Row>
-					</ListGroup.Item>
-				</AnimatedComponent>
-				<AnimatedComponent>
-					<ListGroup.Item className={styles.checkoutItem}>
-						<Row className={styles.checkoutRow}>
-							<Col>
+				<h1 className={styles.cartTitle}>Your Cart</h1>
+				<Row>
+					<Col md={8}>
+						<ListGroup variant="flush">
+							{cartItems.map((item, index) => (
+								<AnimatedComponent key={index}>
+									<ListGroup.Item className={styles.cartItem}>
+										<Row className={styles.cartRow}>
+											<Col xs={3} className={styles.imageCol}>
+												<ResponsiveImage
+													className={styles.image}
+													alt={item.name}
+													src={item.image}
+													height={100}
+													width={100}
+												/>
+											</Col>
+											<Col xs={6} className={styles.detailsCol}>
+												<h5>{item.name}</h5>
+												<p className={styles.itemSize}>Size: {item.size}</p>
+												<p className={styles.itemDescription}>
+													{item.description}
+												</p>
+											</Col>
+											<Col xs={3} className={styles.priceCol}>
+												<p className={styles.price}>R{item.price}</p>
+												<Button
+													variant="link"
+													className={styles.removeButton}
+												>
+													Remove
+												</Button>
+											</Col>
+										</Row>
+									</ListGroup.Item>
+								</AnimatedComponent>
+							))}
+						</ListGroup>
+					</Col>
+					<Col md={4}>
+						<AnimatedComponent>
+							<div className={styles.cartSummary}>
+								<h4 className={styles.summaryTitle}>Order Summary</h4>
+								<div className={styles.subtotalRow}>
+									<span>Subtotal</span>
+									<span className={styles.subtotalPrice}>R{total}</span>
+								</div>
+								<div className={styles.totalRow}>
+									<span>Total</span>
+									<span className={styles.totalPrice}>R{total}</span>
+								</div>
 								<Button variant="dark" className={styles.checkoutButton}>
-									CHECKOUT
+									Proceed to Checkout
 								</Button>
-							</Col>
-						</Row>
-					</ListGroup.Item>
-				</AnimatedComponent>
+							</div>
+						</AnimatedComponent>
+					</Col>
+				</Row>
 			</Container>
 		</div>
 	);
