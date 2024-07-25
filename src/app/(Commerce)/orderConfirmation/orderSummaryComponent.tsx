@@ -4,7 +4,7 @@
 import { Row, Col } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import styles from './OrderSummary.module.scss';
+import styles from '../_styles/orderconfirmationComponent.module.scss';
 
 const OrderSummary = ({ isLoading, orderData }) => {
   return (

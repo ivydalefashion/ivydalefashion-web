@@ -1,0 +1,43 @@
+// styles/OrderConfirmation.module.scss
+.orderConfirmation {
+    padding: 2rem 0;
+  
+    h1 {
+      margin-bottom: 2rem;
+    }
+  
+    button {
+      border-radius: 0;
+    }
+  }
+  
+  // --------------------------------------styles/OrderSummary.module.scss
+  .summaryContainer {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  
+    h2 {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  // ------------------------------------styles/ItemsShipped.module.scss
+  .itemsContainer {
+    h2 {
+      margin-bottom: 1rem;
+    }
+  
+    table {
+      th, td {
+        vertical-align: middle;
+      }
+    }
+  }
+  
+  .productImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 1rem;
+  }

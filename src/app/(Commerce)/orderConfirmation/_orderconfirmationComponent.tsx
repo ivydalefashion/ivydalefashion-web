@@ -6,7 +6,7 @@ import { Container, Row, Col, Button, Table } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import OrderSummary from './orderSummaryComponent';
 import ItemsShipped from './itemShippedComponent';
-import styles from './OrderConfirmation.module.scss';
+import styles from '../_styles/orderconfirmationComponent.module.scss';
 
 const OrderConfirmation = () => {
   const [isLoading, setIsLoading] = useState(true);
