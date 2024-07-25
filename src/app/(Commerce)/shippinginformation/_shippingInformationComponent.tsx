@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import styles from '../_styles/shippingInformationComponent.module.scss';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,8 +13,10 @@ import { useRouter } from 'next/navigation';
 // Schema:
 const schema = yup.object().shape({
 	email: yup.string().email('Invalid email').required('Email is required.'),
+	country: yup.string().required('Please select a country'),
 	firstname: yup.string().required('First name is required.'),
 	lastname: yup.string().required('Last name is required.'),
+	companyname: yup.string(),
 	address: yup.string().required('Address is required.'),
 	city: yup.string().required('City is required.'),
 	province: yup.string().required('Province is required.'),
@@ -55,47 +57,98 @@ const ShippingInformationComponent = () => {
 										{errors.email.message}
 									</span>
 								)}
-								<input
-									className={`form-control shadow-none ${styles.input} ${styles.emailInput}`}
+								<FormControl
+									className={` shadow-none ${styles.input} ${styles.emailInput}`}
 									type="email"
 									{...register('email')}
-									id=""
+									id="email"
 									placeholder="Email address"
 								/>
 							</Form.Group>
 
 							{/* Email me news: */}
 							<Form.Group className="mb-3">
-								<Form.Check type="checkbox" label="Email me news and offers" />
+								<Form.Check className={styles.emailCheckbox} type="checkbox" label="Email me news and offers" />
 							</Form.Group>
 
 							{/* Region */}
 							<h2>Shipping Address</h2>
 							<Form.Group className="mb-3">
-								<Form.Select>
-									<option>Country/Region</option>
-									{/* Add more country options */}
+									{errors.country && (
+										<span className={styles.errorMessage}>
+											{errors.country.message}
+										</span>
+									)}
+								<Form.Select 
+									className={` shadow-none ${styles.input} `}
+									{...register('country')}
+									id="Shipping Address"
+									>
+									<option></option>
+									<option>Mzansi</option>
 								</Form.Select>
 							</Form.Group>
 
 							{/* First name and Last name */}
 							<Row className="mb-3">
-								<Col>
-									<Form.Control placeholder="First Name" />
+								<Col className={`mb-3`} xs={12} md={6} lg={6}>
+								{errors.firstname && (
+									<span className={styles.errorMessage}>
+										{errors.firstname.message}
+									</span>
+								)}
+									<Form.Control 
+										className={` shadow-none ${styles.input} `}
+										placeholder="First Name" 
+										type="text"
+										{...register('firstname')}
+										id="firstname"
+									/>
 								</Col>
-								<Col>
-									<Form.Control placeholder="Last Name" />
+								<Col xs={12} md={6} lg={6}>
+								{errors.lastname && (
+									<span className={styles.errorMessage}>
+										{errors.lastname.message}
+									</span>
+								)}
+									<Form.Control 
+										className={` shadow-none ${styles.input} `}
+										type="text"
+										{...register('lastname')}
+										id="lastname"
+										placeholder="Last Name" 
+									/>
 								</Col>
 							</Row>
 
 							{/* Company name */}
 							<Form.Group className="mb-3">
-								<Form.Control placeholder="Company Name" />
+							{errors.companyname && (
+									<span className={styles.errorMessage}>
+										{errors.companyname.message}
+									</span>
+								)}
+								<Form.Control 
+									{...register('companyname')}
+									type='text'
+									placeholder="Company Name" 
+									className={` shadow-none ${styles.input} `}
+									/>
 							</Form.Group>
 
 							{/* Address */}
 							<Form.Group className="mb-3">
-								<Form.Control placeholder="Address" />
+							{errors.address && (
+									<span className={styles.errorMessage}>
+										{errors.address.message}
+									</span>
+								)}
+								<Form.Control 
+								placeholder="Address" 
+								{...register('address')}
+								type='text'
+								className={` shadow-none ${styles.input} `}
+								/>
 							</Form.Group>
 
 							<Form.Group className="mb-3">
