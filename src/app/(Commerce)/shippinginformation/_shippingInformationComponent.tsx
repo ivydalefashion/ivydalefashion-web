@@ -68,22 +68,26 @@ const ShippingInformationComponent = () => {
 
 							{/* Email me news: */}
 							<Form.Group className="mb-3">
-								<Form.Check className={styles.emailCheckbox} type="checkbox" label="Email me news and offers" />
+								<Form.Check
+									className={styles.emailCheckbox}
+									type="checkbox"
+									label="Email me news and offers"
+								/>
 							</Form.Group>
 
 							{/* Region */}
 							<h2>Shipping Address</h2>
 							<Form.Group className="mb-3">
-									{errors.country && (
-										<span className={styles.errorMessage}>
-											{errors.country.message}
-										</span>
-									)}
-								<Form.Select 
+								{errors.country && (
+									<span className={styles.errorMessage}>
+										{errors.country.message}
+									</span>
+								)}
+								<Form.Select
 									className={` shadow-none ${styles.input} `}
 									{...register('country')}
 									id="Shipping Address"
-									>
+								>
 									<option></option>
 									<option>Mzansi</option>
 								</Form.Select>
@@ -92,62 +96,62 @@ const ShippingInformationComponent = () => {
 							{/* First name and Last name */}
 							<Row className="mb-3">
 								<Col className={`mb-3`} xs={12} md={6} lg={6}>
-								{errors.firstname && (
-									<span className={styles.errorMessage}>
-										{errors.firstname.message}
-									</span>
-								)}
-									<Form.Control 
+									{errors.firstname && (
+										<span className={styles.errorMessage}>
+											{errors.firstname.message}
+										</span>
+									)}
+									<Form.Control
 										className={` shadow-none ${styles.input} `}
-										placeholder="First Name" 
+										placeholder="First Name"
 										type="text"
 										{...register('firstname')}
 										id="firstname"
 									/>
 								</Col>
 								<Col xs={12} md={6} lg={6}>
-								{errors.lastname && (
-									<span className={styles.errorMessage}>
-										{errors.lastname.message}
-									</span>
-								)}
-									<Form.Control 
+									{errors.lastname && (
+										<span className={styles.errorMessage}>
+											{errors.lastname.message}
+										</span>
+									)}
+									<Form.Control
 										className={` shadow-none ${styles.input} `}
 										type="text"
 										{...register('lastname')}
 										id="lastname"
-										placeholder="Last Name" 
+										placeholder="Last Name"
 									/>
 								</Col>
 							</Row>
 
 							{/* Company name */}
 							<Form.Group className="mb-3">
-							{errors.companyname && (
+								{errors.companyname && (
 									<span className={styles.errorMessage}>
 										{errors.companyname.message}
 									</span>
 								)}
-								<Form.Control 
+								<Form.Control
 									{...register('companyname')}
-									type='text'
-									placeholder="Company Name" 
+									type="text"
+									placeholder="Company Name"
 									className={` shadow-none ${styles.input} `}
-									/>
+								/>
 							</Form.Group>
 
 							{/* Address */}
 							<Form.Group className="mb-3">
-							{errors.address && (
+								{errors.address && (
 									<span className={styles.errorMessage}>
 										{errors.address.message}
 									</span>
 								)}
-								<Form.Control 
-								placeholder="Address" 
-								{...register('address')}
-								type='text'
-								className={` shadow-none ${styles.input} `}
+								<Form.Control
+									placeholder="Address"
+									{...register('address')}
+									type="text"
+									className={` shadow-none ${styles.input} `}
 								/>
 							</Form.Group>
 

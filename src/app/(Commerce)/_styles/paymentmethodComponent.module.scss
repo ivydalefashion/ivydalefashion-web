@@ -1,0 +1,94 @@
+// styles/CheckoutPage.module.scss
+.checkoutPage {
+	padding: 2rem 0;
+  
+	h1 {
+	  margin-bottom: 2rem;
+	}
+  
+	h2 {
+	  margin-bottom: 1rem;
+	}
+  }
+  
+  .customRadio {
+	margin-bottom: 1rem;
+	padding: 1rem;
+	border: 1px solid #ccc;
+	transition: all 0.3s ease;
+  
+	&:hover {
+	  background-color: #f8f9fa;
+	}
+  
+	input[type="radio"] {
+	  margin-right: 0.5rem;
+	}
+  }
+  
+  .buttonGroup {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2rem;
+  
+	button {
+	  border-radius: 0;
+	}
+  }
+
+
+// ----------------------------- styles/OrderSummary.module.scss
+.orderSummary {
+	margin-bottom: 1rem;
+	border-radius: 0;
+  
+	:global(.card-header) {
+	  background-color: #f8f9fa;
+	  border-radius: 0;
+	}
+  }
+  
+  .summaryItem {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.5rem;
+  }
+  
+  .total {
+	font-weight: bold;
+	border-top: 1px solid #dee2e6;
+	padding-top: 0.5rem;
+	margin-top: 0.5rem;
+  }
+  
+  .confirmButton {
+	margin-top: 1rem;
+	border-radius: 0;
+  }
+
+// ---------------------------- styles/OrderReview.module.scss
+.orderReview {
+	border-radius: 0;
+  
+	:global(.card-header) {
+	  background-color: #f8f9fa;
+	  border-radius: 0;
+	}
+  }
+  
+  .reviewItem {
+	margin-bottom: 1rem;
+  
+	&:last-child {
+	  margin-bottom: 0;
+	}
+  
+	strong {
+	  display: block;
+	  margin-bottom: 0.25rem;
+	}
+  
+	p {
+	  margin-bottom: 0;
+	}
+  }

@@ -6,17 +6,15 @@
 
 	.mainContainer {
 		.mainRow {
-
-            .errorMessage{
-                color: $orange;
-            }
-            .emailCheckbox{
-                border-radius: 0px; // find a way to style this
-            }
-            .input{
-                border-radius: 0px;
-            }
-
+			.errorMessage {
+				color: $orange;
+			}
+			.emailCheckbox {
+				border-radius: 0px; // find a way to style this
+			}
+			.input {
+				border-radius: 0px;
+			}
 
 			.returnToCartButton {
 			}

@@ -32,6 +32,7 @@
 		"react-dom": "18.2.0",
 		"react-hook-form": "^7.45.1",
 		"react-icons": "^4.10.1",
+		"react-loading-skeleton": "^3.4.0",
 		"sass": "^1.77.6",
 		"yup": "^1.4.0"
 	},
