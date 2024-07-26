@@ -6,9 +6,15 @@ import Link from 'next/link';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import styles from '../_styles/shippingMethodComponent.module.scss';
 import { motion } from 'framer-motion';
+import {useRouter} from 'next/router';
 
 const ShippingMethodComponent = () => {
+	const router = useRouter();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+	const handleContinueToPayment = ()=>{
+		router.push('/paymentmethod');
+	}
 
 	return (
 		<div className={styles.main}>
@@ -76,7 +82,7 @@ const ShippingMethodComponent = () => {
 								<Button className={styles.returnToInformation} variant="link">
 									← Return to information
 								</Button>
-								<Button className={styles.continueToPayment} variant="primary">
+								<Button className={styles.continueToPayment} onClick={handleContinueToPayment} variant="primary">
 									Continue to payment
 								</Button>
 							</div>

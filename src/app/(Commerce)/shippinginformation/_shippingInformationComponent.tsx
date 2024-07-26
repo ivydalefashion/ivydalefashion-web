@@ -40,6 +40,7 @@ const ShippingInformationComponent = () => {
 	const onSubmit = (data: any) => {
 		console.log(data);
 		// Handle form submission here
+		router.push('/shippingmethod')
 	};
 
 	return (
@@ -190,8 +191,9 @@ const ShippingInformationComponent = () => {
 									← Return to cart
 								</Button>
 								<Button
+									onClick={handleContinueToShipping}
 									className={styles.continueToButtonButton}
-									type="submit"
+									// type="submit"
 									variant="primary"
 								>
 									Continue to shipping
