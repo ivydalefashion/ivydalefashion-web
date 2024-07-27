@@ -10,14 +10,11 @@ const PersonalDetails = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	return (
-		<div>
-			<Container>
+		<div className={styles.personalDetailsMain}>
+			<Container className={styles.mainContainer}>
 				<Row>
 					<h1>Personal details</h1>
-
-					<Col className={`${styles.detailsCol}`} lg={8} md={8} sm={12}>
-						<h2>Personal Details</h2>
-						<Card className="mb-3">
+						<Card className={styles.card}>
 							<Card.Body>
 								<Row className="align-items-center">
 									<Col>
@@ -25,7 +22,7 @@ const PersonalDetails = () => {
 										<div>Romeo Mamphekgo</div>
 									</Col>
 									<Col xs="auto">
-										<Button variant="secondary" size="sm">
+										<Button className={`${styles.button}`} variant="secondary" >
 											Edit
 										</Button>
 									</Col>
@@ -33,7 +30,7 @@ const PersonalDetails = () => {
 							</Card.Body>
 						</Card>
 
-						<Card className="mb-3">
+						<Card className={styles.card}>
 							<Card.Body>
 								<Row className="align-items-center">
 									<Col>
@@ -41,7 +38,7 @@ const PersonalDetails = () => {
 										<div>RomeoMamphekgo@gmail.com</div>
 									</Col>
 									<Col xs="auto">
-										<Button variant="secondary" size="sm">
+										<Button  className={`${styles.button}`}  variant="secondary" >
 											Edit
 										</Button>
 									</Col>
@@ -49,7 +46,7 @@ const PersonalDetails = () => {
 							</Card.Body>
 						</Card>
 
-						<Card className="mb-3">
+						<Card className={styles.card}>
 							<Card.Body>
 								<Row className="align-items-center">
 									<Col>
@@ -57,7 +54,7 @@ const PersonalDetails = () => {
 										<div>**************</div>
 									</Col>
 									<Col xs="auto">
-										<Button variant="secondary" size="sm">
+										<Button  className={`${styles.button}`}  variant="secondary" >
 											Reset
 										</Button>
 									</Col>
@@ -65,7 +62,7 @@ const PersonalDetails = () => {
 							</Card.Body>
 						</Card>
 
-						<Card className="mb-3">
+						<Card className={styles.card}>
 							<Card.Body>
 								<Row className="align-items-center">
 									<Col>
@@ -73,14 +70,13 @@ const PersonalDetails = () => {
 										<div>+27 67 676 6767</div>
 									</Col>
 									<Col xs="auto">
-										<Button variant="secondary" size="sm">
+										<Button  className={`${styles.button}`}  variant="secondary" >
 											Edit
 										</Button>
 									</Col>
 								</Row>
 							</Card.Body>
 						</Card>
-					</Col>
 				</Row>
 			</Container>
 		</div>

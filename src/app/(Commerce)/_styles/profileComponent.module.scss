@@ -92,5 +92,33 @@
 				}
 			}
 		}
+
+		.detailsCol{
+			border: 1px solid red;
+
+			// Personal details component------------------------------:
+			.personalDetailsMain{
+				.mainContainer{
+
+					.card{
+						margin-bottom: 13px;
+						border-radius: 0px;
+
+						
+						.button{
+							border-radius: 0px;
+							border: 1px solid $orange;
+							background-color: $orange;
+							// width: 50px;
+
+							&:hover{
+								background-color: $dark-blue;
+								border: 3px solid $dark-blue;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

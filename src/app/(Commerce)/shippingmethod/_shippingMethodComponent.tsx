@@ -1,18 +1,23 @@
 'use client';
 
 // Import necessary modules and components
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import styles from '../_styles/shippingMethodComponent.module.scss';
 import { motion } from 'framer-motion';
-import {useRouter} from 'next/router';
+import {useRouter} from 'next/navigation';
 
 const ShippingMethodComponent = () => {
 	const router = useRouter();
+
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
+	useEffect(()=>{
+	}, []);
+
 	const handleContinueToPayment = ()=>{
+	
 		router.push('/paymentmethod');
 	}
 
