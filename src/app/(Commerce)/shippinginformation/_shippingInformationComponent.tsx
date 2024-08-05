@@ -20,6 +20,7 @@ const schema = yup.object().shape({
 	address: yup.string().required('Address is required.'),
 	city: yup.string().required('City is required.'),
 	province: yup.string().required('Province is required.'),
+	suburb: yup.string(),
 	postalcode: yup.string().required('Postal code is required.'),
 	phonenumber: yup.string().required('Phone number is required.'),
 });
@@ -46,6 +47,7 @@ const ShippingInformationComponent = () => {
 	return (
 		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
+				<AlertDismissible color='orange' information={'Fill in all neccessary fields.'}></AlertDismissible>
 				<Row className={styles.mainRow}>
 					<Col md={8}>
 						<h2>Contact</h2>
@@ -70,7 +72,7 @@ const ShippingInformationComponent = () => {
 							{/* Email me news: */}
 							<Form.Group className="mb-3">
 								<Form.Check
-									className={styles.emailCheckbox}
+									className={styles.checkbox}
 									type="checkbox"
 									label="Email me news and offers"
 								/>
@@ -155,31 +157,49 @@ const ShippingInformationComponent = () => {
 									className={` shadow-none ${styles.input} `}
 								/>
 							</Form.Group>
-
+							
+							{/* Apartment */}
 							<Form.Group className="mb-3">
-								<Form.Control placeholder="Apartment, Suite etc." />
+								<Form.Control placeholder="Suburb" 
+								{...register('suburb')}
+								type="text"
+								className={` shadow-none ${styles.input} `} />
 							</Form.Group>
 
+							{/*  City, province, postal code */}
 							<Row className="mb-3">
 								<Col>
-									<Form.Control placeholder="City" />
+									<Form.Control placeholder="City"
+									{...register('city')}
+									type="text"
+									className={` shadow-none ${styles.input} `} />
 								</Col>
 								<Col>
-									<Form.Control placeholder="Province" />
+									<Form.Control placeholder="Province"
+									{...register('province')}
+									type="text"
+									className={` shadow-none ${styles.input} `} />
 								</Col>
 								<Col>
-									<Form.Control placeholder="Postal Code" />
+									<Form.Control placeholder="Postal Code"
+									{...register('postalcode')}
+									type="text"
+									className={` shadow-none ${styles.input} `} />
 								</Col>
 							</Row>
 
 							{/* Phone number */}
 							<Form.Group className="mb-3">
-								<Form.Control placeholder="Phone Number" />
+								<Form.Control placeholder="Phone Number"
+								{...register('phonenumber')}
+								type="text"
+								className={` shadow-none ${styles.input} `} />
 							</Form.Group>
 
 							{/* Save info for next time */}
 							<Form.Group className="mb-3">
 								<Form.Check
+									className={styles.checkbox}
 									type="checkbox"
 									label="Save this information for next time"
 								/>
@@ -193,7 +213,6 @@ const ShippingInformationComponent = () => {
 								<Button
 									onClick={handleContinueToShipping}
 									className={styles.continueToButtonButton}
-									// type="submit"
 									variant="primary"
 								>
 									Continue to shipping
@@ -201,13 +220,13 @@ const ShippingInformationComponent = () => {
 							</div>
 						</Form>
 					</Col>
-					<Col md={4}>
-						<div className="border p-3">
+					<Col className={styles.summaryCol} md={4}>
+						<div  className={styles.summaryContainer}>
 							<h3>Order Summary</h3>
 							<p>1 Item: R350</p>
 							<p>Delivery: R50</p>
 							<hr />
-							<h4>TO PAY: R354</h4>
+							<h4 className={styles.paymentAmountText}>TO PAY: <span className={styles.paymentAmount}>R354</span> </h4>
 						</div>
 					</Col>
 				</Row>
