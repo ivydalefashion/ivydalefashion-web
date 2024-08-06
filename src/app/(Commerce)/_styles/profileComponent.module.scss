@@ -1,168 +1,166 @@
 @import './main.module.scss';
 
 .main {
-  .mainContainer {
-    margin-top: 50px;
+	.mainContainer {
+		margin-top: 50px;
 
-    .profileCol {
-      .profileCard {
-        border-radius: 0px;
-        border: 1px solid black;
+		.profileCol {
+			.profileCard {
+				border-radius: 0px;
+				border: 1px solid black;
 
-        .accordion {
-          .accordionItem {
-            // background-color: pink;
-            margin-bottom: 10px;
-            border: none;
+				.accordion {
+					.accordionItem {
+						// background-color: pink;
+						margin-bottom: 10px;
+						border: none;
 
-            .accordionHeader {
-              button {
-                border-radius: 0px;
-                padding: 15px;
-                display: flex;
-                align-items: center;
-                color: #495057;
-                font-weight: 600;
-                transition: all 0.3s ease;
-                border: 1px solid #e9ecef;
+						.accordionHeader {
+							button {
+								border-radius: 0px;
+								padding: 15px;
+								display: flex;
+								align-items: center;
+								color: #495057;
+								font-weight: 600;
+								transition: all 0.3s ease;
+								border: 1px solid #e9ecef;
 
-                // Remove default Bootstrap active/focus styles
-                &.active,
-                &:focus,
-                &:active {
-                  background-color: $orange;
-                  color: white;
-                  border-color: $orange;
-                  box-shadow: none;
-                }
+								// Remove default Bootstrap active/focus styles
+								&.active,
+								&:focus,
+								&:active {
+									background-color: $orange;
+									color: white;
+									border-color: $orange;
+									box-shadow: none;
+								}
 
-                &:hover {
-                  background-color: #e9ecef;
-                }
+								&:hover {
+									background-color: #e9ecef;
+								}
 
-                &:focus {
-                  box-shadow: none;
-                  outline: none;
-                }
+								&:focus {
+									box-shadow: none;
+									outline: none;
+								}
 
-                i {
-                  margin-right: 15px;
-                  font-size: 1.2em;
-                  color: #6c757d;
-                }
-              }
-            }
+								i {
+									margin-right: 15px;
+									font-size: 1.2em;
+									color: #6c757d;
+								}
+							}
+						}
 
-            .accordionBody {
+						.accordionBody {
+							// this is what you want daniel
+							// inside this, is where the active is brocken:
+							.listgroupItem {
+								// background-color: pink;
+								border: 1px solid #e5e5e5;
+								border-radius: 0px;
+								// padding: 0.5rem 1rem;
+								margin-bottom: 0.5rem;
+								box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-				// this is what you want daniel
-				// inside this, is where the active is brocken:
-              	.listgroupItem {
+								// .navlink {
+								// 	border: 1px solid red;
+								// 	.listgroupItem {
+								// 		// background-color: pink;
+								// 		a {
+								// 			background-color: green;
+								// 		}
+								// 	}
 
-					// background-color: pink;
-					border: 1px solid #e5e5e5;
-					border-radius: 0px;
-					// padding: 0.5rem 1rem;
-					margin-bottom: 0.5rem;
-					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+								// 	.nav-pills .nav-link.active {
+								// 		background-color: green;
+								// 	}
+								// }
 
-					// .navlink {
-					// 	border: 1px solid red;
-					// 	.listgroupItem {
-					// 		// background-color: pink;
-					// 		a {
-					// 			background-color: green;
-					// 		}
-					// 	}
+								a {
+									border: 3px solid black;
+								}
 
-					// 	.nav-pills .nav-link.active {
-					// 		background-color: green;
-					// 	}
-					// }
+								// .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+								// 	background-color: #495057;
+								// }
+								// a{
+								// 	&:active{
+								// 		background-color: green;
+								// 	}
+								// }
+								// a{
+								// 	background-color: orange;
+								// }
 
-					a{
-						border: 3px solid black;
+								&:hover {
+									border: 1px solid black;
+									// background-color: #f8f9fa;
+									// border-color: #ddd;
+									// box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+									cursor: pointer;
+								}
+
+								&.active {
+									background-color: $orange;
+									color: white;
+									border-color: $orange;
+								}
+							}
+						}
 					}
+				}
+			}
+		}
 
-					// .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
-					// 	background-color: #495057;
-					// }
-					// a{
-					// 	&:active{
-					// 		background-color: green;
-					// 	}
-					// }
-					// a{
-					// 	background-color: orange;
-					// }
+		.detailsCol {
+			border: 1px solid red;
 
-					&:hover {
-						border: 1px solid black;
-						// background-color: #f8f9fa;
-						// border-color: #ddd;
-						// box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-						cursor: pointer;
+			.personalDetailsMain {
+				.mainContainer {
+					.card {
+						margin-bottom: 13px;
+						border-radius: 0px;
+
+						.button {
+							border-radius: 0px;
+							border: 1px solid $orange;
+							background-color: $orange;
+
+							&:hover {
+								background-color: darken($orange, 10%);
+							}
+						}
 					}
-
-					&.active {
-						background-color: $orange;
-						color: white;
-						border-color: $orange;
-					}
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .detailsCol {
-      border: 1px solid red;
-
-      .personalDetailsMain {
-        .mainContainer {
-          .card {
-            margin-bottom: 13px;
-            border-radius: 0px;
-
-            .button {
-              border-radius: 0px;
-              border: 1px solid $orange;
-              background-color: $orange;
-
-              &:hover {
-                background-color: darken($orange, 10%);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+				}
+			}
+		}
+	}
 }
 // .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
 // 	background-color: orange;
 // }
 // Button styles within the accordion settings section
 .accordionSettings {
-  .accordionSettingsButton {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
-    color: black;
-    transition: background-color 0.3s ease;
+	.accordionSettingsButton {
+		width: 100%;
+		padding: 0.75rem;
+		font-size: 1rem;
+		border: none;
+		color: black;
+		transition: background-color 0.3s ease;
 
-    &:focus,
-    &:active {
-      background-color: $orange;
-      border-color: $orange;
-      box-shadow: none;
-      outline: none;
-    }
+		&:focus,
+		&:active {
+			background-color: $orange;
+			border-color: $orange;
+			box-shadow: none;
+			outline: none;
+		}
 
-    &:hover {
-      background-color: darken($orange, 10%);
-    }
-  }
+		&:hover {
+			background-color: darken($orange, 10%);
+		}
+	}
 }

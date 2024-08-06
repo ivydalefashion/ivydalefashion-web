@@ -26,22 +26,21 @@ const ShippingMethodComponent = () => {
 				animate={{ opacity: 1 }}
 				className={styles.mainMotionDiv}
 			>
-			
-			<Container className={styles.breadCrumbContainer}>
-				<nav aria-label="breadcrumb">
-					<ol className="breadcrumb">
-						{/* <li className="breadcrumb-item"><a href="#">Delivery</a></li> */}
-						<li className="breadcrumb-item"><a href="#">Shipping Information</a></li>
-						<li className="breadcrumb-item active" aria-current="page">Shipping Method</li>
-					</ol>
-				</nav>
-			</Container>
-			
+				<Container className={styles.breadCrumbContainer}>
+					<nav aria-label="breadcrumb">
+						<ol className="breadcrumb">
+							{/* <li className="breadcrumb-item"><a href="#">Delivery</a></li> */}
+							<li className="breadcrumb-item">
+								<a href="#">Shipping Information</a>
+							</li>
+							<li className="breadcrumb-item active" aria-current="page">
+								Shipping Method
+							</li>
+						</ol>
+					</nav>
+				</Container>
+
 				<Container className={styles.mainContainer}>
-
-				
-
-
 					<Row className={styles.mainRow}>
 						<Col className={styles.leftCol} md={8}>
 							<motion.div

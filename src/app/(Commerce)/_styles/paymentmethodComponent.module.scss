@@ -12,41 +12,37 @@
 		margin-bottom: 1rem;
 	}
 
-	.mainRow{
-
+	.mainRow {
 		// Radio button boxes
 		.customRadio {
 			margin-bottom: 1rem;
 			padding: 1rem;
 			border: 1px solid black;
 			transition: all 0.3s ease;
-		  
-			&:hover {
-			  background-color: #f8f9fa;
-			}
-		  
-			input[type='radio'] {
-			  margin-right: 0.5rem;
-			  border: 1px solid black;
-			  
-			  &:checked {
-				background-color: $orange;
-				border-color: $orange;
-				box-shadow: 0 0 5px 2px $orange;
 
-		  
-				// For custom appearance, you may need to hide the default radio button and style a sibling element
-				& + label::before {
-				  background-color: $orange;
-				  border-color: $orange;
-				}
-			  }
+			&:hover {
+				background-color: #f8f9fa;
 			}
-		  }
+
+			input[type='radio'] {
+				margin-right: 0.5rem;
+				border: 1px solid black;
+
+				&:checked {
+					background-color: $orange;
+					border-color: $orange;
+					box-shadow: 0 0 5px 2px $orange;
+
+					// For custom appearance, you may need to hide the default radio button and style a sibling element
+					& + label::before {
+						background-color: $orange;
+						border-color: $orange;
+					}
+				}
+			}
+		}
 	}
 }
-
-
 
 .buttonGroup {
 	display: flex;
