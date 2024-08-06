@@ -209,8 +209,6 @@ const ProfilePageComponent = () => {
 								</Tab.Pane>
 							</Tab.Content>
 						</Col>
-
-						
 					</Row>
 				</Container>
 			</Tab.Container>

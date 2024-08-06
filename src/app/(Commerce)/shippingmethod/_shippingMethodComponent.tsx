@@ -6,20 +6,18 @@ import Link from 'next/link';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import styles from '../_styles/shippingMethodComponent.module.scss';
 import { motion } from 'framer-motion';
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const ShippingMethodComponent = () => {
 	const router = useRouter();
 
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
-	useEffect(()=>{
-	}, []);
+	useEffect(() => {}, []);
 
-	const handleContinueToPayment = ()=>{
-	
+	const handleContinueToPayment = () => {
 		router.push('/paymentmethod');
-	}
+	};
 
 	return (
 		<div className={styles.main}>
@@ -28,7 +26,22 @@ const ShippingMethodComponent = () => {
 				animate={{ opacity: 1 }}
 				className={styles.mainMotionDiv}
 			>
+			
+			<Container className={styles.breadCrumbContainer}>
+				<nav aria-label="breadcrumb">
+					<ol className="breadcrumb">
+						{/* <li className="breadcrumb-item"><a href="#">Delivery</a></li> */}
+						<li className="breadcrumb-item"><a href="#">Shipping Information</a></li>
+						<li className="breadcrumb-item active" aria-current="page">Shipping Method</li>
+					</ol>
+				</nav>
+			</Container>
+			
 				<Container className={styles.mainContainer}>
+
+				
+
+
 					<Row className={styles.mainRow}>
 						<Col className={styles.leftCol} md={8}>
 							<motion.div
@@ -87,7 +100,11 @@ const ShippingMethodComponent = () => {
 								<Button className={styles.returnToInformation} variant="link">
 									← Return to information
 								</Button>
-								<Button className={styles.continueToPayment} onClick={handleContinueToPayment} variant="primary">
+								<Button
+									className={styles.continueToPayment}
+									onClick={handleContinueToPayment}
+									variant="primary"
+								>
 									Continue to payment
 								</Button>
 							</div>

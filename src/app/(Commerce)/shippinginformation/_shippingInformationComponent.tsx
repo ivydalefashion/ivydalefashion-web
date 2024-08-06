@@ -41,13 +41,16 @@ const ShippingInformationComponent = () => {
 	const onSubmit = (data: any) => {
 		console.log(data);
 		// Handle form submission here
-		router.push('/shippingmethod')
+		router.push('/shippingmethod');
 	};
 
 	return (
 		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
-				<AlertDismissible color='orange' information={'Fill in all neccessary fields.'}></AlertDismissible>
+				<AlertDismissible
+					color="orange"
+					information={'Fill in all neccessary fields.'}
+				></AlertDismissible>
 				<Row className={styles.mainRow}>
 					<Col md={8}>
 						<h2>Contact</h2>
@@ -157,43 +160,53 @@ const ShippingInformationComponent = () => {
 									className={` shadow-none ${styles.input} `}
 								/>
 							</Form.Group>
-							
+
 							{/* Apartment */}
 							<Form.Group className="mb-3">
-								<Form.Control placeholder="Suburb" 
-								{...register('suburb')}
-								type="text"
-								className={` shadow-none ${styles.input} `} />
+								<Form.Control
+									placeholder="Suburb"
+									{...register('suburb')}
+									type="text"
+									className={` shadow-none ${styles.input} `}
+								/>
 							</Form.Group>
 
 							{/*  City, province, postal code */}
 							<Row className="mb-3">
 								<Col>
-									<Form.Control placeholder="City"
-									{...register('city')}
-									type="text"
-									className={` shadow-none ${styles.input} `} />
+									<Form.Control
+										placeholder="City"
+										{...register('city')}
+										type="text"
+										className={` shadow-none ${styles.input} `}
+									/>
 								</Col>
 								<Col>
-									<Form.Control placeholder="Province"
-									{...register('province')}
-									type="text"
-									className={` shadow-none ${styles.input} `} />
+									<Form.Control
+										placeholder="Province"
+										{...register('province')}
+										type="text"
+										className={` shadow-none ${styles.input} `}
+									/>
 								</Col>
 								<Col>
-									<Form.Control placeholder="Postal Code"
-									{...register('postalcode')}
-									type="text"
-									className={` shadow-none ${styles.input} `} />
+									<Form.Control
+										placeholder="Postal Code"
+										{...register('postalcode')}
+										type="text"
+										className={` shadow-none ${styles.input} `}
+									/>
 								</Col>
 							</Row>
 
 							{/* Phone number */}
 							<Form.Group className="mb-3">
-								<Form.Control placeholder="Phone Number"
-								{...register('phonenumber')}
-								type="text"
-								className={` shadow-none ${styles.input} `} />
+								<Form.Control
+									placeholder="Phone Number"
+									{...register('phonenumber')}
+									type="text"
+									className={` shadow-none ${styles.input} `}
+								/>
 							</Form.Group>
 
 							{/* Save info for next time */}
@@ -221,12 +234,14 @@ const ShippingInformationComponent = () => {
 						</Form>
 					</Col>
 					<Col className={styles.summaryCol} md={4}>
-						<div  className={styles.summaryContainer}>
+						<div className={styles.summaryContainer}>
 							<h3>Order Summary</h3>
 							<p>1 Item: R350</p>
 							<p>Delivery: R50</p>
 							<hr />
-							<h4 className={styles.paymentAmountText}>TO PAY: <span className={styles.paymentAmount}>R354</span> </h4>
+							<h4 className={styles.paymentAmountText}>
+								TO PAY: <span className={styles.paymentAmount}>R354</span>{' '}
+							</h4>
 						</div>
 					</Col>
 				</Row>

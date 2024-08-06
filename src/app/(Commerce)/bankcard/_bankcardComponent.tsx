@@ -32,11 +32,7 @@ const BankCardComponent = () => {
 		router.push('/commerce');
 	};
 
-	return (
-		<div>
-			bank card component
-		</div>
-	);
+	return <div>bank card component</div>;
 };
 
 export default BankCardComponent;

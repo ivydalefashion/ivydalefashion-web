@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react'
+import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import styles from '../_styles/paymentmethodComponent.module.scss';
 
-const OrderSummary = ({ total, delivery } : any) => {
+const OrderSummary = ({ total, delivery }: any) => {
 	return (
 		<div>
 			<Card className={styles.orderSummary}>
