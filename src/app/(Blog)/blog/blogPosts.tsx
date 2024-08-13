@@ -1,67 +1,58 @@
 'use client';
-
-import React from 'react';
+// pages/blog.js
 import { Container, Row, Col } from 'react-bootstrap';
-import styles from '../_styles/blogPost.module.scss'; // styling
 import Image from 'next/image';
+import ArticleCard from './ArticleCard';
 
-// images:
-// import blogimage1 from './blogimage1.jpeg'
-// import blogimage2 from './blogimage2.jpeg'
-// import blogimage3 from './blogimage3.jpeg'
-// import blogimage4 from './blogimage4.jpeg'
-// import blogimage6 from './blogimage6.jpeg'
-// import blogimage7 from './blogimage7.jpeg'
-// import blogimage8 from './blogimage8.jpeg'
+export default function BlogPage() {
+  const articles = [
+    {
+      id: 1,
+      title: "All Things Fashion",
+      excerpt: "Explore the latest trends in street style and high fashion.",
+      image: "/blogimage1.jpeg",
+      category: "Fashion Trends"
+    },
+    {
+      id: 2,
+      title: "Essential New Drop",
+      excerpt: "Discover our latest collection of must-have urban wear.",
+      image: "/blogimage2.jpeg",
+      category: "New Arrivals"
+    },
+    {
+      id: 3,
+      title: "Outerwear Essentials",
+      excerpt: "Stay stylish and warm with our curated selection of jackets.",
+      image: "/blogimage3.jpeg",
+      category: "Style Guide"
+    },
+    {
+      id: 4,
+      title: "Monochrome Magic",
+      excerpt: "Learn how to master the art of monochromatic outfits.",
+      image: "/blogimage4.jpeg",
+      category: "Style Tips"
+    },
+    {
+      id: 5,
+      title: "Streetwear Revolution",
+      excerpt: "Dive into the world of contemporary streetwear aesthetics.",
+      image: "/blogimage6.jpeg",
+      category: "Fashion Culture"
+    }
+  ];
 
-const BlogPostsComponent = () => {
-	return (
-		<div>
-			<Container className={styles.titleContainer}>
-				<h3> all things fashion...</h3>
-			</Container>
-
-			<Container className={styles.mainContainer}>
-				<Row>
-					<Col className={styles.col} sm={12} md={6} lg={4}>
-						<Image
-							className={styles.mainContainerImages}
-							src="/blogimage1.jpeg"
-							alt="Picture of the author"
-							width={400}
-							height={600}
-						/>
-						<div className={styles.intro}>
-							<h1>HELLO WORLD</h1>
-							<p>
-								The <span>Cheeta</span> Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Possimus recusandae excepturi maxime enim nisi
-								harum
-							</p>
-						</div>
-					</Col>
-
-					<Col className={styles.col} sm={12} md={6} lg={4}>
-						<Image
-							className={styles.mainContainerImages}
-							src="/blogimage2.jpeg"
-							alt="Picture of the author"
-							width={400}
-							height={600}
-						/>
-						<div className={styles.intro}>
-							<h1>HELLO WORLD</h1>
-							<p>
-								The <span>Cheeta</span> Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Possimus recusandae excepturi maxime enim nisi
-								harum
-							</p>
-						</div>
-					</Col>
-				</Row>
-			</Container>
-		</div>
-	);
-};
-
-export default BlogPostsComponent;
+  return (
+    <Container>
+      <h1 className="text-center my-5">IVY</h1>
+      <Row xs={1} md={2} lg={3} className="g-4">
+        {articles.map((article) => (
+          <Col key={article.id}>
+            <ArticleCard article={article} />
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  );
+}
