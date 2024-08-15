@@ -1,5 +1,13 @@
 @import './main.module.scss';
 
+// Assuming you are targeting the nav-link inside a specific container
+.nav-pills .nav-link.active {
+	color: #000; // Set the text color
+	background-color: transparent !important; // Remove the background color
+	border-color: transparent; // Remove the border color if any
+	box-shadow: none; // Remove any shadow effect
+}
+  
 .main {
 	.mainContainer {
 		margin-top: 50px;
@@ -11,7 +19,6 @@
 
 				.accordion {
 					.accordionItem {
-						// background-color: pink;
 						margin-bottom: 10px;
 						border: none;
 
@@ -26,30 +33,13 @@
 								transition: all 0.3s ease;
 								border: 1px solid #e9ecef;
 
-								// Remove default Bootstrap active/focus styles
-								&.active,
-								&:focus,
-								&:active {
+								&:focus{
 									background-color: $orange;
 									color: white;
-									border-color: $orange;
-									box-shadow: none;
-								}
-
-								&:hover {
-									background-color: #e9ecef;
-								}
-
-								&:focus {
 									box-shadow: none;
 									outline: none;
 								}
 
-								i {
-									margin-right: 15px;
-									font-size: 1.2em;
-									color: #6c757d;
-								}
 							}
 						}
 
@@ -57,55 +47,14 @@
 							// this is what you want daniel
 							// inside this, is where the active is brocken:
 							.listgroupItem {
-								// background-color: pink;
-								border: 1px solid #e5e5e5;
 								border-radius: 0px;
-								// padding: 0.5rem 1rem;
 								margin-bottom: 0.5rem;
-								box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-								// .navlink {
-								// 	border: 1px solid red;
-								// 	.listgroupItem {
-								// 		// background-color: pink;
-								// 		a {
-								// 			background-color: green;
-								// 		}
-								// 	}
-
-								// 	.nav-pills .nav-link.active {
-								// 		background-color: green;
-								// 	}
-								// }
-
-								a {
-									border: 3px solid black;
-								}
-
-								// .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
-								// 	background-color: #495057;
-								// }
-								// a{
-								// 	&:active{
-								// 		background-color: green;
-								// 	}
-								// }
-								// a{
-								// 	background-color: orange;
-								// }
-
+								border: 1px solid black;
+								
 								&:hover {
-									border: 1px solid black;
-									// background-color: #f8f9fa;
-									// border-color: #ddd;
-									// box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+									border: 1px solid $orange;
+									box-shadow: 0 6px 10px rgba($orange, 0.4);
 									cursor: pointer;
-								}
-
-								&.active {
-									background-color: $orange;
-									color: white;
-									border-color: $orange;
 								}
 							}
 						}

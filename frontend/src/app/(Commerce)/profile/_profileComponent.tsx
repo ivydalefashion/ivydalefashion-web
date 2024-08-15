@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Tab from 'react-bootstrap/Tab';
 import Nav from 'react-bootstrap/Nav';
 
+//
+import './_profile.css';
+
 // Components:
 import InvoicesComponent from './invoicesComponent';
 import OrdersComponent from './ordersComponent';
