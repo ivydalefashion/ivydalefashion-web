@@ -4,18 +4,18 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
 
-const ReturnsComponents = () => {
+const BillingAddressComponent = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	return (
 		<div>
 			<Container>
 				<Row>
-					<h1>RETURNS</h1>
+					<h1>BILLING </h1>
 				</Row>
 			</Container>
 		</div>
 	);
 };
 
-export default ReturnsComponents;
+export default BillingAddressComponent;

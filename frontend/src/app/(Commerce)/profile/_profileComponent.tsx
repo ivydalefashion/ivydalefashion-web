@@ -16,9 +16,11 @@ import InvoicesComponent from './invoicesComponent';
 import OrdersComponent from './ordersComponent';
 import ReturnsComponent from './returnsComponent';
 import PersonalDetailsComponent from './personalDetailsComponent';
+import CardDetailsComponent from './cardDetailsComponent';
+import BillingAddressComponent from './billingAddressComponent';
 
 const ProfilePageComponent = () => {
-	const [activeKey, setActiveKey] = useState<any>(null);
+	const [activeKey, setActiveKey] = useState<any>(0);
 
 	const handleAccordionToggle = (eventKey: any) => {
 		setActiveKey(activeKey === eventKey ? null : eventKey);
@@ -28,7 +30,7 @@ const ProfilePageComponent = () => {
 		<div className={`${styles.main}`}>
 			<MainNavbar></MainNavbar>
 
-			<Tab.Container id="left-tabs-example" defaultActiveKey="first">
+			<Tab.Container id="left-tabs-example" defaultActiveKey="personaldetails">
 				<Container className={`${styles.mainContainer}`}>
 					<Row>
 						<Col className={`${styles.profileCol}`} lg={4} md={4} sm={12}>
@@ -44,6 +46,8 @@ const ProfilePageComponent = () => {
 											activeKey={activeKey}
 											onSelect={handleAccordionToggle}
 											className={styles.accordion}
+											defaultActiveKey="0"
+
 										>
 											<Accordion.Item
 												eventKey="0"
@@ -54,6 +58,7 @@ const ProfilePageComponent = () => {
 												>
 													<i className="bi bi-cart"></i> Orders
 												</Accordion.Header>
+
 												<Accordion.Body
 													className={`${styles.accordionBody}`}
 												>
@@ -103,6 +108,9 @@ const ProfilePageComponent = () => {
 												</Accordion.Body>
 											</Accordion.Item>
 
+											{/* ---------------------------------------------------------- */}
+											
+											{/* Accordion Item: Payment details */}
 											<Accordion.Item
 												className={`${styles.accordionItem}`}
 												eventKey="1"
@@ -113,15 +121,26 @@ const ProfilePageComponent = () => {
 													<i className="bi bi-credit-card"></i> Payment
 													Details
 												</Accordion.Header>
-												<Accordion.Body>
+
+												<Accordion.Body className={`${styles.accordionBody}`}>
 													<ListGroup variant="flush">
-														<ListGroup.Item>
-															Card Details
-														</ListGroup.Item>
+														<Nav.Link
+															className={styles.navlink}
+															eventKey="carddetails"
+														>
+															<ListGroup.Item
+																className={styles.listgroupItem}
+															>
+																Card Details
+															</ListGroup.Item>
+														</Nav.Link>
 													</ListGroup>
 												</Accordion.Body>
 											</Accordion.Item>
 
+											{/* ---------------------------------------------------------- */}
+											
+											{/* Accordion Item: Customer information */}
 											<Accordion.Item
 												className={`${styles.accordionItem}`}
 												eventKey="2"
@@ -132,23 +151,28 @@ const ProfilePageComponent = () => {
 													<i className="bi bi-person"></i> Customer
 													Information
 												</Accordion.Header>
-												<Accordion.Body>
+
+												<Accordion.Body className={`${styles.accordionBody}`}>
 													<ListGroup variant="flush">
-														{/* tab 2 */}
-														<Nav.Link eventKey="second">
-															<ListGroup.Item>
-																Personal Information
+														
+														<Nav.Link
+															className={styles.navlink}
+															eventKey="billingaddress"
+														>
+															<ListGroup.Item
+																className={styles.listgroupItem}
+															>
+																Billing Address
 															</ListGroup.Item>
 														</Nav.Link>
-
-														<ListGroup.Item>
-															Billing Address
-														</ListGroup.Item>
 													</ListGroup>
 												</Accordion.Body>
 											</Accordion.Item>
 
-											<Accordion.Item
+											{/* ---------------------------------------------------------- */}
+																						
+											{/* Accordion item: Wishlist */}
+											{/* <Accordion.Item
 												className={`${styles.accordionItem}`}
 												eventKey="3"
 											>
@@ -157,13 +181,16 @@ const ProfilePageComponent = () => {
 												>
 													<i className="bi bi-heart"></i> My Wishlist
 												</Accordion.Header>
-												<Accordion.Body>
+												<Accordion.Body className={`${styles.accordionBody}`}>
 													<ListGroup variant="flush">
 														<ListGroup.Item>My List</ListGroup.Item>
 													</ListGroup>
 												</Accordion.Body>
-											</Accordion.Item>
+											</Accordion.Item> */}
 
+											{/* ---------------------------------------------------------- */}
+
+											{/* Accordion Item: My settings */}
 											<Accordion.Item
 												className={`${styles.accordionItem} ${styles.accordionSettings}`}
 												eventKey="4"
@@ -173,7 +200,9 @@ const ProfilePageComponent = () => {
 												>
 													<i className="bi bi-heart"></i> My Settings
 												</Accordion.Header>
-												<Accordion.Body>
+
+												<Accordion.Body className={`${styles.accordionBody}`}>
+
 													<ListGroup variant="flush">
 														<ListGroup.Item>
 															<Link href="/signin">
@@ -209,6 +238,12 @@ const ProfilePageComponent = () => {
 								</Tab.Pane>
 								<Tab.Pane eventKey="personaldetails">
 									<PersonalDetailsComponent></PersonalDetailsComponent>
+								</Tab.Pane>
+								<Tab.Pane eventKey="carddetails">
+									<CardDetailsComponent></CardDetailsComponent>
+								</Tab.Pane>
+								<Tab.Pane eventKey="billingaddress">
+									<BillingAddressComponent></BillingAddressComponent>
 								</Tab.Pane>
 							</Tab.Content>
 						</Col>
