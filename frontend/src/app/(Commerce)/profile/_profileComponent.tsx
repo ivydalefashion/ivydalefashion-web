@@ -33,14 +33,15 @@ const ProfilePageComponent = () => {
 			<Tab.Container id="left-tabs-example" defaultActiveKey="personaldetails">
 				<Container className={`${styles.mainContainer}`}>
 					<Row>
-						<Col className={`${styles.profileCol}`} lg={4} md={4} sm={12}>
+						<Col className={`${styles.profileCol}`} lg={4} md={12} sm={12}>
 							<Nav variant="pills" className="flex-column">
-								<h3>Profile</h3>
+								
 								<Card
 									className={`${styles.profileCard}`}
-									style={{ width: '300px' }}
+									// style={{ width: '300px' }}
 								>
 									{/* <Card.Header as="h5">MY PROFILE</Card.Header> */}
+									{/* <h3>Profile</h3> */}
 									<Card.Body>
 										<Accordion
 											activeKey={activeKey}
@@ -225,7 +226,7 @@ const ProfilePageComponent = () => {
 							</Nav>
 						</Col>
 
-						<Col className={`${styles.detailsCol}`} lg={8} md={8} sm={12}>
+						<Col className={`${styles.detailsCol}`} lg={8} md={12} sm={12}>
 							<Tab.Content>
 								<Tab.Pane eventKey="orders">
 									<OrdersComponent></OrdersComponent>

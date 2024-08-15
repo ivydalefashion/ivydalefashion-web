@@ -15,7 +15,8 @@
 		.profileCol {
 			.profileCard {
 				border-radius: 0px;
-				border: 1px solid black;
+				// border: 1px solid black;
+				border:0px;
 
 				.accordion {
 					.accordionItem {
@@ -66,11 +67,18 @@
 		}
 
 		.detailsCol {
-			border: 1px solid red;
+			// border: 1px solid red;
 
 			.personalDetailsMain {
+				
 				.mainContainer {
+					margin-top: 0px;
+					// border: 1px solid red;
+					// background: green;
+					// height: 100%;
+
 					.card {
+						// border: 2px violet;
 						margin-bottom: 13px;
 						border-radius: 0px;
 
