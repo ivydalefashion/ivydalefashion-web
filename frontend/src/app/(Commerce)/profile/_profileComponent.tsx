@@ -19,12 +19,16 @@ import PersonalDetailsComponent from './personalDetailsComponent';
 import CardDetailsComponent from './cardDetailsComponent';
 import BillingAddressComponent from './billingAddressComponent';
 
+import EditFormModal from './components/changeDetailModal';
+
 const ProfilePageComponent = () => {
 	const [activeKey, setActiveKey] = useState<any>(0);
 
 	const handleAccordionToggle = (eventKey: any) => {
 		setActiveKey(activeKey === eventKey ? null : eventKey);
 	};
+
+	
 
 	return (
 		<div className={`${styles.main}`}>
