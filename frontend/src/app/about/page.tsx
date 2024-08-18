@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { Metadata } from 'next';
-import { Container,Row, } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import MainNavbar from '../(Commerce)/_components/Header';
-import AboutComponent from './aboutComponent'
+import AboutComponent from './aboutComponent';
 
 //Metadata:
 export const metadata: Metadata = {

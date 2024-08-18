@@ -28,8 +28,6 @@ const ProfilePageComponent = () => {
 		setActiveKey(activeKey === eventKey ? null : eventKey);
 	};
 
-	
-
 	return (
 		<div className={`${styles.main}`}>
 			<MainNavbar></MainNavbar>
@@ -39,7 +37,6 @@ const ProfilePageComponent = () => {
 					<Row>
 						<Col className={`${styles.profileCol}`} lg={4} md={12} sm={12}>
 							<Nav variant="pills" className="flex-column">
-								
 								<Card
 									className={`${styles.profileCard}`}
 									// style={{ width: '300px' }}
@@ -52,7 +49,6 @@ const ProfilePageComponent = () => {
 											onSelect={handleAccordionToggle}
 											className={styles.accordion}
 											defaultActiveKey="0"
-
 										>
 											<Accordion.Item
 												eventKey="0"
@@ -114,7 +110,7 @@ const ProfilePageComponent = () => {
 											</Accordion.Item>
 
 											{/* ---------------------------------------------------------- */}
-											
+
 											{/* Accordion Item: Payment details */}
 											<Accordion.Item
 												className={`${styles.accordionItem}`}
@@ -127,7 +123,9 @@ const ProfilePageComponent = () => {
 													Details
 												</Accordion.Header>
 
-												<Accordion.Body className={`${styles.accordionBody}`}>
+												<Accordion.Body
+													className={`${styles.accordionBody}`}
+												>
 													<ListGroup variant="flush">
 														<Nav.Link
 															className={styles.navlink}
@@ -144,7 +142,7 @@ const ProfilePageComponent = () => {
 											</Accordion.Item>
 
 											{/* ---------------------------------------------------------- */}
-											
+
 											{/* Accordion Item: Customer information */}
 											<Accordion.Item
 												className={`${styles.accordionItem}`}
@@ -157,9 +155,10 @@ const ProfilePageComponent = () => {
 													Information
 												</Accordion.Header>
 
-												<Accordion.Body className={`${styles.accordionBody}`}>
+												<Accordion.Body
+													className={`${styles.accordionBody}`}
+												>
 													<ListGroup variant="flush">
-														
 														<Nav.Link
 															className={styles.navlink}
 															eventKey="billingaddress"
@@ -175,7 +174,7 @@ const ProfilePageComponent = () => {
 											</Accordion.Item>
 
 											{/* ---------------------------------------------------------- */}
-																						
+
 											{/* Accordion item: Wishlist */}
 											{/* <Accordion.Item
 												className={`${styles.accordionItem}`}
@@ -206,8 +205,9 @@ const ProfilePageComponent = () => {
 													<i className="bi bi-heart"></i> My Settings
 												</Accordion.Header>
 
-												<Accordion.Body className={`${styles.accordionBody}`}>
-
+												<Accordion.Body
+													className={`${styles.accordionBody}`}
+												>
 													<ListGroup variant="flush">
 														<ListGroup.Item>
 															<Link href="/signin">

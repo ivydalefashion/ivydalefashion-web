@@ -4,20 +4,17 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup, Card } from 'react-bootstrap';
 import styles from '../_styles/profileComponent.module.scss';
-
-import EditFormModal from './components/changeDetailModal';
-
+import EditFormModal from './components/changeDetailModal'; // Edit Details Modal
 
 const PersonalDetails = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
-
 
 	const [showModal, setShowModal] = useState(false);
 	const [editField, setEditField] = useState('');
 	const [userData, setUserData] = useState({
 		name: 'Romeo Mamphekgo',
 		email: 'RomeoMamphekgo@gmail.com',
-		mobileNumber: '+27 67 676 6767'
+		mobileNumber: '+27 67 676 6767',
 	});
 
 	const handleEdit = (field: string) => {
@@ -26,9 +23,9 @@ const PersonalDetails = () => {
 	};
 
 	const handleSave = (value: string) => {
-		setUserData(prevData => ({
-		...prevData,
-		[editField]: value
+		setUserData((prevData) => ({
+			...prevData,
+			[editField]: value,
 		}));
 		// Here you would typically also send an API request to update the data
 	};
@@ -45,9 +42,13 @@ const PersonalDetails = () => {
 									<div>Romeo Mamphekgo</div>
 								</Col>
 								<Col xs="auto">
-									<Button className={`${styles.button}`}
-									onClick={()=>{handleEdit('name')}}
-									variant="secondary">
+									<Button
+										className={`${styles.button}`}
+										onClick={() => {
+											handleEdit('name');
+										}}
+										variant="secondary"
+									>
 										Edit
 									</Button>
 								</Col>
@@ -112,7 +113,6 @@ const PersonalDetails = () => {
 				title={`Edit ${editField}`}
 				initialValue={userData[editField as keyof typeof userData]}
 			/>
-			
 		</div>
 	);
 };
