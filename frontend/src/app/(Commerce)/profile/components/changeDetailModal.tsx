@@ -1,6 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import styles from './styles/changeDetailsModal.module.scss';
+import './styles/changeDetailsModal.css'
 
 interface EditFormModalProps {
 	show: boolean;
@@ -27,30 +28,24 @@ const EditFormModal: React.FC<EditFormModalProps> = ({
 	};
 
 	return (
-		<Modal className={styles.modal} show={show} onHide={onHide}>
-			<Modal.Header closeButton>
+		<Modal className='modal' show={show} onHide={onHide}>
+			<Modal.Header closeButton className='modalHeader'>
 				<Modal.Title>{title}</Modal.Title>
 			</Modal.Header>
 
-			<Modal.Body className={styles.modalBody}>
+			<Modal.Body className={`modalBody`}>
 				<Form>
 					<Form.Group>
-						{children || (
-							<Form.Control
-								type="text"
-								value={value}
-								onChange={(e) => setValue(e.target.value)}
-							/>
-						)}
+						{children }
 					</Form.Group>
 				</Form>
 			</Modal.Body>
 
-			<Modal.Footer>
-				<Button variant="secondary" onClick={onHide}>
+			<Modal.Footer className={`modalFooter`}>
+				<Button variant="secondary" className='cancelButton' onClick={onHide}>
 					Cancel
 				</Button>
-				<Button variant="primary" onClick={handleSave}>
+				<Button variant="primary" className='saveButton' onClick={handleSave}>
 					Save Changes
 				</Button>
 			</Modal.Footer>

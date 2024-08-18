@@ -112,7 +112,14 @@ const PersonalDetails = () => {
 				onSave={handleSave}
 				title={`Edit ${editField}`}
 				initialValue={userData[editField as keyof typeof userData]}
-			/>
+			>
+				
+				<Form.Control
+					type="text"
+					value={value}
+					onChange={(e) => setValue(e.target.value)}
+				/>
+			</EditFormModal>
 		</div>
 	);
 };
