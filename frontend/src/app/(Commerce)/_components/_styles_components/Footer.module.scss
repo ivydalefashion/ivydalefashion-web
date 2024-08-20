@@ -1,13 +1,17 @@
+@import '../..//_styles//main.module.scss';
+
 $footer-padding-size: 30px;
 $footer-min-height: 300px;
 $socialMediaCol-height: calc($footer-min-height - $footer-padding-size - $footer-padding-size);
 
 .footer {
-	background-color: grey;
+	// display: flex;
+	background-color: $dark-blue;
 	color: white;
 	padding: $footer-padding-size;
 	min-height: $footer-min-height;
 	width: 100%;
+	text-align: center;
 
 	.hr {
 		color: white;
@@ -17,9 +21,10 @@ $socialMediaCol-height: calc($footer-min-height - $footer-padding-size - $footer
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		background-color: white;
 
 		.ivyLogo {
-			font-size: 80px;
+			font-size: 100px;
 		}
 	}
 
@@ -27,11 +32,9 @@ $socialMediaCol-height: calc($footer-min-height - $footer-padding-size - $footer
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
-		// border: solid 1px black;
 		height: $socialMediaCol-height;
 
 		.socialMediaRow {
-			// border: 1px solid white;
 			height: 100%;
 			display: flex;
 			justify-content: center;
