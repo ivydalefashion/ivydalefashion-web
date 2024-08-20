@@ -9,6 +9,14 @@ import EditFormModal from './components/changeDetailModal'; // Edit Details Moda
 const PersonalDetails = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
+	// const handleSave = () => {
+	// 	onSave(value);
+	// 	onHide();
+	// };
+	const closeModal = () =>{
+		setShowModal(false);
+	}
+
 	const [showModal, setShowModal] = useState(false);
 	const [editField, setEditField] = useState('');
 	const [userData, setUserData] = useState({
@@ -29,6 +37,10 @@ const PersonalDetails = () => {
 		}));
 		// Here you would typically also send an API request to update the data
 	};
+
+	// modal data:
+	const [value, setValue] = useState('water');
+
 	return (
 		<div className={styles.personalDetailsMain}>
 			<Container className={styles.mainContainer}>
@@ -41,17 +53,7 @@ const PersonalDetails = () => {
 									<strong>Your Name</strong>
 									<div>Romeo Mamphekgo</div>
 								</Col>
-								<Col xs="auto">
-									<Button
-										className={`${styles.button}`}
-										onClick={() => {
-											handleEdit('name');
-										}}
-										variant="secondary"
-									>
-										Edit
-									</Button>
-								</Col>
+								
 							</Row>
 						</Card.Body>
 					</Card>
@@ -63,11 +65,7 @@ const PersonalDetails = () => {
 									<strong>Email Address</strong>
 									<div>RomeoMamphekgo@gmail.com</div>
 								</Col>
-								<Col xs="auto">
-									<Button className={`${styles.button}`} variant="secondary">
-										Edit
-									</Button>
-								</Col>
+								
 							</Row>
 						</Card.Body>
 					</Card>
@@ -79,11 +77,7 @@ const PersonalDetails = () => {
 									<strong>Password</strong>
 									<div>**************</div>
 								</Col>
-								<Col xs="auto">
-									<Button className={`${styles.button}`} variant="secondary">
-										Reset
-									</Button>
-								</Col>
+								
 							</Row>
 						</Card.Body>
 					</Card>
@@ -95,16 +89,22 @@ const PersonalDetails = () => {
 									<strong>Mobile Number</strong>
 									<div>+27 67 676 6767</div>
 								</Col>
-								<Col xs="auto">
-									<Button className={`${styles.button}`} variant="secondary">
-										Edit
-									</Button>
-								</Col>
+								
 							</Row>
 						</Card.Body>
 					</Card>
 				</Row>
+
+				<Row className={styles.editDetailsButtonRow}>
+					<Button className={styles.editDetailsButton}
+					onClick={() => {
+						handleEdit('name');
+					}}
+					>Edit Personal details</Button>
+				</Row>
 			</Container>
+
+			{/* Modal  --------------------------------------------------------- */}
 
 			<EditFormModal
 				show={showModal}
@@ -112,14 +112,48 @@ const PersonalDetails = () => {
 				onSave={handleSave}
 				title={`Edit ${editField}`}
 				initialValue={userData[editField as keyof typeof userData]}
-			>
-				
-				<Form.Control
-					type="text"
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
-				/>
-			</EditFormModal>
+
+				bodyChildren= {
+					<Form>
+						<Form.Group>
+							<Form.Control
+								type="text"
+								value={value}
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</Form.Group>
+
+						<Form.Group>
+							<Form.Control
+								type="text"
+								value={value}
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</Form.Group>
+
+						<Form.Group>
+							<Form.Control
+								type="text"
+								value={value}
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</Form.Group>
+					</Form>
+				}
+
+				footerChildren = {(handleSave2)=>(
+					<div>
+						<Button variant="secondary" className='cancelButton' onClick={closeModal}>
+							Cancel
+						</Button>
+						<Button variant="primary" className='saveButton' onClick={handleSave2}>
+							Save Changes
+						</Button>
+					</div>
+				)}
+
+			
+			/>
 		</div>
 	);
 };

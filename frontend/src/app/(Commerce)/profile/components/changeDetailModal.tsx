@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { Children, ReactNode, useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import styles from './styles/changeDetailsModal.module.scss';
 import './styles/changeDetailsModal.css'
@@ -9,7 +9,8 @@ interface EditFormModalProps {
 	onSave: (value: string) => void;
 	title: string;
 	initialValue: string;
-	children?: ReactNode;
+	bodyChildren?: ReactNode;
+	footerChildren?: (onSave2: (value: string) => void) => ReactNode;
 }
 
 const EditFormModal: React.FC<EditFormModalProps> = ({
@@ -18,11 +19,12 @@ const EditFormModal: React.FC<EditFormModalProps> = ({
 	onSave,
 	title,
 	initialValue,
-	children,
+	bodyChildren,
+	footerChildren,
 }) => {
 	const [value, setValue] = useState(initialValue);
 
-	const handleSave = () => {
+	const handleSave2 = () => {
 		onSave(value);
 		onHide();
 	};
@@ -34,20 +36,13 @@ const EditFormModal: React.FC<EditFormModalProps> = ({
 			</Modal.Header>
 
 			<Modal.Body className={`modalBody`}>
-				<Form>
-					<Form.Group>
-						{children }
-					</Form.Group>
-				</Form>
+						{bodyChildren }
 			</Modal.Body>
 
 			<Modal.Footer className={`modalFooter`}>
-				<Button variant="secondary" className='cancelButton' onClick={onHide}>
-					Cancel
-				</Button>
-				<Button variant="primary" className='saveButton' onClick={handleSave}>
-					Save Changes
-				</Button>
+				
+
+				{footerChildren(handleSave2)}
 			</Modal.Footer>
 		</Modal>
 	);
