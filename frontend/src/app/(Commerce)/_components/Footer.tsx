@@ -3,7 +3,6 @@ import { Container, Col, Row } from 'react-bootstrap';
 import styles from './_styles_components/Footer.module.scss';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import ResponsiveImage from './ResponsiveImage';
-
 import logo from './ivydalefashionmainlogo.png'
 
 const Footer = () => {
@@ -27,26 +26,22 @@ const Footer = () => {
 
 							<Col lg={3} md={3} sm={12}>
 								<h4>Community</h4>
-								<p>Featured artists</p>
+								<p>Blog</p>
 								<p>Portal</p>
-								<p>Live events</p>
+								<p>FAQ</p>
 							</Col>
 
 							<Col lg={3} md={3} sm={12}>
 								<h4>Company</h4>
 								<p>About Us</p>
-								<p>Contact US</p>
-								<p>History</p>
+								<p>Careers</p>
 							</Col>
 
 							<Col lg={3} md={3} sm={12}>
-								<h4>Something</h4>
-								<p>Something</p>
-								<p>Something</p>
-								<p>Something</p>
-								<p>Something</p>
-								<p>Something</p>
-								<p>Something</p>
+								<h4>Account</h4>
+								<p>Profile</p>
+								<p>Orders</p>
+								<p>Returns</p>
 							</Col>
 						</Row>
 
