@@ -5,11 +5,12 @@ import { Navbar, Container, Nav, NavDropdown, InputGroup, Button, Form } from 'r
 import Link from 'next/link';
 import styles from './_styles_components/Header.module.scss';
 import { FaSearch, FaUserAlt, FaShoppingCart, FaHeart } from 'react-icons/fa';
-
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import ResponsiveImage from './ResponsiveImage';
 
 // Schema:
 const schema = yup.object().shape({
@@ -37,7 +38,10 @@ const MainNavbar = () => {
 			<Navbar className={`${styles.navBar}`} bg="light" expand="lg">
 				<Container>
 					<Navbar.Brand className={styles.navBarBrand} href="/commerce">
-						IVY
+					<Image alt='' src='/mainlogo.png' width={130} height={50}>
+
+					</Image>
+						
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">

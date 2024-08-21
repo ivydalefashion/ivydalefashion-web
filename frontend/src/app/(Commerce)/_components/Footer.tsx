@@ -15,13 +15,13 @@ const Footer = () => {
 						<Row>
 							{/* COMPANY LOGO */}
 							<Col lg={3} md={3} sm={12} className={styles.ivyLogoCol}>
-								<h1 className={styles.ivyLogo}>
-									<ResponsiveImage src='/mainlogo.png' 
+								<div className={styles.ivyLogo}>
+									<ResponsiveImage src='/IF_icon.png' 
 										alt={''}
-										height={100}
-										width={100}>
+										height={120}
+										width={120}>
 									</ResponsiveImage>
-								</h1>
+								</div>
 							</Col>
 
 							<Col lg={3} md={3} sm={12}>
