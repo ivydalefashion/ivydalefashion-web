@@ -1,0 +1,41 @@
+@import './main.module.scss';
+
+.main{
+    background-color: orange;
+    .mainContainer{
+        background-color: #fff;
+        border-radius: 0px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        padding: 20px;
+
+        .mainRow{
+            
+            .col{
+                color: $dark-blue;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 400px;
+
+                .icon{
+                    color: $dark-blue;
+                }
+
+                .goToShoppingButton{
+                    border-radius: 0px;
+                    background-color: $dark-blue;
+                    border: 1px solid $dark-blue;
+                    &:hover{
+                        background-color: $orange;
+                        border: 1px solid $orange;
+                     }
+                }
+            }
+
+            
+        }
+    }
+
+    
+}
