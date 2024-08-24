@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup, Card } from 'react-bootstrap';
-import styles from '../_styles/profileComponent.module.scss';
-import EditFormModal from './components/changeDetailModal'; // Edit Details Modal
+import styles from '../../_styles/profileComponent.module.scss';
+import EditFormModal from './changeDetailModal'; // Edit Details Modal
 
 const PersonalDetails = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);

@@ -12,12 +12,12 @@ import Nav from 'react-bootstrap/Nav';
 import './_profile.css';
 
 // Components:
-import InvoicesComponent from './invoicesComponent';
-import OrdersComponent from './ordersComponent';
-import ReturnsComponent from './returnsComponent';
-import PersonalDetailsComponent from './personalDetailsComponent';
-import CardDetailsComponent from './cardDetailsComponent';
-import BillingAddressComponent from './billingAddressComponent';
+import InvoicesComponent from './components/invoicesComponent';
+import OrdersComponent from './components/ordersComponent';
+import ReturnsComponent from './components/returnsComponent';
+import PersonalDetailsComponent from './components/personalDetailsComponent';
+import CardDetailsComponent from './components/cardDetailsComponent';
+import BillingAddressComponent from './components/billingAddressComponent';
 
 import EditFormModal from './components/changeDetailModal';
 

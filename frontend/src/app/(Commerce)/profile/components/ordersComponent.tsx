@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
-import styles from '../_styles/ordersComponent.module.scss'
+import styles from '../../_styles/ordersComponent.module.scss'
 
 // There was no need to use font awesome, could have used React icons. You will fix when you have time
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
