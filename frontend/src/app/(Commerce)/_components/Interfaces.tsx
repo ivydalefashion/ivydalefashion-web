@@ -23,7 +23,7 @@ type DeliveryStatus = 'Pending' | 'Processing' | 'Shipped' | 'Delivered' | 'Canc
 interface Address {
     street: string;
     city: string;
-    state: string;
+    province: string;
     zipCode: string;
     country: string;
 }

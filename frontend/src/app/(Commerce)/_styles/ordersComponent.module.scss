@@ -9,7 +9,30 @@
         padding: 20px;
 
         .mainRow{
+
+            .firstCol{
+
+            }
+
+            .secondCol{
+                display: flex;
+                flex-direction: row;
+                justify-content: right;
+                align-items: right;
+                // for 1 order or more:
+                .viewOrderDetails{
+                    background-color: $dark-blue;
+                    border-radius: 0px;
+                    border: 1px solid $dark-blue;
+                    &:hover{
+                        background-color: $orange;
+                        border: 1px solid $orange;
+                    }
+                }
+            }
             
+            
+            // for the 0 orders:
             .col{
                 color: $dark-blue;
                 display: flex;

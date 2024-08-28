@@ -1,6 +1,6 @@
-import { Order } from "./Interfaces"
+import { Order, Cart, Product, Address } from "./Interfaces"
 
-const AddressExample = {
+const AddressExample: Address = {
     street: '20 Marshall street',
     city: 'Polokwane',
     province: 'Limpopo',
@@ -9,12 +9,12 @@ const AddressExample = {
 }
 
 // In this example, we have 2 products in this cart:
-const cartExample = [
+const cartExample: Cart = [
     {
-        product: {
+        product : {
             id: 'rlei443',
             name: 'Manchester united home kit 2020',
-            description: 'This is the Manchester united kit for home for the upcoming 2020/2021 season that the players will wear at old trafford.';
+            description: 'This is the Manchester united kit for home for the upcoming 2020/2021 season that the players will wear at old trafford.',
             price: 500,
             images: ['/adidasMANU.jpg', '/adidasMANU.jpg', '/adidasMANU.jpg', '/adidasMANU.jpg'],
             category: 'Sportswear',
@@ -28,7 +28,7 @@ const cartExample = [
         product: {
             id: 'rlei443',
             name: 'Manchester united home kit 2020',
-            description: 'This is the Manchester united kit for home for the upcoming 2020/2021 season that the players will wear at old trafford.';
+            description: 'This is the Manchester united kit for home for the upcoming 2020/2021 season that the players will wear at old trafford.',
             price: 500,
             images: ['/adidasMANU.jpg', '/adidasMANU.jpg', '/adidasMANU.jpg', '/adidasMANU.jpg'],
             category: 'Sportswear',
@@ -41,14 +41,14 @@ const cartExample = [
 ]
 
 // One order:
-const orderExample = [
+const orderExample: Order[] = [
 	{
-		id: '',
+		id: 'rlKkk2',
 		customer: {
 			id: '',
 			name:'John Doe',
 			email: 'johndoe@example.com',
-			phonenumber: '123456789'
+			phoneNumber: '123456789'
 		},
 		cart: cartExample,
 		totalAmount: 3000,
@@ -56,8 +56,8 @@ const orderExample = [
 		shippingAddress: AddressExample,
 		billingAddress: AddressExample,
 		paymentMethod: 'mastercard',
-		createdAt: Date,
-		updatedAt: Date,
+		createdAt: new Date,
+		updatedAt: new Date,
 	}
 ]
 
