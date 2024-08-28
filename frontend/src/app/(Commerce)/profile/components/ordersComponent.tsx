@@ -10,7 +10,6 @@ import { orderExample } from '../../_components/InterfacesExamples';
 
 // There was no need to use font awesome, could have used React icons. You will fix when you have time
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 
 import ShowOrderModal from './showOrderModal';

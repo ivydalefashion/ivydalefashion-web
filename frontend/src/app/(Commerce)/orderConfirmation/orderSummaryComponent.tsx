@@ -20,7 +20,7 @@ const OrderSummary = ({ isLoading, orderData }) => {
 						<>
 							<p>Order No: {orderData.orderNumber}</p>
 							<p>Order Date: {orderData.orderDate}</p>
-							<p>Order Total: {orderData.orderTotal}</p>
+							<p>Order Total: R{orderData.orderTotal}</p>
 						</>
 					)}
 				</Col>

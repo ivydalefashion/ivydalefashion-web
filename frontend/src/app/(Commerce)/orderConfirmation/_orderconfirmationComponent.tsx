@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import OrderSummary from './orderSummaryComponent';
 import ItemsShipped from './itemShippedComponent';
 import styles from '../_styles/orderconfirmationComponent.module.scss';
+import { Order } from '../_components/Interfaces';
 
 const OrderConfirmation = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ const OrderConfirmation = () => {
 			setOrderData({
 				orderNumber: '123456',
 				orderDate: '12 May 2023',
-				orderTotal: '123456',
+				orderTotal: '3100',
 				shippingAddress: {
 					street: '65 IvyDale Street',
 					city: 'Polokwane',
@@ -27,7 +28,7 @@ const OrderConfirmation = () => {
 				items: [
 					{
 						name: 'SKULL HOODIE X1',
-						size: 'SMALL',
+						size: 'S',
 						quantity: 1,
 						price: 'R350',
 					},
