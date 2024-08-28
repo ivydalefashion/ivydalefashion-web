@@ -38,10 +38,7 @@ const MainNavbar = () => {
 			<Navbar className={`${styles.navBar}`} bg="light" expand="lg">
 				<Container>
 					<Navbar.Brand className={styles.navBarBrand} href="/commerce">
-					<Image alt='' src='/mainlogo.png' width={130} height={50}>
-
-					</Image>
-						
+						<Image alt="" src="/mainlogo.png" width={130} height={50}></Image>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">

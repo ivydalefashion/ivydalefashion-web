@@ -13,9 +13,9 @@ const PersonalDetails = () => {
 	// 	onSave(value);
 	// 	onHide();
 	// };
-	const closeModal = () =>{
+	const closeModal = () => {
 		setShowModal(false);
-	}
+	};
 
 	const [showModal, setShowModal] = useState(false);
 	const [editField, setEditField] = useState('');
@@ -53,7 +53,6 @@ const PersonalDetails = () => {
 									<strong>Your Name</strong>
 									<div>Romeo Mamphekgo</div>
 								</Col>
-								
 							</Row>
 						</Card.Body>
 					</Card>
@@ -65,7 +64,6 @@ const PersonalDetails = () => {
 									<strong>Email Address</strong>
 									<div>RomeoMamphekgo@gmail.com</div>
 								</Col>
-								
 							</Row>
 						</Card.Body>
 					</Card>
@@ -77,7 +75,6 @@ const PersonalDetails = () => {
 									<strong>Password</strong>
 									<div>**************</div>
 								</Col>
-								
 							</Row>
 						</Card.Body>
 					</Card>
@@ -89,18 +86,20 @@ const PersonalDetails = () => {
 									<strong>Mobile Number</strong>
 									<div>+27 67 676 6767</div>
 								</Col>
-								
 							</Row>
 						</Card.Body>
 					</Card>
 				</Row>
 
 				<Row className={styles.editDetailsButtonRow}>
-					<Button className={styles.editDetailsButton}
-					onClick={() => {
-						handleEdit('name');
-					}}
-					>Edit Personal details</Button>
+					<Button
+						className={styles.editDetailsButton}
+						onClick={() => {
+							handleEdit('name');
+						}}
+					>
+						Edit Personal details
+					</Button>
 				</Row>
 			</Container>
 
@@ -112,8 +111,7 @@ const PersonalDetails = () => {
 				onSave={handleSave}
 				title={`Edit ${editField}`}
 				initialValue={userData[editField as keyof typeof userData]}
-
-				bodyChildren= {
+				bodyChildren={
 					<Form>
 						<Form.Group>
 							<Form.Control
@@ -140,19 +138,16 @@ const PersonalDetails = () => {
 						</Form.Group>
 					</Form>
 				}
-
-				footerChildren = {(handleSave2)=>(
+				footerChildren={(handleSave2) => (
 					<div>
-						<Button variant="secondary" className='cancelButton' onClick={closeModal}>
+						<Button variant="secondary" className="cancelButton" onClick={closeModal}>
 							Cancel
 						</Button>
-						<Button variant="primary" className='saveButton' onClick={handleSave2}>
+						<Button variant="primary" className="saveButton" onClick={handleSave2}>
 							Save Changes
 						</Button>
 					</div>
 				)}
-
-			
 			/>
 		</div>
 	);

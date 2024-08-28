@@ -1,64 +1,57 @@
 @import './main.module.scss';
 
-.main{
-    background-color: orange;
-    .mainContainer{
-        background-color: #fff;
-        border-radius: 0px;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-        padding: 20px;
+.main {
+	background-color: orange;
+	.mainContainer {
+		background-color: #fff;
+		border-radius: 0px;
+		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+		padding: 20px;
 
-        .mainRow{
+		.mainRow {
+			.firstCol {
+			}
 
-            .firstCol{
+			.secondCol {
+				display: flex;
+				flex-direction: row;
+				justify-content: right;
+				align-items: right;
+				// for 1 order or more:
+				.viewOrderDetails {
+					background-color: $dark-blue;
+					border-radius: 0px;
+					border: 1px solid $dark-blue;
+					&:hover {
+						background-color: $orange;
+						border: 1px solid $orange;
+					}
+				}
+			}
 
-            }
+			// for the 0 orders:
+			.col {
+				color: $dark-blue;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				min-height: 400px;
 
-            .secondCol{
-                display: flex;
-                flex-direction: row;
-                justify-content: right;
-                align-items: right;
-                // for 1 order or more:
-                .viewOrderDetails{
-                    background-color: $dark-blue;
-                    border-radius: 0px;
-                    border: 1px solid $dark-blue;
-                    &:hover{
-                        background-color: $orange;
-                        border: 1px solid $orange;
-                    }
-                }
-            }
-            
-            
-            // for the 0 orders:
-            .col{
-                color: $dark-blue;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                min-height: 400px;
+				.icon {
+					color: $dark-blue;
+				}
 
-                .icon{
-                    color: $dark-blue;
-                }
-
-                .goToShoppingButton{
-                    border-radius: 0px;
-                    background-color: $dark-blue;
-                    border: 1px solid $dark-blue;
-                    &:hover{
-                        background-color: $orange;
-                        border: 1px solid $orange;
-                     }
-                }
-            }
-
-            
-        }
-    }
-
-    
+				.goToShoppingButton {
+					border-radius: 0px;
+					background-color: $dark-blue;
+					border: 1px solid $dark-blue;
+					&:hover {
+						background-color: $orange;
+						border: 1px solid $orange;
+					}
+				}
+			}
+		}
+	}
 }

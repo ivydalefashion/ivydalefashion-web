@@ -88,17 +88,15 @@
 								background-color: darken($orange, 10%);
 							}
 						}
-						
-						
 					}
 
-					.editDetailsButtonRow{
-						.editDetailsButton{
+					.editDetailsButtonRow {
+						.editDetailsButton {
 							background-color: $dark-blue;
 							border: 1px solid $dark-blue;
 							border-radius: 0px;
 
-							&:hover{
+							&:hover {
 								background-color: $orange;
 								border: 1px solid $orange;
 							}

@@ -10,7 +10,7 @@ import { Nunito } from 'next/font/google';
 const nunito = Nunito({
 	subsets: ['latin'],
 	weight: ['400', '700'], // Specify the font weights you want to use
-  });
+});
 
 export const metadata = {
 	title: 'Ivydale',

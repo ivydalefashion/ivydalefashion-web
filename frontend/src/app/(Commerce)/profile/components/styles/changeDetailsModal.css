@@ -1,60 +1,51 @@
 /* I HAVE seemingly duplicate styles... Dont delete, there is a reason for this: */
 
-
 /*
 $blue 231b4a;
 $orange: #ec6919;
 */
 
-.modal-content{
-    border-radius: 0px;
-
+.modal-content {
+	border-radius: 0px;
 }
 
-.modal-header, .modalHeader{
-    border-radius: 0px;
+.modal-header,
+.modalHeader {
+	border-radius: 0px;
 
-    background-color: black;
-    color: white;
+	background-color: black;
+	color: white;
 }
 
 /* Modal body */
-.modal .modalBody input{
-    border-radius: 0px;
-    border: 1px solid black;
+.modal .modalBody input {
+	border-radius: 0px;
+	border: 1px solid black;
 }
-.modal .modalBody input:focus{
-   outline: none;
-   border: 1px solid #ec6919;
-   box-shadow: 0 1px 20px rgba(236, 105, 25, 0.4);
-
+.modal .modalBody input:focus {
+	outline: none;
+	border: 1px solid #ec6919;
+	box-shadow: 0 1px 20px rgba(236, 105, 25, 0.4);
 }
 
 /* Modal footer */
-.modal .modalFooter .cancelButton, .modal .modalFooter .saveButton{
-    border-radius: 0px;
+.modal .modalFooter .cancelButton,
+.modal .modalFooter .saveButton {
+	border-radius: 0px;
 }
-.modal .modalFooter .cancelButton{
-    background-color: black;
-    color: white;
+.modal .modalFooter .cancelButton {
+	background-color: black;
+	color: white;
 }
-.modal .modalFooter .saveButton{
-    background-color: #ec6919;
-    border: 1px solid #ec6919;
-    color: white;
+.modal .modalFooter .saveButton {
+	background-color: #ec6919;
+	border: 1px solid #ec6919;
+	color: white;
 }
-.modal .modalFooter .saveButton:hover{
-    box-shadow: 0 1px 20px rgba(236, 105, 25, 0.4);
-
-}
-
-
-
-
-
-
-.modalFooter{
-    border-radius: 0px;
-    
+.modal .modalFooter .saveButton:hover {
+	box-shadow: 0 1px 20px rgba(236, 105, 25, 0.4);
 }
 
+.modalFooter {
+	border-radius: 0px;
+}

@@ -3,24 +3,24 @@ import { Container, Col, Row } from 'react-bootstrap';
 import styles from './_styles_components/Footer.module.scss';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import ResponsiveImage from './ResponsiveImage';
-import logo from './ivydalefashionmainlogo.png'
+import logo from './ivydalefashionmainlogo.png';
 
 const Footer = () => {
 	return (
 		<div className={` ${styles.footer}`}>
 			<Container>
 				<Row className={``}>
-					
 					<Col lg={10} md={10} sm={12}>
 						<Row>
 							{/* COMPANY LOGO */}
 							<Col lg={3} md={3} sm={12} className={styles.ivyLogoCol}>
 								<div className={styles.ivyLogo}>
-									<ResponsiveImage src='/IF_icon.png' 
+									<ResponsiveImage
+										src="/IF_icon.png"
 										alt={''}
 										height={120}
-										width={120}>
-									</ResponsiveImage>
+										width={120}
+									></ResponsiveImage>
 								</div>
 							</Col>
 
