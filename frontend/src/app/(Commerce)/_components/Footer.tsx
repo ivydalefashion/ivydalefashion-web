@@ -4,6 +4,8 @@ import styles from './_styles_components/Footer.module.scss';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import ResponsiveImage from './ResponsiveImage';
 import logo from './ivydalefashionmainlogo.png';
+import { BsTwitterX } from "react-icons/bs";
+
 
 const Footer = () => {
 	return (
@@ -62,8 +64,7 @@ const Footer = () => {
 							<FaInstagram> </FaInstagram>
 						</Row>
 						<Row className={styles.socialMediaRow}>
-							{' '}
-							<FaTwitter></FaTwitter>
+							<BsTwitterX ></BsTwitterX >
 						</Row>
 					</Col>
 				</Row>
