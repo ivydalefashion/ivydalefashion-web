@@ -112,7 +112,7 @@ const ProfilePageComponent = () => {
 											{/* ---------------------------------------------------------- */}
 
 											{/* Accordion Item: Payment details */}
-											<Accordion.Item
+											{/* <Accordion.Item
 												className={`${styles.accordionItem}`}
 												eventKey="1"
 											>
@@ -139,7 +139,7 @@ const ProfilePageComponent = () => {
 														</Nav.Link>
 													</ListGroup>
 												</Accordion.Body>
-											</Accordion.Item>
+											</Accordion.Item> */}
 
 											{/* ---------------------------------------------------------- */}
 
@@ -241,9 +241,9 @@ const ProfilePageComponent = () => {
 								<Tab.Pane eventKey="returns">
 									<ReturnsComponent></ReturnsComponent>
 								</Tab.Pane>
-								<Tab.Pane eventKey="personaldetails">
+								{/* <Tab.Pane eventKey="personaldetails">
 									<PersonalDetailsComponent></PersonalDetailsComponent>
-								</Tab.Pane>
+								</Tab.Pane> */}
 								<Tab.Pane eventKey="carddetails">
 									<CardDetailsComponent></CardDetailsComponent>
 								</Tab.Pane>
