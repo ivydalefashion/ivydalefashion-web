@@ -22,13 +22,13 @@ const ReturnsComponents = () => {
 						<Card.Body>
 							<Row className="align-items-center">
 								<Col>
-									<strong>Your Name</strong>
-									<div>Romeo Mamphekgo</div>
+									<p>If you have an item you wish to return, please send us an email on : <strong>info@ivydalefashion.co.za</strong></p>
+									<p>In the email, describe the name of the item you purchased, your shipping address, and your contact details.</p>
 								</Col>
 							</Row>
 						</Card.Body>
 					</Card>
-					</Row>
+				</Row>
 			</Container>
 		</div>
 	);
