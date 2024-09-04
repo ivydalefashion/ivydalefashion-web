@@ -45,8 +45,7 @@
 						}
 
 						.accordionBody {
-							// this is what you want daniel
-							// inside this, is where the active is brocken:
+							
 							.listgroupItem {
 								border-radius: 0px;
 								margin-bottom: 0.5rem;
@@ -63,65 +62,18 @@
 				}
 			}
 		}
-
-		.detailsCol {
-			// border: 1px solid red;
-
-			.personalDetailsMain {
-				.mainContainer {
-					margin-top: 0px;
-					// border: 1px solid red;
-					// background: green;
-					// height: 100%;
-
-					.card {
-						// border: 2px violet;
-						margin-bottom: 13px;
-						border-radius: 0px;
-
-						.button {
-							border-radius: 0px;
-							border: 1px solid $orange;
-							background-color: $orange;
-
-							&:hover {
-								background-color: darken($orange, 10%);
-							}
-						}
-					}
-
-					.editDetailsButtonRow {
-						.editDetailsButton {
-							background-color: $dark-blue;
-							border: 1px solid $dark-blue;
-							border-radius: 0px;
-
-							&:hover {
-								background-color: $orange;
-								border: 1px solid $orange;
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 }
-// .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
-// 	background-color: orange;
-// }
+
 // Button styles within the accordion settings section
 .accordionSettings {
 	.accordionSettingsButton {
 		width: 100%;
 		padding: 0.75rem;
-		// font-size: 1rem;
-		// border: none;
 		border-radius: 0px;
 		color: white;
 		transition: background-color 0.3s ease;
 		text-transform: capitalize;
-		// text-transform:;
 
 		&:hover {
 			border: 1px solid $dark-blue;

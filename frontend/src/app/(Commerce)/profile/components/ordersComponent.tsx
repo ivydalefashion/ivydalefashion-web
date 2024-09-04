@@ -8,9 +8,6 @@ import ResponsiveImage from '../../_components/ResponsiveImage';
 import { Order } from '../../_components/Interfaces';
 import { orderExample } from '../../_components/InterfacesExamples';
 
-// There was no need to use font awesome, could have used React icons. You will fix when you have time
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 
 import ShowOrderModal from './showOrderModal';
 
@@ -60,7 +57,7 @@ const OrdersComponent = () => {
 				<Container className={styles.mainContainer}>
 					<Row className={styles.mainRow}>
 						<Col className={styles.col}>
-							<FontAwesomeIcon className={styles.icon} icon={faBoxOpen} size="4x" />
+							<FaBoxOpen className={styles.icon}  size="4x" />
 							<p>You don't have any orders yet.</p>
 							<hr />
 							<Button className={styles.goToShoppingButton}>Go to shopping</Button>

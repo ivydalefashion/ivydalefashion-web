@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup, Card } from 'react-bootstrap';
-import styles from '../../_styles/profileComponent.module.scss';
+import styles from '../../_styles/personalDetails.module.scss';
 import EditFormModal from './changeDetailModal'; // Edit Details Modal
 
 import ColoredTitle from './ColoredTitle'
@@ -11,10 +11,6 @@ import ColoredTitle from './ColoredTitle'
 const PersonalDetails = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
-	// const handleSave = () => {
-	// 	onSave(value);
-	// 	onHide();
-	// };
 	const closeModal = () => {
 		setShowModal(false);
 	};
@@ -44,10 +40,12 @@ const PersonalDetails = () => {
 	const [value, setValue] = useState('water');
 
 	return (
-		<div className={styles.personalDetailsMain}>
+		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
+				
 				<Row>
 					<ColoredTitle title={'Personal details'}></ColoredTitle>
+
 					<Card className={styles.card}>
 						<Card.Body>
 							<Row className="align-items-center">

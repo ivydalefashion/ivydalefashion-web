@@ -241,12 +241,12 @@ const ProfilePageComponent = () => {
 								<Tab.Pane eventKey="returns">
 									<ReturnsComponent></ReturnsComponent>
 								</Tab.Pane>
-								{/* <Tab.Pane eventKey="personaldetails">
+								<Tab.Pane eventKey="personaldetails">
 									<PersonalDetailsComponent></PersonalDetailsComponent>
-								</Tab.Pane> */}
-								<Tab.Pane eventKey="carddetails">
-									<CardDetailsComponent></CardDetailsComponent>
 								</Tab.Pane>
+								{/* <Tab.Pane eventKey="carddetails">
+									<CardDetailsComponent></CardDetailsComponent>
+								</Tab.Pane> */}
 								<Tab.Pane eventKey="billingaddress">
 									<BillingAddressComponent></BillingAddressComponent>
 								</Tab.Pane>
