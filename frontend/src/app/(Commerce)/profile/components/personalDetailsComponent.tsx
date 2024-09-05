@@ -1,12 +1,37 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup, Card } from 'react-bootstrap';
 import styles from '../../_styles/personalDetails.module.scss';
 import EditFormModal from './changeDetailModal'; // Edit Details Modal
-
 import ColoredTitle from './ColoredTitle';
+import ResponsiveImage from '../../_components/ResponsiveImage';
+import { Order } from '../../_components/Interfaces';
+import { orderExample } from '../../_components/InterfacesExamples';
+import ShowOrderModal from './showOrderModal';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useRouter } from 'next/navigation';
+
+// Schema:
+const schema = yup.object().shape({
+	fullname: yup.string().required('Recipient name is required.'),
+	email: yup.string().required('Phone number is required.'),
+	password: yup
+		.string()
+		.required('Password is required.')
+		.min(6, 'Password must be at least 6 characters.'),
+	confirmPassword: yup
+		.string()
+		.required('Confirm Password is required.')
+		.oneOf([yup.ref('password')], 'Passwords must match.'),
+	phonenumber: yup
+		.string()
+		.required('Phone number is required.')
+		.min(8)
+});
 
 const PersonalDetails = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -35,6 +60,18 @@ const PersonalDetails = () => {
 		}));
 		// Here you would typically also send an API request to update the data
 	};
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({ resolver: yupResolver(schema) });
+
+	const onSubmit = (data: any) => {
+		console.log(data);
+		// Handle form submission here
+	};
+
 
 	// modal data:
 	const [value, setValue] = useState('water');
@@ -102,8 +139,7 @@ const PersonalDetails = () => {
 				</Row>
 			</Container>
 
-			{/* Modal  --------------------------------------------------------- */}
-
+			{/* MODAL ---------------------------------------------------------- */}
 			<EditFormModal
 				show={showModal}
 				onHide={() => setShowModal(false)}
@@ -111,42 +147,92 @@ const PersonalDetails = () => {
 				title={`Edit ${editField}`}
 				initialValue={userData[editField as keyof typeof userData]}
 				bodyChildren={
-					<Form>
-						<Form.Group>
+					<Form onSubmit={handleSubmit(onSubmit)} className={styles.formModal}>
+						{errors.fullname && (
+							<span className={`${styles.errorMessage} errorMessage`}>
+								{errors.fullname.message}
+							</span>
+						)}
+						<Form.Group className={styles.formGroup}>
+							<Form.Label htmlFor="input1">Your full name</Form.Label>
 							<Form.Control
+								className={styles.inputField}
 								type="text"
-								value={value}
+								{...register('fullname')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						<Form.Group>
+						{errors.email && (
+							<span className={`${styles.email} errorMessage`}>
+								{errors.email.message}
+							</span>
+						)}
+						<Form.Group className={styles.formGroup}>
+							<Form.Label htmlFor="input1">Email address</Form.Label>
 							<Form.Control
-								type="text"
-								value={value}
+								className={styles.inputField}
+								type="email"
+								{...register('email')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						<Form.Group>
+						{errors.password && (
+							<span className={`${styles.errorMessage} errorMessage`}>
+								{errors.password.message}
+							</span>
+						)}
+						<Form.Group className={styles.formGroup}>
+							<Form.Label htmlFor="input1">Password</Form.Label>
+
 							<Form.Control
-								type="text"
-								value={value}
+								className={styles.inputField}
+								type="password"
+								{...register('password')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
-					</Form>
-				}
-				footerChildren={(handleSave2) => (
-					<div>
-						<Button variant="secondary" className="cancelButton" onClick={closeModal}>
+
+						{errors.confirmPassword && (
+							<span className={`${styles.errorMessage} errorMessage`}>
+								{errors.confirmPassword.message}
+							</span>
+						)}
+						<Form.Group className={styles.formGroup}>
+							<Form.Label htmlFor="input1">Confirm Password</Form.Label>
+
+							<Form.Control
+								className={styles.inputField}
+								type="password"
+								{...register('confirmPassword')}
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</Form.Group>
+
+						
+
+						
+						
+
+						<hr />
+						<Button
+							className={`${styles.cancelButton} cancelButton`}
+							variant="secondary"
+							onClick={closeModal}
+						>
 							Cancel
 						</Button>
-						<Button variant="primary" className="saveButton" onClick={handleSave2}>
+
+						<Button
+							type="submit"
+							className={`${styles.saveButton} saveButton`}
+							variant="primary"
+						>
 							Save Changes
 						</Button>
-					</div>
-				)}
+					</Form>
+				}
 			/>
 		</div>
 	);
