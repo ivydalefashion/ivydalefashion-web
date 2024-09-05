@@ -189,14 +189,14 @@ const BillingAddressComponent = () => {
 							<Form.Control
 								className={styles.inputField}
 								type="text"
-								value={value}
+								{...register('name')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						{errors.name && (
-							<span className={`${styles.errorMessage} errorMessage`}>
-								{errors.name.message}
+						{errors.phonenumber && (
+							<span className={`${styles.phonenumber} errorMessage`}>
+								{errors.phonenumber.message}
 							</span>
 						)}
 						<Form.Group className={styles.formGroup}>
@@ -204,14 +204,14 @@ const BillingAddressComponent = () => {
 							<Form.Control
 								className={styles.inputField}
 								type="text"
-								value={value}
+								{...register('phonenumber')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						{errors.name && (
+						{errors.streetaddress && (
 							<span className={`${styles.errorMessage} errorMessage`}>
-								{errors.name.message}
+								{errors.streetaddress.message}
 							</span>
 						)}
 						<Form.Group className={styles.formGroup}>
@@ -220,14 +220,14 @@ const BillingAddressComponent = () => {
 							<Form.Control
 								className={styles.inputField}
 								type="text"
-								value={value}
+								{...register('streetaddress')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						{errors.name && (
+						{errors.complex && (
 							<span className={`${styles.errorMessage} errorMessage`}>
-								{errors.name.message}
+								{errors.complex.message}
 							</span>
 						)}
 						<Form.Group className={styles.formGroup}>
@@ -236,14 +236,14 @@ const BillingAddressComponent = () => {
 							<Form.Control
 								className={styles.inputField}
 								type="text"
-								value={value}
+								{...register('complex')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						{errors.name && (
+						{errors.suburb && (
 							<span className={`${styles.errorMessage} errorMessage`}>
-								{errors.name.message}
+								{errors.suburb.message}
 							</span>
 						)}
 						<Form.Group className={styles.formGroup}>
@@ -252,14 +252,14 @@ const BillingAddressComponent = () => {
 							<Form.Control
 								className={styles.inputField}
 								type="text"
-								value={value}
+								{...register('suburb')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						{errors.name && (
+						{errors.city && (
 							<span className={`${styles.errorMessage} errorMessage`}>
-								{errors.name.message}
+								{errors.city.message}
 							</span>
 						)}
 						<Form.Group className={styles.formGroup}>
@@ -268,14 +268,14 @@ const BillingAddressComponent = () => {
 							<Form.Control
 								className={styles.inputField}
 								type="text"
-								value={value}
+								{...register('city')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						{errors.name && (
+						{errors.province && (
 							<span className={`${styles.errorMessage} errorMessage`}>
-								{errors.name.message}
+								{errors.province.message}
 							</span>
 						)}
 						<Form.Group className={styles.formGroup}>
@@ -284,7 +284,7 @@ const BillingAddressComponent = () => {
 							<Form.Control
 								className={styles.inputField}
 								type="text"
-								value={value}
+								{...register('province')}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
