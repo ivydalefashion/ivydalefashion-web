@@ -9,6 +9,7 @@ import { Order } from '../../_components/Interfaces';
 import { orderExample } from '../../_components/InterfacesExamples';
 import ShowOrderModal from './showOrderModal';
 import ColoredTitle from './ColoredTitle';
+import EditFormModal from './changeDetailModal';
 
 //
 const BillingAddressComponent = () => {
@@ -19,10 +20,33 @@ const BillingAddressComponent = () => {
 	const handleClose = () => setShowModal(false);
 	const handleShow = () => setShowModal(true);
 
+
+	const closeModal = () => {
+		setShowModal(false);
+	};
+
+	const [editField, setEditField] = useState('');
+	const [userData, setUserData] = useState({
+		name: 'Romeo Mamphekgo',
+		email: 'RomeoMamphekgo@gmail.com',
+		mobileNumber: '+27 67 676 6767',
+	});
+
 	const handleEdit = (field: string) => {
 		setEditField(field);
 		setShowModal(true);
 	};
+
+	const handleSave = (value: string) => {
+		setUserData((prevData) => ({
+			...prevData,
+			[editField]: value,
+		}));
+		// Here you would typically also send an API request to update the data
+	};
+
+	// modal data:
+	const [value, setValue] = useState('water');
 
 	return (
 		<div className={styles.main}>
@@ -121,7 +145,52 @@ const BillingAddressComponent = () => {
 				</Row>
 			</Container>
 
-			{/* <ShowOrderModal show={showModal} handleClose={handleClose} /> */}
+
+			{/* MODAL ---------------------------------------------------------- */}
+			<EditFormModal
+				show={showModal}
+				onHide={() => setShowModal(false)}
+				onSave={handleSave}
+				title={`Edit ${editField}`}
+				initialValue={userData[editField as keyof typeof userData]}
+				bodyChildren={
+					<Form>
+						<Form.Group>
+							<Form.Control
+								type="text"
+								value={value}
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</Form.Group>
+
+						<Form.Group>
+							<Form.Control
+								type="text"
+								value={value}
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</Form.Group>
+
+						<Form.Group>
+							<Form.Control
+								type="text"
+								value={value}
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</Form.Group>
+					</Form>
+				}
+				footerChildren={(handleSave2) => (
+					<div>
+						<Button variant="secondary" className="cancelButton" onClick={closeModal}>
+							Cancel
+						</Button>
+						<Button variant="primary" className="saveButton" >
+							Save Changes
+						</Button>
+					</div>
+				)}
+			/>
 		</div>
 	);
 };
