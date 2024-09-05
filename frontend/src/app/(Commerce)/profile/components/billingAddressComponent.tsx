@@ -25,7 +25,7 @@ const BillingAddressComponent = () => {
 		setShowModal(false);
 	};
 
-	const [editField, setEditField] = useState('');
+	const [editField, setEditField] = useState('Address');
 	const [userData, setUserData] = useState({
 		name: 'Romeo Mamphekgo',
 		email: 'RomeoMamphekgo@gmail.com',
@@ -148,31 +148,50 @@ const BillingAddressComponent = () => {
 
 			{/* MODAL ---------------------------------------------------------- */}
 			<EditFormModal
+				
 				show={showModal}
 				onHide={() => setShowModal(false)}
 				onSave={handleSave}
 				title={`Edit ${editField}`}
 				initialValue={userData[editField as keyof typeof userData]}
 				bodyChildren={
-					<Form>
-						<Form.Group>
+					<Form className={styles.formModal}>
+						<Form.Group className={styles.formGroup}>
+							<Form.Label htmlFor="input1">Recipient Name</Form.Label>
 							<Form.Control
+								className={styles.inputField}
 								type="text"
 								value={value}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className={styles.formGroup}>
+						<Form.Label htmlFor="input1">Recipient Phone number</Form.Label>
 							<Form.Control
+								className={styles.inputField}
 								type="text"
 								value={value}
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className={styles.formGroup}>
+							<Form.Label htmlFor="input1">Street address</Form.Label>
+
 							<Form.Control
+								className={styles.inputField}
+								type="text"
+								value={value}
+								onChange={(e) => setValue(e.target.value)}
+							/>
+						</Form.Group>
+
+						<Form.Group className={styles.formGroup}>
+							<Form.Label htmlFor="input1">Complex Building</Form.Label>
+
+							<Form.Control
+								className={styles.inputField}
 								type="text"
 								value={value}
 								onChange={(e) => setValue(e.target.value)}
