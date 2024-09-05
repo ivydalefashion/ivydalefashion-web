@@ -8,7 +8,6 @@ import ResponsiveImage from '../../_components/ResponsiveImage';
 import { Order } from '../../_components/Interfaces';
 import { orderExample } from '../../_components/InterfacesExamples';
 
-
 import ShowOrderModal from './showOrderModal';
 
 //
@@ -57,7 +56,7 @@ const OrdersComponent = () => {
 				<Container className={styles.mainContainer}>
 					<Row className={styles.mainRow}>
 						<Col className={styles.col}>
-							<FaBoxOpen className={styles.icon}  size="4x" />
+							<FaBoxOpen className={styles.icon} size="4x" />
 							<p>You don't have any orders yet.</p>
 							<hr />
 							<Button className={styles.goToShoppingButton}>Go to shopping</Button>

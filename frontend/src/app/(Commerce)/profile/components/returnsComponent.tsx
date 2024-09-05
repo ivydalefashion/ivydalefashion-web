@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { Form, Button, Container, Row, Col, InputGroup, Card } from 'react-bootstrap';
 import styles from '../../_styles/returnComponent.module.scss';
 
-import ColoredTitle from './ColoredTitle'
-
+import ColoredTitle from './ColoredTitle';
 
 // --------------------------
 
@@ -22,8 +21,14 @@ const ReturnsComponents = () => {
 						<Card.Body>
 							<Row className="align-items-center">
 								<Col>
-									<p>If you have an item you wish to return, please send us an email on : <strong>info@ivydalefashion.co.za</strong></p>
-									<p>In the email, describe the name of the item you purchased, your shipping address, and your contact details.</p>
+									<p>
+										If you have an item you wish to return, please send us an
+										email on : <strong>info@ivydalefashion.co.za</strong>
+									</p>
+									<p>
+										In the email, describe the name of the item you purchased,
+										your shipping address, and your contact details.
+									</p>
 								</Col>
 							</Row>
 						</Card.Body>

@@ -1,50 +1,52 @@
 @import './main.module.scss';
 
 .main {
-    .mainContainer {
-        margin-top: 0px;
+	.mainContainer {
+		margin-top: 0px;
 
-        .card {
-            margin-bottom: 13px;
-            border-radius: 0px;
+		.card {
+			margin-bottom: 13px;
+			border-radius: 0px;
 
-            .button {
-                border-radius: 0px;
-                border: 1px solid $orange;
-                background-color: $orange;
+			.button {
+				border-radius: 0px;
+				border: 1px solid $orange;
+				background-color: $orange;
 
-                &:hover {
-                    background-color: darken($orange, 10%);
-                }
-            }
-        }
+				&:hover {
+					background-color: darken($orange, 10%);
+				}
+			}
+		}
 
-        .editDetailsButtonRow {
-            .editDetailsButton {
-                background-color: $dark-blue;
-                border: 1px solid $dark-blue;
-                border-radius: 0px;
+		.editDetailsButtonRow {
+			.editDetailsButton {
+				background-color: $dark-blue;
+				border: 1px solid $dark-blue;
+				border-radius: 0px;
 
-                &:hover {
-                    background-color: $orange;
-                    border: 1px solid $orange;
-                }
-            }
-        }
-    }
-
-   
+				&:hover {
+					background-color: $orange;
+					border: 1px solid $orange;
+				}
+			}
+		}
+	}
 }
 
 // Modal styling ----------------------------------------------------
 
-.formModal{
-    .formGroup{
-        margin-bottom: 10px;
-        .inputField{
-            // border: 1px solid pink;
-            // margin: 20px;
-            // background-color: pink;
-        }
-    }
+.formModal {
+	.formGroup {
+		margin-bottom: 20px;
+		.inputField {
+			// border: 1px solid pink;
+			// margin: 20px;
+			// background-color: pink;
+		}
+
+		// .cancelButton, .saveButton{
+		//     margin: 5px;
+		// }
+	}
 }

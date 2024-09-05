@@ -30,14 +30,12 @@ const EditFormModal: React.FC<EditFormModalProps> = ({
 	};
 
 	return (
-		<Modal className="modal" show={show} onHide={onHide} size='lg'>
+		<Modal className="modal" show={show} onHide={onHide} size="lg">
 			<Modal.Header closeButton className="modalHeader">
 				<Modal.Title>{title}</Modal.Title>
 			</Modal.Header>
 
 			<Modal.Body className={`modalBody`}>{bodyChildren}</Modal.Body>
-
-			<Modal.Footer className={`modalFooter`}>{footerChildren(handleSave2)}</Modal.Footer>
 		</Modal>
 	);
 };

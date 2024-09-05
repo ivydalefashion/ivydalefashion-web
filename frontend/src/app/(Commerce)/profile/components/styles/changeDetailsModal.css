@@ -29,24 +29,28 @@ $orange: #ec6919;
 }
 
 /* Modal footer */
-.modal .modalFooter .cancelButton,
-.modal .modalFooter .saveButton {
+.modal .modalBody .cancelButton,
+.modal .modalBody .saveButton {
 	border-radius: 0px;
 }
-.modal .modalFooter .cancelButton {
+.modal .modalBody .cancelButton {
 	background-color: black;
 	color: white;
+	margin-right: 5px;
 }
-.modal .modalFooter .saveButton {
+.modal .modalBody .saveButton {
 	background-color: #ec6919;
 	border: 1px solid #ec6919;
 	color: white;
 }
-.modal .modalFooter .saveButton:hover {
+.modal .modalBody .saveButton:hover {
 	box-shadow: 0 1px 20px rgba(236, 105, 25, 0.4);
 }
 
-.modalFooter {
+.modalBody {
 	border-radius: 0px;
 }
 
+.modal .modalBody .errorMessage {
+	color: #ec6919;
+}

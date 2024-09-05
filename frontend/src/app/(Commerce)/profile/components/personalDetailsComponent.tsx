@@ -6,7 +6,7 @@ import { Form, Button, Container, Row, Col, InputGroup, Card } from 'react-boots
 import styles from '../../_styles/personalDetails.module.scss';
 import EditFormModal from './changeDetailModal'; // Edit Details Modal
 
-import ColoredTitle from './ColoredTitle'
+import ColoredTitle from './ColoredTitle';
 
 const PersonalDetails = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -42,7 +42,6 @@ const PersonalDetails = () => {
 	return (
 		<div className={styles.main}>
 			<Container className={styles.mainContainer}>
-				
 				<Row>
 					<ColoredTitle title={'Personal details'}></ColoredTitle>
 

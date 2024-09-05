@@ -18,7 +18,7 @@ interface Item {
 
 interface ItemShippedProps {
 	isLoading: Boolean;
-	items: Item[]
+	items: Item[];
 }
 
 const ItemsShipped: React.FC<ItemShippedProps> = ({ isLoading, items }) => {
@@ -64,29 +64,19 @@ const ItemsShipped: React.FC<ItemShippedProps> = ({ isLoading, items }) => {
 					{!isLoading && (
 						<>
 							<tr>
-								<td>
-
-								</td>
-								<td className="text-right">
-									Sub-Total
-								</td>
+								<td></td>
+								<td className="text-right">Sub-Total</td>
 								<td>100</td>
 							</tr>
 
 							<tr>
-							<td>
-
-							</td>
-								<td  className="text-right">
-									Delivery
-								</td>
+								<td></td>
+								<td className="text-right">Delivery</td>
 								<td>200</td>
 							</tr>
 							<tr>
-							<td>
-
-								</td>
-								<td  className="text-right">
+								<td></td>
+								<td className="text-right">
 									<strong>TOTAL</strong>
 								</td>
 								<td>
