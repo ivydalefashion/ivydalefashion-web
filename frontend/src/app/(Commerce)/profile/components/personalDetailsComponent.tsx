@@ -27,10 +27,7 @@ const schema = yup.object().shape({
 		.string()
 		.required('Confirm Password is required.')
 		.oneOf([yup.ref('password')], 'Passwords must match.'),
-	phonenumber: yup
-		.string()
-		.required('Phone number is required.')
-		.min(8)
+	phonenumber: yup.string().required('Phone number is required.').min(8),
 });
 
 const PersonalDetails = () => {
@@ -71,7 +68,6 @@ const PersonalDetails = () => {
 		console.log(data);
 		// Handle form submission here
 	};
-
 
 	// modal data:
 	const [value, setValue] = useState('water');
@@ -209,11 +205,6 @@ const PersonalDetails = () => {
 								onChange={(e) => setValue(e.target.value)}
 							/>
 						</Form.Group>
-
-						
-
-						
-						
 
 						<hr />
 						<Button

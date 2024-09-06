@@ -45,7 +45,6 @@ export default function BlogPage() {
 
 	return (
 		<Container>
-			<h1 className="text-center my-5">IVY</h1>
 			<Row xs={1} md={2} lg={3} className="g-4">
 				{articles.map((article) => (
 					<Col key={article.id}>
