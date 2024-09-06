@@ -38,6 +38,8 @@ const BrandLogo = ({ src, alt, description }: any) => {
 		</div>
 	);
 };
+
+
 //  main component:
 const BrandsComponent = () => {
 	const brands = [
