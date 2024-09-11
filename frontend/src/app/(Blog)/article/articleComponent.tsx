@@ -4,6 +4,8 @@ import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
 import styles from '../_styles/articleComponent.module.scss';
 import { FaTwitter, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import ResponsiveImage from '../_components/ResponsiveImage';
+import { BsTwitterX } from 'react-icons/bs';
+
 
 const ArticleComponent = () => {
 	return (
@@ -99,11 +101,9 @@ const ArticleComponent = () => {
 					className={styles.authorImage}
 				/>
 				<div className={styles.authorInfo}>
-					<h3>IVYDALE AUTHOR</h3>
+					<h3>Daniel Jumpman</h3>
 					<p>
-						Uma duis convallis convallis tellus id. Nulla facilisi cras fermentum odio
-						eu feugiat. Orci ac auctor augue mauris augue neque. Ultrices tincidunt arcu
-						non sodales neque.
+						Hi I am the founder and developer of IvydaleFashion. I am a fulltime software developer for Macbase Software which owns Ivydalefashion. I occassionally write fashion articles for the site; usually after a new collection is released. 
 					</p>
 					<div className={styles.socialLinks}>
 						<a
@@ -111,7 +111,7 @@ const ArticleComponent = () => {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<FaTwitter />
+							<BsTwitterX />
 						</a>
 						<a
 							href="https://linkedin.com/in/authorprofile"
