@@ -3,6 +3,7 @@
 import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
 import styles from '../_styles/articleComponent.module.scss';
 import { FaTwitter, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import ResponsiveImage from '../_components/ResponsiveImage';
 
 const ArticleComponent = () => {
 	return (
@@ -16,12 +17,13 @@ const ArticleComponent = () => {
 
 			<Row>
 				<Col md={8}>
-					<Image
-						src="/placeholder-image.jpg"
-						fluid
-						className={styles.mainImage}
-						alt="Main article image"
-					/>
+				<Image
+					src={`/blogimage1.jpeg`}
+					alt={`Thumbnail `}
+					width={400}
+					height={500}
+					layout="responsive"
+				/>
 					<div className={styles.content}>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -34,6 +36,27 @@ const ArticleComponent = () => {
 							porta non pulvinar neque.
 						</p>
 						{/* Add more paragraphs here */}
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Sagittis aliquam
+							malesuada bibendum arcu vitae elementum curabitur vitae. Laoreet
+							suspendisse interdum consectetur libero id faucibus nisl tincidunt.
+							Pulvinar etiam non quam lacus suspendisse faucibus. Morbi tincidunt
+							ornare massa eget egestas purus. Nibh ipsum consequat nisl vel pretium
+							lectus quam id leo. Fermentum odio eu feugiat pretium nibh. Leo vel orci
+							porta non pulvinar neque.
+						</p>
+
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Sagittis aliquam
+							malesuada bibendum arcu vitae elementum curabitur vitae. Laoreet
+							suspendisse interdum consectetur libero id faucibus nisl tincidunt.
+							Pulvinar etiam non quam lacus suspendisse faucibus. Morbi tincidunt
+							ornare massa eget egestas purus. Nibh ipsum consequat nisl vel pretium
+							lectus quam id leo. Fermentum odio eu feugiat pretium nibh. Leo vel orci
+							porta non pulvinar neque.
+						</p>
 					</div>
 				</Col>
 				<Col md={4}>
