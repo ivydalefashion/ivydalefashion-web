@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import BlogNavbarComponent from '../_components/BlogNavbarComponent';
 import styles from '../_styles/blog.module.scss'; // styling
 import BlogPostsComponent from './blogPosts';
+import Footer from '@/app/(Commerce)/_components/Footer';
 
 // metadata
 export const metadata: Metadata = {
@@ -14,10 +15,10 @@ const BlogPage = () => {
 	return (
 		<div>
 			<BlogNavbarComponent></BlogNavbarComponent>
-
 			<div className={styles.blogPosts}>
 				<BlogPostsComponent></BlogPostsComponent>
 			</div>
+			<Footer></Footer>
 		</div>
 	);
 };
