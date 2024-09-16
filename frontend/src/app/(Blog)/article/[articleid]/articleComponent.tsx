@@ -1,14 +1,24 @@
 'use client';
 
+import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Image } from 'react-bootstrap';
-import styles from '../_styles/articleComponent.module.scss';
+import styles from '../../_styles/articleComponent.module.scss';
 import { FaTwitter, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import ResponsiveImage from '../_components/ResponsiveImage';
+import ResponsiveImage from '../../_components/ResponsiveImage';
 import { BsTwitterX } from 'react-icons/bs';
+
+interface PostPageProps {
+    params: {
+        postId: string
+    }
+}
 
 
 const ArticleComponent = () => {
+	const [postId, setPostId] = useState<string | null>();
+
 	return (
+		<div>
 		<Container className={styles.container}>
 			<h1 className={styles.title}>What is Lorem Ipsum?</h1>
 			<div className={styles.byline}>
@@ -127,6 +137,7 @@ const ArticleComponent = () => {
 				</div>
 			</div>
 		</Container>
+		</div>
 	);
 };
 

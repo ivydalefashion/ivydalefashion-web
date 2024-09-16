@@ -5,11 +5,19 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import styles from '../_styles/buyComponent.module.scss';
-import AlertDismissible from '../_components/DismissableAlert';
+import AlertDismissible from '../../_components/DismissableAlert';
 import Link from 'next/link';
 
+interface PostPageProps {
+    params: {
+        postId: string
+    }
+}
+
 const BuyComponent = () => {
-	const [quantity, setQuantity] = useState(1);
+	const [quantity, setQuantity] = useState<number>(1);
+	const [postId, setPostId] = useState<string | null>();
+
 
 	return (
 		<div className={styles.main}>
