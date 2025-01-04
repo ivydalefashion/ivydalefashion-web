@@ -11,7 +11,7 @@ import { Order } from '../_components/Interfaces';
 
 const OrderConfirmation = () => {
 	const [isLoading, setIsLoading] = useState(true);
-	const [orderData, setOrderData] = useState(null);
+	const [orderData, setOrderData] = useState<any>(null);
 
 	useEffect(() => {
 		// Simulate API call

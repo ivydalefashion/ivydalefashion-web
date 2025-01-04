@@ -6,7 +6,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import styles from '../_styles/orderconfirmationComponent.module.scss';
 
-const OrderSummary = ({ isLoading, orderData }) => {
+const OrderSummary = ({ isLoading, orderData }: any) => {
 	return (
 		<div className={styles.summaryContainer}>
 			<Row>

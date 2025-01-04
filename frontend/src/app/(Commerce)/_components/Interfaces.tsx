@@ -57,4 +57,4 @@ interface Payment {
 	transactionId: string;
 }
 
-export { CartItem, Cart, Order, DeliveryStatus, Address, Customer, Product, Payment };
+export type { CartItem, Cart, Order, DeliveryStatus, Address, Customer, Product, Payment };

@@ -34,7 +34,7 @@ const ArticleComponent = () => {
 					alt={`Thumbnail `}
 					width={400}
 					height={500}
-					layout="responsive"
+					// layout="responsive"
 				/>
 					<div className={styles.content}>
 						<p>

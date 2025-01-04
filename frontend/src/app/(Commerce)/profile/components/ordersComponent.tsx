@@ -7,6 +7,7 @@ import styles from '../../_styles/ordersComponent.module.scss';
 import ResponsiveImage from '../../_components/ResponsiveImage';
 import { Order } from '../../_components/Interfaces';
 import { orderExample } from '../../_components/InterfacesExamples';
+import { FaBoxOpen } from 'react-icons/fa';
 
 import ShowOrderModal from './showOrderModal';
 
