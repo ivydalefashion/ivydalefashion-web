@@ -5,7 +5,6 @@ $footer-min-height: 300px;
 $socialMediaCol-height: calc($footer-min-height - $footer-padding-size - $footer-padding-size);
 
 .footer {
-	// display: flex;
 	background-color: $dark-blue;
 	color: white;
 	padding: $footer-padding-size;
@@ -15,17 +14,6 @@ $socialMediaCol-height: calc($footer-min-height - $footer-padding-size - $footer
 
 	.hr {
 		color: white;
-	}
-
-	.ivyLogoCol {
-		// display: flex;
-		// justify-content: center;
-		// align-items: center;
-		// background-color: white;
-
-		// .ivyLogo {
-		// 	font-size: 100px;
-		// }
 	}
 
 	.socialMediaCol {
@@ -45,4 +33,33 @@ $socialMediaCol-height: calc($footer-min-height - $footer-padding-size - $footer
 			}
 		}
 	}
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+	.footer{
+		justify-content: center;
+		// border: 1px solid white;
+
+		.row{
+			// border: 1px solid pink;
+		}
+
+		.ivyLogoCol {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			// border: 1px solid white;
+			margin-bottom: 15px;
+
+			.image{
+				width: 100px;
+				text-align: center;
+				// border: 1px solid white;
+			}
+		}
+	}
+	
 }

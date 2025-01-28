@@ -12,11 +12,12 @@ const Footer = () => {
 			<Container>
 				<Row className={``}>
 					<Col lg={10} md={10} sm={12}>
-						<Row>
+						<Row className={styles.row}>
 							{/* COMPANY LOGO */}
 							<Col lg={3} md={3} sm={12} className={styles.ivyLogoCol}>
 								<div className={styles.ivyLogo}>
 									<ResponsiveImage
+										className={styles.image}
 										src="/IF_icon.png"
 										alt={''}
 										height={120}
