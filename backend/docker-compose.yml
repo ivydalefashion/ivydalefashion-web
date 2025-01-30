@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   app:
+    container_name: ivydalefashion_backend
     build:
       context: . # in current directory
       args:
@@ -24,6 +25,7 @@ services:
         - db
 
   db:
+    container_name: ivydalefashion_db  # Custom container name
     image: postgres:13-alpine
     volumes:
       - dev-db-data:/var/lib/postgres/data
