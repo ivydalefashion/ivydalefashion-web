@@ -4,28 +4,32 @@ services:
   app:
     container_name: ivydalefashion_backend
     build:
-      context: . # in current directory
+      context: .
       args:
-        - DEV=true # added this after creating the requirements.dev.txt file for liniting
+        - DEV=true
     ports:
-      - "8000:8000" # maps port 8k in local machine to 8k in container
+      - "8000:8000"
     volumes:
-      - ./app:/app # maps directories from local to container 
+      - ./app:/app
+      - ./app:/code  # Add this for watchdog
     command: >
       sh -c "
           python manage.py wait_for_db &&
           python manage.py migrate &&
-          python manage.py runserver 0.0.0.0:8000"
+          pip install watchdog &&
+          python -m watchdog.watchmedo auto-restart --directory=./app --pattern=*.py --recursive -- python manage.py runserver 0.0.0.0:8000"
     environment:
       - DB_HOST=db
       - DB_NAME=devdb
       - DB_USER=devuser
       - DB_PASS=changeme
+      - PYTHONUNBUFFERED=1  # Add this for real-time logging
+      - DJANGO_SETTINGS_MODULE=app.settings  # Adjust to your project's settings module
     depends_on:
-        - db
+      - db
 
   db:
-    container_name: ivydalefashion_db  # Custom container name
+    container_name: ivydalefashion_db
     image: postgres:13-alpine
     volumes:
       - dev-db-data:/var/lib/postgres/data
