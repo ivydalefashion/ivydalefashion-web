@@ -7,6 +7,9 @@ from django.db import transaction
 from django.conf import settings
 import boto3
 
+from .models import Product, ProductImage,Order,OrderItem, InventoryTransaction  # Add this import statement
+from .serializers import ProductImageSerializer, ProductSerializer,CategorySerializer,OrderItemSerializer, OrderSerializer
+
 
 from botocore.exceptions import ClientError
 

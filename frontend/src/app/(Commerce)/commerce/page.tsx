@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 		  height: 630,
 		  alt: 'IvydaleFashion - Trendy Fashion Wear',
 		  type: 'image/jpeg', // Specify the image format
-		},
+		}, 
 	  ],
 	},
 	twitter: {
