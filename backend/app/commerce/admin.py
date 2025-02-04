@@ -9,9 +9,12 @@ class ProductAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
 
+class ProductImageAdmin(admin.ModelAdmin):
+    exclude = ('s3_key',)
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(ProductImage)
+admin.site.register(ProductImage, ProductImageAdmin)
 admin.site.register(InventoryTransaction)
 admin.site.register(Inventory)
 admin.site.register(Order)

@@ -12,6 +12,7 @@ services:
     volumes:
       - ./app:/app
       - ./app:/code
+      - ./vol:/vol  # Add this line to create a volume for the /vol directory
     env_file:
       - .env  # Load environment variables from .env file
     command: >

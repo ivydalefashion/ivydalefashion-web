@@ -96,11 +96,10 @@ AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
 AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN')
 
-# Media and Static Files
-STATIC_URL = '/static/static/'
-MEDIA_URL = '/static/media/'
-MEDIA_ROOT = '/vol/web/media'
-STATIC_ROOT = '/vol/web/static'
+AWS_S3_FILE_OVERWRITE = False  # Ensure that file names are not overwritten
+AWS_DEFAULT_ACL = None  # Optional: you can manage permissions on your S3 bucket
+
+
 
 
 # Password validation
@@ -140,10 +139,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/static/'
-MEDIA_URL = '/static/media/'
 
-MEDIA_ROOT = '/vol/web/media'
 STATIC_ROOT = '/vol/web/static'
+
+
+# Use S3 for media storage
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# Ensure the URL to access files is correct
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
