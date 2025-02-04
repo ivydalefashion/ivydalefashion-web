@@ -12,6 +12,8 @@ services:
     volumes:
       - ./app:/app
       - ./app:/code
+    env_file:
+      - .env  # Load environment variables from .env file
     command: >
       sh -c "
           python manage.py wait_for_db &&
@@ -20,16 +22,6 @@ services:
           python -m venv /app/venv &&
           /app/venv/bin/pip install watchdog &&
           /app/venv/bin/python -m watchdog.watchmedo auto-restart --directory=./app --pattern=*.py --recursive -- python manage.py runserver 0.0.0.0:8000"
-    environment:
-      - DB_HOST=db
-      - DB_NAME=devdb
-      - DB_USER=devuser
-      - DB_PASS=changeme
-      - PYTHONUNBUFFERED=1
-      - DJANGO_SETTINGS_MODULE=app.settings
-      - DJANGO_SUPERUSER_USERNAME=admin
-      - DJANGO_SUPERUSER_EMAIL=admin@example.com
-      - DJANGO_SUPERUSER_PASSWORD=password
     depends_on:
       - db
 
@@ -39,9 +31,9 @@ services:
     volumes:
       - dev-db-data:/var/lib/postgres/data
     environment:
-      - POSTGRES_DB=devdb
-      - POSTGRES_USER=devuser
-      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
 
 volumes:
   dev-db-data:
