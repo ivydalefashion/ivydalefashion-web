@@ -11,11 +11,12 @@ services:
       - "8000:8000"
     volumes:
       - ./app:/app
-      - ./app:/code  # Add this for watchdog
+      - ./app:/code
     command: >
       sh -c "
           python manage.py wait_for_db &&
           python manage.py migrate &&
+          python manage.py createsuperuser --noinput || true &&
           python -m venv /app/venv &&
           /app/venv/bin/pip install watchdog &&
           /app/venv/bin/python -m watchdog.watchmedo auto-restart --directory=./app --pattern=*.py --recursive -- python manage.py runserver 0.0.0.0:8000"
@@ -24,8 +25,11 @@ services:
       - DB_NAME=devdb
       - DB_USER=devuser
       - DB_PASS=changeme
-      - PYTHONUNBUFFERED=1  # Add this for real-time logging
-      - DJANGO_SETTINGS_MODULE=app.settings  # Adjust to your project's settings module
+      - PYTHONUNBUFFERED=1
+      - DJANGO_SETTINGS_MODULE=app.settings
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_EMAIL=admin@example.com
+      - DJANGO_SUPERUSER_PASSWORD=password
     depends_on:
       - db
 
