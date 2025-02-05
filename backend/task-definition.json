@@ -1,0 +1,105 @@
+{
+  "family": "ivydale-fashion",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["EC2"],
+  "memory": "900",
+  "cpu": "1024",
+  "taskRoleArn": "arn:aws:iam::145220146390:role/ecsTaskRole",
+  "executionRoleArn": "arn:aws:iam::145220146390:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "ivydalefashion_backend",
+      "image": "145220146390.dkr.ecr.eu-north-1.amazonaws.com/ivydale-fashion:latest",
+      "essential": true,
+      "cpu": 480,
+      "memoryReservation": 480,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DB_NAME",
+          "valueFrom": "arn:aws:ssm:eu-north-1:145220146390:parameter/ivydale-fashion/db-name"
+        },
+        {
+          "name": "DB_USER",
+          "valueFrom": "arn:aws:ssm:eu-north-1:145220146390:parameter/ivydale-fashion/db-user"
+        },
+        {
+          "name": "DB_PASS",
+          "valueFrom": "arn:aws:ssm:eu-north-1:145220146390:parameter/ivydale-fashion/db-password"
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "app_data",
+          "containerPath": "/app",
+          "readOnly": false
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/ivydale-fashion",
+          "awslogs-region": "eu-north-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    },
+    {
+      "name": "ivydalefashion_db",
+      "image": "postgres:13-alpine",
+      "essential": true,
+      "cpu": 480,
+      "memoryReservation": 400,
+      "portMappings": [
+        {
+          "containerPort": 5432,
+          "protocol": "tcp"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "POSTGRES_DB",
+          "valueFrom": "arn:aws:ssm:eu-north-1:145220146390:parameter/ivydale-fashion/db-name"
+        },
+        {
+          "name": "POSTGRES_USER",
+          "valueFrom": "arn:aws:ssm:eu-north-1:145220146390:parameter/ivydale-fashion/db-user"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "valueFrom": "arn:aws:ssm:eu-north-1:145220146390:parameter/ivydale-fashion/db-password"
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "postgres_data",
+          "containerPath": "/var/lib/postgresql/data",
+          "readOnly": false
+        }
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "name": "app_data",
+      "dockerVolumeConfiguration": {
+        "scope": "shared",
+        "autoprovision": true,
+        "driver": "local"
+      }
+    },
+    {
+      "name": "postgres_data",
+      "dockerVolumeConfiguration": {
+        "scope": "shared",
+        "autoprovision": true,
+        "driver": "local"
+      }
+    }
+  ]
+}
