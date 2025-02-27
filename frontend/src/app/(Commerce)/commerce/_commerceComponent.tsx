@@ -18,11 +18,11 @@ const CommerceComponent = () => {
 				<Carousel.Item>
 					<div
 						className={styles.carouselImage}
-						style={{ backgroundImage: 'url("/nikeBanner.webp")' }}
+						style={{ backgroundImage: 'url("/wideimage.jpg")' }}
 					>
 						<div className={styles.carouselCaption}>
 							<h1>STREET FASHION REDEFINED</h1>
-							<button className={styles.shopButton}>SHOP BRANDS</button>
+							<Link href='/explore'><button className={styles.shopButton}>EXPLORE NOW</button></Link>
 						</div>
 					</div>
 				</Carousel.Item>
@@ -33,7 +33,8 @@ const CommerceComponent = () => {
 					>
 						<div className={styles.carouselCaption}>
 							<h1>URBAN STYLE UNLEASHED</h1>
-							<button className={styles.shopButton}>EXPLORE NOW</button>
+							<Link href='/brands'><button className={styles.shopButton}>SHOP BRANDS</button></Link>
+							
 						</div>
 					</div>
 				</Carousel.Item>
@@ -44,7 +45,7 @@ const CommerceComponent = () => {
 					>
 						<div className={styles.carouselCaption}>
 							<h1>BOLD LOOKS, BOLD STATEMENTS</h1>
-							<button className={styles.shopButton}>DISCOVER MORE</button>
+							<button className={styles.shopButton}>GET TO KNOW US!</button>
 						</div>
 					</div>
 				</Carousel.Item>
