@@ -53,30 +53,45 @@ const CommerceComponent = () => {
 				<Carousel indicators={false}>
 					{[0, 1].map((_, idx) => (
 						<Carousel.Item key={idx}>
-							<Row>
-								{[1, 2, 3, 4].map((itemIdx) => (
-									<Col key={itemIdx} xs={6} md={3}>
-										<Link href="buy/1">
-											<motion.div
-												whileHover={{ scale: 1.05 }}
-												transition={{ duration: 0.3 }}
-											>
-												<ResponsiveImage
-													src={'/orangeHoodie.png'}
-													alt={`New Arrival ${idx * 2 + itemIdx}`}
-													height={100}
-													width={100}
-												></ResponsiveImage>
-												<h3>ITEM NAME</h3>
-												<p>R350</p>
-											</motion.div>
-										</Link>
-									</Col>
-								))}
-							</Row>
+						<Row>
+							{[
+							{ imageString: "/orangeHoodie.png",
+								name: "Orange skull biting hoodie",
+								price: 600
+							},
+							{ imageString: "/arsenalshirt.jpg",
+								name: "Arsenal 2022/2023 Home kit",
+								price: 1800 
+							},
+							{ imageString: "/adidasMANU.jpg",
+								name: "Manchester united 2022/2023 Home kit",
+								price: 1800  
+							}
+							].map((item, itemIdx) => (
+
+							<Col key={itemIdx} xs={6} md={3}>
+								<Link href="buy/1">
+								<motion.div
+									whileHover={{ scale: 1.05 }}
+									transition={{ duration: 0.3 }}
+								>
+									<ResponsiveImage
+									src={item.imageString}
+									alt={`New Arrival ${idx * 3 + itemIdx}`} 
+									height={100}
+									width={100}
+									/>
+									<h3>{item.name}</h3>
+									<p>R{item.price}</p>
+								</motion.div>
+								</Link>
+							</Col>
+							))}
+						</Row>
 						</Carousel.Item>
 					))}
-				</Carousel>
+					</Carousel>
+
 			</Container>
 
 			{/* Slim Banner */}

@@ -6,11 +6,7 @@
     "cpu": "1024",
     "taskRoleArn": "arn:aws:iam::145220146390:role/ecsTaskRole",
     "executionRoleArn": "arn:aws:iam::145220146390:role/ecsTaskExecutionRole",
-    "placementConstraints": [
-        {
-            "type": "distinctInstance"
-        }
-    ],
+    
     "containerDefinitions": [
       {
         "name": "ivydalefashion_db",
