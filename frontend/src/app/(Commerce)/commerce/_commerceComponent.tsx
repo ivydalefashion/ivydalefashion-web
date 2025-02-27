@@ -3,11 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
-import { motion } from 'framer-motion';
+import { m, motion } from 'framer-motion';
 import styles from '../_styles/commerceComponent.module.scss';
 import Header from '../_components/Header';
 import ResponsiveImage from '../_components/ResponsiveImage';
 import Footer from '../_components/Footer';
+import Image from 'next/image';
+
 
 const CommerceComponent = () => {
 	return (
@@ -66,6 +68,9 @@ const CommerceComponent = () => {
 							{ imageString: "/adidasMANU.jpg",
 								name: "Manchester united 2022/2023 Home kit",
 								price: 1800  
+							},{ imageString: "/greyHoodie.png",
+								name: "Run DMC sweater",
+								price: 1800  
 							}
 							].map((item, itemIdx) => (
 
@@ -75,11 +80,12 @@ const CommerceComponent = () => {
 									whileHover={{ scale: 1.05 }}
 									transition={{ duration: 0.3 }}
 								>
-									<ResponsiveImage
+									<Image
 									src={item.imageString}
 									alt={`New Arrival ${idx * 3 + itemIdx}`} 
 									height={100}
 									width={100}
+									layout="responsive"
 									/>
 									<h3>{item.name}</h3>
 									<p>R{item.price}</p>
