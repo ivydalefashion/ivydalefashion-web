@@ -38,9 +38,9 @@ const BrandComponent = () => {
 						</Row>
 
 						<Row>
-							{[1, 2, 3, 4, 5, 6].map((item: any) => (
+							{[1, 2, 3, 4, 5, 6,7,8,9,66,77].map((item: any) => (
 								<Col className={``} lg={2} md={2} sm={12}>
-									<Card className={styles.card} style={{}}>
+									<Card className={styles.card} >
 										<ResponsiveImage
 											src={'/orangeHoodie.png'}
 											alt={`New Arrival `}
@@ -55,12 +55,12 @@ const BrandComponent = () => {
 											<Card.Text className={`${styles.priceText}`}>
 												R600
 											</Card.Text>
-											<Button
+											{/* <Button
 												className={`${styles.addToCartButton}`}
 												variant="success"
 											>
 												Add to cart
-											</Button>
+											</Button> */}
 										</Card.Body>
 									</Card>
 								</Col>
