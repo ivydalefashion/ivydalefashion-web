@@ -1,5 +1,4 @@
 'use client';
-
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';

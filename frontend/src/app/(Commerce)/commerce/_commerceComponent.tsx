@@ -106,9 +106,9 @@ const CommerceComponent = () => {
 				<Container fluid>
 					<div className={styles.bannerImageContainer}>
 						<ResponsiveImage
-							src="https://images.pexels.com/photos/6153357/pexels-photo-6153357.jpeg?auto=compress&cs=tinysrgb&w=800"
+							src="/skaters.jpg"
 							alt={`New Arrival`}
-							height={100}
+							height={400}
 							width={100}
 						></ResponsiveImage>
 
