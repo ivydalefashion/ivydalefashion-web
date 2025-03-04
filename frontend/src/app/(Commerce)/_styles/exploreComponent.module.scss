@@ -15,8 +15,6 @@
 
 		.detailsCol {
 			padding: 50px;
-			// display: flex;
-			// align-items: center;
 		}
 	}
 
@@ -29,29 +27,19 @@
 			// border: 1px solid red;
 
 			.imagesColTitleRow{
-				// background-color: green;
-				// padding: px;
-				// border: 1px solid red;
 				width: 100%;
 				display: flex;
 				flex-direction: row;
 				padding-left: 50px;
-				// align-items: center;
-				// text-align: center;
-				// justify-content: center;
-
-				// h1{
-					// color: yellow
-					// text-decoration: initial;
-				// }
+				
 			}
 
 			.card {
+				// background-color: green;
 				width: '15rem';
 				border-radius: 0px;
 				margin: 5px;
-				// border: 1px solid black;
-				border: 0px;
+				border: 1px solid black;
 
 				.addToCartButton {
 					border-radius: 2px;
