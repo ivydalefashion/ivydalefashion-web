@@ -1,13 +1,50 @@
 'use client';
+import { useState , useEffect} from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import styles from '../_styles/exploreComponent.module.scss';
 import ImageCard from '../_components/ImageCard';
 import ResponsiveImage from '../_components/ResponsiveImage';
+import axios from "axios";
+import { API_ROUTES } from "../../api/route";
+import axiosInstance from '@/app/utils/axiosInstance'
 
 const BrandComponent = () => {
 	let adidasLogo = '/adidasLogo.png';
+
+	const [products, setProducts] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState("");
+
+	useEffect(() => {
+		const loadProducts = async () => {
+		  try {
+			const data = await fetchProducts();
+			setProducts(data);
+		  } catch (err) {
+			setError("Failed to load products.");
+		  } finally {
+			setLoading(false);
+		  }
+		};
+	
+		loadProducts();
+	}, []);
+
+	const fetchProducts = async () => {
+		try {
+			const response = await axios.get(API_ROUTES.PRODUCTS.GET_ALL, {
+			headers: {
+				Authorization: `Bearer YOUR_ACCESS_TOKEN`, 
+			},
+			});
+			return response.data;
+		} catch (error) {
+			console.error("Error fetching products:", error);
+			throw error;
+		}
+		};
 
 	return (
 		<div className={styles.main}>
@@ -38,7 +75,7 @@ const BrandComponent = () => {
 
 						<Row>
 							{[1, 2, 3, 4, 5, 6,7,8,9,66,77].map((item: any) => (
-								<Col className={``} lg={2} md={2} sm={12}>
+								<Col className={``} lg={2} md={4} sm={12}>
 									<Card className={styles.card} >
 										<ResponsiveImage
 											src={'/orangeHoodie.png'}
@@ -65,8 +102,6 @@ const BrandComponent = () => {
 								</Col>
 							))}
 						</Row>
-
-						
 					</Col>
 				</Row>
 			</Container>
