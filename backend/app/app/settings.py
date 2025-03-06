@@ -70,7 +70,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
@@ -115,8 +114,6 @@ AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN')
 
 AWS_S3_FILE_OVERWRITE = False  # Ensure that file names are not overwritten
 AWS_DEFAULT_ACL = None  # Optional: you can manage permissions on your S3 bucket
-
-
 
 
 # Password validation

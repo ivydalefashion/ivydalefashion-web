@@ -10,7 +10,6 @@ import ResponsiveImage from '../_components/ResponsiveImage';
 import Footer from '../_components/Footer';
 import Image from 'next/image';
 
-
 const CommerceComponent = () => {
 	return (
 		<div className={styles.landingPage}>
@@ -22,7 +21,9 @@ const CommerceComponent = () => {
 					>
 						<div className={styles.carouselCaption}>
 							<h1>STREET FASHION REDEFINED</h1>
-							<Link href='/explore'><button className={styles.shopButton}>EXPLORE NOW</button></Link>
+							<Link href="/explore">
+								<button className={styles.shopButton}>EXPLORE NOW</button>
+							</Link>
 						</div>
 					</div>
 				</Carousel.Item>
@@ -33,8 +34,9 @@ const CommerceComponent = () => {
 					>
 						<div className={styles.carouselCaption}>
 							<h1>URBAN STYLE UNLEASHED</h1>
-							<Link href='/brands'><button className={styles.shopButton}>SHOP BRANDS</button></Link>
-							
+							<Link href="/brands">
+								<button className={styles.shopButton}>SHOP BRANDS</button>
+							</Link>
 						</div>
 					</div>
 				</Carousel.Item>
@@ -56,49 +58,52 @@ const CommerceComponent = () => {
 				<Carousel indicators={false}>
 					{[0, 1].map((_, idx) => (
 						<Carousel.Item key={idx}>
-						<Row>
-							{[
-							{ imageString: "/orangeHoodie.png",
-								name: "Orange skull biting hoodie",
-								price: 600
-							},
-							{ imageString: "/arsenalshirt.jpg",
-								name: "Arsenal 2022/2023 Home kit",
-								price: 1800 
-							},
-							{ imageString: "/adidasMANU.jpg",
-								name: "Manchester united 2022/2023 Home kit",
-								price: 1800  
-							},{ imageString: "/greyHoodie.png",
-								name: "Run DMC sweater",
-								price: 1800  
-							}
-							].map((item, itemIdx) => (
-
-							<Col key={itemIdx} xs={6} md={3}>
-								<Link href="buy/1">
-								<motion.div
-									whileHover={{ scale: 1.05 }}
-									transition={{ duration: 0.3 }}
-								>
-									<Image
-									src={item.imageString}
-									alt={`New Arrival ${idx * 3 + itemIdx}`} 
-									height={100}
-									width={100}
-									layout="responsive"
-									/>
-									<h3>{item.name}</h3>
-									<p>R{item.price}</p>
-								</motion.div>
-								</Link>
-							</Col>
-							))}
-						</Row>
+							<Row>
+								{[
+									{
+										imageString: '/orangeHoodie.png',
+										name: 'Orange skull biting hoodie',
+										price: 600,
+									},
+									{
+										imageString: '/arsenalshirt.jpg',
+										name: 'Arsenal 2022/2023 Home kit',
+										price: 1800,
+									},
+									{
+										imageString: '/adidasMANU.jpg',
+										name: 'Manchester united 2022/2023 Home kit',
+										price: 1800,
+									},
+									{
+										imageString: '/greyHoodie.png',
+										name: 'Run DMC sweater',
+										price: 1800,
+									},
+								].map((item, itemIdx) => (
+									<Col key={itemIdx} xs={6} md={3}>
+										<Link href="buy/1">
+											<motion.div
+												whileHover={{ scale: 1.05 }}
+												transition={{ duration: 0.3 }}
+											>
+												<Image
+													src={item.imageString}
+													alt={`New Arrival ${idx * 3 + itemIdx}`}
+													height={100}
+													width={100}
+													layout="responsive"
+												/>
+												<h3>{item.name}</h3>
+												<p>R{item.price}</p>
+											</motion.div>
+										</Link>
+									</Col>
+								))}
+							</Row>
 						</Carousel.Item>
 					))}
-					</Carousel>
-
+				</Carousel>
 			</Container>
 
 			{/* Slim Banner */}

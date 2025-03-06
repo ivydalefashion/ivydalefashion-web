@@ -9,15 +9,14 @@ import AlertDismissible from '../../_components/DismissableAlert';
 import Link from 'next/link';
 
 interface PostPageProps {
-    params: {
-        postId: string
-    }
+	params: {
+		postId: string;
+	};
 }
 
 const BuyComponent = () => {
 	const [quantity, setQuantity] = useState<number>(1);
 	const [postId, setPostId] = useState<string | null>();
-
 
 	return (
 		<div className={styles.main}>
