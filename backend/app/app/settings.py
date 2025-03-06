@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from django.middleware.csrf import CsrfViewMiddleware
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +45,20 @@ INSTALLED_APPS = [
     'commerce',
 ]
 
+
+CORS_ALLOW_ALL_ORIGINS = True  # Allow requests from any domain
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SAMESITE = "Lax"
+
+
+# Disable CSRF for GET requests but enforce it for others
+class CustomCsrfMiddleware(CsrfViewMiddleware):
+    def _reject(self, request, reason):
+        if request.method == "GET":
+            return None  # Allow GET requests without CSRF
+        return super()._reject(request, reason)
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -54,8 +69,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-CORS_ALLOW_ALL_ORIGINS = True  # Allow requests from any domain
 
 
 ROOT_URLCONF = 'app.urls'
