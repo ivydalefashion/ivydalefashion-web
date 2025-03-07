@@ -1,5 +1,6 @@
 // utils/axiosInstance.js
 import axios from 'axios';
+import { API_ROUTES } from '../api/route';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:8000';
 
 const axiosInstance = axios.create({
@@ -39,14 +40,20 @@ axiosInstance.interceptors.response.use(
 // Function to fetch CSRF token from cookies:
 const getCsrfToken = async () => {
     try {
-      const res = await axiosInstance.get("/api/csrf/");
-      const csrfToken = res.data.csrfToken;
-      axiosInstance.defaults.headers.common["X-CSRFToken"] = csrfToken; // Attach CSRF token
+        const res = await axiosInstance.get(API_ROUTES.CSRF.CSRF, {
+            withCredentials: true, // Ensure cookies are sent
+        });
+        const csrfToken = res.data.csrfToken; // Adjust this based on your Django response
+        axiosInstance.defaults.headers.common["X-CSRFToken"] = csrfToken;
+        console.log("CSRF Token:", csrfToken);
+        return csrfToken;
     } catch (err) {
-      console.error("Failed to fetch CSRF token", err);
+        console.error("Failed to fetch CSRF token", err);
     }
 };
+
   
 getCsrfToken();
 
-export default axiosInstance;
+// export getCsrfToken;
+export { axiosInstance, getCsrfToken};

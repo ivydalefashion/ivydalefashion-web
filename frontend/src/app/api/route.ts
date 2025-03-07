@@ -5,6 +5,9 @@ export const API_ROUTES = {
 		LOGIN: `${API_BASE_URL}/api/auth/login`,
 		REGISTER: `${API_BASE_URL}/api/auth/register`,
 	},
+	CSRF: {
+		CSRF: `${API_BASE_URL}/api/csrf`
+	},
 	COURSES: {
 		GET_ALL: `${API_BASE_URL}/api/courses/getAll`,
 		GET_ONE: (id: string) => `${API_BASE_URL}/api/courses/getOne?id=${id}`,

@@ -8,7 +8,8 @@ import ImageCard from '../_components/ImageCard';
 import ResponsiveImage from '../_components/ResponsiveImage';
 import axios from 'axios';
 import { API_ROUTES } from '../../api/route';
-import axiosInstance from '@/app/utils/axiosInstance';
+import {axiosInstance} from '@/app/utils/axiosInstance';
+import {getCsrfToken} from '@/app/utils/axiosInstance';
 
 const BrandComponent = () => {
 	let adidasLogo = '/adidasLogo.png';
@@ -29,23 +30,30 @@ const BrandComponent = () => {
 			}
 		};
 
+		const getCSRF = async () =>{
+			try{
+				const csrf = await getCsrfToken();
+				console.log(csrf);
+			}catch(err){
+				setError('error retrieving csrf');
+			}
+		}
+
 		loadProducts();
+		getCSRF()
 	}, []);
 
 	// Function to fetch all products:
 	const fetchProducts = async () => {
 		try {
-			const response = await axios.get(API_ROUTES.PRODUCTS.GET_ALL, {
-				headers: {
-					Authorization: `Bearer YOUR_ACCESS_TOKEN`,
-				},
-			});
+			const response = await axiosInstance.get(API_ROUTES.PRODUCTS.GET_ALL);
+			console.log(response.data)
 			return response.data;
 		} catch (error) {
 			console.error('Error fetching products:', error);
 			throw error;
 		}
-	};
+	};	
 
 	// Function to add items to cart: // we have not implemented the add to cart functionality yet:
 	const addToCart = async (productId: string, quantity: number) => {

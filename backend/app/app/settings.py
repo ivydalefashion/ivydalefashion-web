@@ -45,11 +45,16 @@ INSTALLED_APPS = [
     'commerce',
 ]
 
+# CSRF
+CSRF_COOKIE_SAMESITE = "None"  # Allows cross-site requests
+CSRF_COOKIE_SECURE = False  # Change to True in production with HTTPS
+CSRF_COOKIE_HTTPONLY = False  # Allows JavaScript to access the cookie
+CSRF_COOKIE_NAME = "csrftoken"
 
-CORS_ALLOW_ALL_ORIGINS = True  # Allow requests from any domain
+
+#  CORS
 CORS_ALLOW_CREDENTIALS = True
-CSRF_COOKIE_HTTPONLY = False
-CSRF_COOKIE_SAMESITE = "Lax"
+CORS_ALLOW_ALL_ORIGINS = True  # Allow requests from any domain
 
 
 # Disable CSRF for GET requests but enforce it for others
