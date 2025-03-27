@@ -91,7 +91,7 @@ const BrandComponent = () => {
 						{/* Card with image */}
 
 						<Row className={styles.imagesColTitleRow}>
-							<h1>UPDATE</h1>
+							{/* <h1>UPDATE</h1> */}
 						</Row>
 
 						<Row>
