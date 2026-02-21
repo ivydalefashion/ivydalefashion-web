@@ -9,7 +9,8 @@ export default function BlogPage() {
 		{
 			id: 1,
 			title: 'All Things Fashion',
-			excerpt: 'Explore the latest trends in street style and high fashion. Only the brave might trya and sue us for hosting up an application up onto the internet but we are legitametly the best at what we do.',
+			excerpt:
+				'Explore the latest trends in street style and high fashion. Only the brave might trya and sue us for hosting up an application up onto the internet but we are legitametly the best at what we do.',
 			image: '/blogimage1.jpeg',
 			category: 'Fashion Trends',
 		},

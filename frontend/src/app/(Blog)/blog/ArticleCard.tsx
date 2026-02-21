@@ -37,25 +37,23 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 					/>
 
 					<AnimatePresence>
-					{isHovered && (
-						<motion.div
-						style={{ height: '75%' }}
-						className={styles.overlay}
-							initial={{ y: '100%' }}
-							animate={{ y: 0 }}
-							exit={{ y: '100%' }}
-							transition={{ duration: 0.3, ease: 'easeInOut' }}
-						>
-							<Card.Body>
-								<Card.Title>{article.title}</Card.Title>
-								<Card.Text>{article.excerpt}</Card.Text>
-							</Card.Body>
-						</motion.div>
+						{isHovered && (
+							<motion.div
+								style={{ height: '75%' }}
+								className={styles.overlay}
+								initial={{ y: '100%' }}
+								animate={{ y: 0 }}
+								exit={{ y: '100%' }}
+								transition={{ duration: 0.3, ease: 'easeInOut' }}
+							>
+								<Card.Body>
+									<Card.Title>{article.title}</Card.Title>
+									<Card.Text>{article.excerpt}</Card.Text>
+								</Card.Body>
+							</motion.div>
 						)}
 					</AnimatePresence>
 				</div>
-
-
 			</Card>
 		</div>
 	);

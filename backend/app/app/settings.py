@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from django.middleware.csrf import CsrfViewMiddleware
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'drf_spectacular',
@@ -44,7 +45,27 @@ INSTALLED_APPS = [
     'commerce',
 ]
 
+# CSRF
+CSRF_COOKIE_SAMESITE = "None"  # Allows cross-site requests
+CSRF_COOKIE_SECURE = False  # Change to True in production with HTTPS
+CSRF_COOKIE_HTTPONLY = False  # Allows JavaScript to access the cookie
+CSRF_COOKIE_NAME = "csrftoken"
+
+
+#  CORS
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True  # Allow requests from any domain
+
+
+# Disable CSRF for GET requests but enforce it for others
+class CustomCsrfMiddleware(CsrfViewMiddleware):
+    def _reject(self, request, reason):
+        if request.method == "GET":
+            return None  # Allow GET requests without CSRF
+        return super()._reject(request, reason)
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -98,8 +119,6 @@ AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN')
 
 AWS_S3_FILE_OVERWRITE = False  # Ensure that file names are not overwritten
 AWS_DEFAULT_ACL = None  # Optional: you can manage permissions on your S3 bucket
-
-
 
 
 # Password validation
