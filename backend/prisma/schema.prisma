@@ -1,0 +1,323 @@
+// This is your Prisma schema file
+// SQLite does NOT support native enums — we use String fields with string defaults instead.
+// Valid values are enforced at the application layer (NestJS DTOs + class-validator).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ========================
+// USERS & AUTH
+// ========================
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String?
+  firstName String
+  lastName  String
+  phone     String?
+  avatar    String?
+  role      String   @default("CUSTOMER")
+  googleId  String?  @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  addresses Address[]
+  orders    Order[]
+  wishlist  WishlistItem[]
+  reviews   Review[]
+
+  @@map("users")
+}
+
+model Address {
+  id         String   @id @default(cuid())
+  userId     String
+  label      String   @default("Home")
+  firstName  String
+  lastName   String
+  street     String
+  suburb     String?
+  city       String
+  province   String
+  postalCode String
+  country    String   @default("South Africa")
+  isDefault  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orders Order[]
+
+  @@map("addresses")
+}
+
+// ========================
+// BRANDS
+// ========================
+
+model Brand {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  logo        String?
+  banner      String?
+  website     String?
+  facebook    String?
+  instagram   String?
+  twitter     String?
+  tiktok      String?
+  youtube     String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  products Product[]
+
+  @@map("brands")
+}
+
+// ========================
+// CATEGORIES
+// ========================
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  image       String?
+  parentId    String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  parent   Category?  @relation("CategoryToCategory", fields: [parentId], references: [id])
+  children Category[] @relation("CategoryToCategory")
+  products Product[]
+
+  @@map("categories")
+}
+
+// ========================
+// PRODUCTS
+// ========================
+
+model Product {
+  id           String   @id @default(cuid())
+  name         String
+  slug         String   @unique
+  description  String?
+  price        Float
+  comparePrice Float?
+  sku          String?  @unique
+  stock        Int      @default(0)
+  isFeatured   Boolean  @default(false)
+  isActive     Boolean  @default(true)
+  brandId      String
+  categoryId   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  brand      Brand           @relation(fields: [brandId], references: [id])
+  category   Category?       @relation(fields: [categoryId], references: [id])
+  images     ProductImage[]
+  variants   ProductVariant[]
+  orderItems OrderItem[]
+  reviews    Review[]
+  wishlist   WishlistItem[]
+
+  @@map("products")
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  url       String
+  publicId  String
+  alt       String?
+  position  Int      @default(0)
+  createdAt DateTime @default(now())
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("product_images")
+}
+
+model ProductVariant {
+  id        String   @id @default(cuid())
+  productId String
+  name      String
+  value     String
+  price     Float?
+  stock     Int      @default(0)
+  sku       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  product    Product     @relation(fields: [productId], references: [id], onDelete: Cascade)
+  orderItems OrderItem[]
+
+  @@map("product_variants")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  userId    String
+  rating    Int
+  title     String?
+  body      String?
+  isVisible Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, userId])
+  @@map("reviews")
+}
+
+// ========================
+// WISHLIST
+// ========================
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+  @@map("wishlist_items")
+}
+
+// ========================
+// ORDERS
+// ========================
+// status:        PENDING | CONFIRMED | PROCESSING | SHIPPED | DELIVERED | CANCELLED | REFUNDED
+// paymentStatus: UNPAID | PAID | PARTIALLY_REFUNDED | REFUNDED
+
+model Order {
+  id             String   @id @default(cuid())
+  orderNumber    String   @unique
+  userId         String
+  addressId      String?
+  status         String   @default("PENDING")
+  paymentStatus  String   @default("UNPAID")
+  paymentMethod  String?
+  subtotal       Float
+  shippingCost   Float    @default(0)
+  discount       Float    @default(0)
+  total          Float
+  notes          String?
+  trackingNumber String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user    User       @relation(fields: [userId], references: [id])
+  address Address?   @relation(fields: [addressId], references: [id])
+  items   OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  productId String
+  variantId String?
+  name      String
+  price     Float
+  quantity  Int
+  subtotal  Float
+
+  order   Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product         @relation(fields: [productId], references: [id])
+  variant ProductVariant? @relation(fields: [variantId], references: [id])
+
+  @@map("order_items")
+}
+
+// ========================
+// BLOG
+// ========================
+// status: DRAFT | PUBLISHED | ARCHIVED
+
+model BlogPost {
+  id                 String    @id @default(cuid())
+  title              String
+  slug               String    @unique
+  excerpt            String?
+  body               String
+  coverImage         String?
+  coverImagePublicId String?
+  status             String    @default("DRAFT")
+  authorId           String
+  publishedAt        DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  author BlogAuthor    @relation(fields: [authorId], references: [id])
+  tags   BlogPostTag[]
+  images BlogImage[]
+
+  @@map("blog_posts")
+}
+
+model BlogAuthor {
+  id        String   @id @default(cuid())
+  name      String
+  bio       String?
+  avatar    String?
+  createdAt DateTime @default(now())
+
+  posts BlogPost[]
+
+  @@map("blog_authors")
+}
+
+model BlogTag {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  posts BlogPostTag[]
+
+  @@map("blog_tags")
+}
+
+model BlogPostTag {
+  postId String
+  tagId  String
+
+  post BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag  BlogTag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+  @@map("blog_post_tags")
+}
+
+model BlogImage {
+  id       String @id @default(cuid())
+  postId   String
+  url      String
+  publicId String
+
+  post BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("blog_images")
+}
