@@ -25,6 +25,8 @@ async function bootstrap() {
     }),
   );
 
+  
+
   // Swagger
   const config = new DocumentBuilder()
     .setTitle('Ivydale Fashion API')
@@ -41,6 +43,19 @@ async function bootstrap() {
 
   const port = process.env.PORT || 3001;
   await app.listen(port);
+
+  // After app.listen
+  // temp filesystem to log all registered routes
+    const server = app.getHttpServer();
+    const router = server._events.request._router;
+
+    console.log('\n📋 Registered Routes:');
+    router.stack.forEach((layer) => {
+      if (layer.route) {
+        console.log(`  ${Object.keys(layer.route.methods)} ${layer.route.path}`);
+      }
+    });
+    console.log('\n');
   
   console.log(`🚀 Server running on http://localhost:${port}`);
   console.log(`📖 Swagger: http://localhost:${port}/api/docs`);

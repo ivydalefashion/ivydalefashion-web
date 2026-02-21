@@ -17,8 +17,15 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    // "moduleResolution": "node",
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "paths": {
+      "@adminjs/*": ["node_modules/@adminjs/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
