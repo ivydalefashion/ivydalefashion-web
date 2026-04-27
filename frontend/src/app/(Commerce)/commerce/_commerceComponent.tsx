@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
 import { m, motion } from 'framer-motion';
@@ -8,9 +8,49 @@ import styles from '../_styles/commerceComponent.module.scss';
 import Header from '../_components/Header';
 import ResponsiveImage from '../_components/ResponsiveImage';
 import Footer from '../_components/Footer';
-import Image from 'next/image';
+import { API_ROUTES } from '../../api/route';
+
+type Product = {
+	id: string;
+	name: string;
+	slug: string;
+	price: number;
+	images?: { url: string }[];
+};
+
+type Brand = {
+	id: string;
+	name: string;
+	slug: string;
+	logo?: string | null;
+};
 
 const CommerceComponent = () => {
+	const [products, setProducts] = useState<Product[]>([]);
+	const [brands, setBrands] = useState<Brand[]>([]);
+
+	useEffect(() => {
+		const loadData = async () => {
+			try {
+				const [productRes, brandRes] = await Promise.all([
+					fetch(API_ROUTES.PRODUCTS.GET_ALL, { cache: 'no-store' }),
+					fetch(API_ROUTES.BRANDS.GET_ALL, { cache: 'no-store' }),
+				]);
+
+				const productData = await productRes.json();
+				const brandData = await brandRes.json();
+				setProducts((productData?.products || []) as Product[]);
+				setBrands((brandData || []) as Brand[]);
+			} catch (error) {
+				console.error('Failed loading commerce data', error);
+			}
+		};
+
+		loadData();
+	}, []);
+
+	const featuredProducts = useMemo(() => products.slice(0, 8), [products]);
+
 	return (
 		<div className={styles.landingPage}>
 			<Carousel controls={false} indicators={false}>
@@ -56,53 +96,27 @@ const CommerceComponent = () => {
 			<Container className={styles.newArrivals}>
 				<h2>NEW ARRIVALS</h2>
 				<Carousel indicators={false}>
-					{[0, 1].map((_, idx) => (
-						<Carousel.Item key={idx}>
-							<Row>
-								{[
-									{
-										imageString: '/orangeHoodie.png',
-										name: 'Orange skull biting hoodie',
-										price: 600,
-									},
-									{
-										imageString: '/arsenalshirt.jpg',
-										name: 'Arsenal 2022/2023 Home kit',
-										price: 1800,
-									},
-									{
-										imageString: '/adidasMANU.jpg',
-										name: 'Manchester united 2022/2023 Home kit',
-										price: 1800,
-									},
-									{
-										imageString: '/greyHoodie.png',
-										name: 'Run DMC sweater',
-										price: 1800,
-									},
-								].map((item, itemIdx) => (
-									<Col key={itemIdx} xs={6} md={3}>
-										<Link href="buy/1">
-											<motion.div
-												whileHover={{ scale: 1.05 }}
-												transition={{ duration: 0.3 }}
-											>
-												<Image
-													src={item.imageString}
-													alt={`New Arrival ${idx * 3 + itemIdx}`}
-													height={100}
-													width={100}
-													layout="responsive"
-												/>
-												<h3>{item.name}</h3>
-												<p>R{item.price}</p>
-											</motion.div>
-										</Link>
-									</Col>
-								))}
-							</Row>
-						</Carousel.Item>
-					))}
+					<Carousel.Item>
+						<Row>
+							{featuredProducts.length > 0
+								? featuredProducts.map((item, itemIdx) => (
+										<Col key={item.id} xs={6} md={3}>
+											<Link href={`buy/${item.slug}`}>
+												<motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+													<img
+														src={item.images?.[0]?.url || '/orangeHoodie.png'}
+														alt={`New Arrival ${itemIdx}`}
+														style={{ width: '100%', height: 'auto' }}
+													/>
+													<h3>{item.name}</h3>
+													<p>R{item.price}</p>
+												</motion.div>
+											</Link>
+										</Col>
+								  ))
+								: null}
+						</Row>
+					</Carousel.Item>
 				</Carousel>
 			</Container>
 
@@ -131,12 +145,12 @@ const CommerceComponent = () => {
 					<Col xs={12} md={3}>
 						<img src="/nikelogo.png" alt="260 Logo" className={styles.mainLogo} />
 					</Col>
-					{[...Array(7)].map((_, index) => (
-						<Col key={index} xs={6} md={3} className={styles.brandLogo}>
-							<Link href="/brand">
+					{brands.map((brand) => (
+						<Col key={brand.id} xs={6} md={3} className={styles.brandLogo}>
+							<Link href={`/brand/${brand.slug}`}>
 								<img
-									src="/nikelogo.png"
-									alt="260 Logo"
+									src={brand.logo || '/nikelogo.png'}
+									alt={brand.name}
 									className={styles.mainLogo}
 								/>
 							</Link>

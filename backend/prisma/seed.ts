@@ -48,7 +48,117 @@ async function main() {
       facebook: 'https://facebook.com/adidas',
     },
   });
+  await prisma.brand.upsert({
+    where: { slug: 'ivydale-street' },
+    update: {},
+    create: {
+      name: 'Ivydale Street',
+      slug: 'ivydale-street',
+      description: 'Local premium streetwear brand.',
+      instagram: 'https://instagram.com/ivydalefashion',
+    },
+  });
+  await prisma.brand.upsert({
+    where: { slug: 'cape-town-kicks' },
+    update: {},
+    create: {
+      name: 'Cape Town Kicks',
+      slug: 'cape-town-kicks',
+      description: 'Local sneaker and urban essentials label.',
+      instagram: 'https://instagram.com/capetownkicks',
+    },
+  });
   console.log('✅ Sample brand created');
+
+  const shirts = await prisma.category.findUnique({ where: { slug: 'shirts' } });
+  const hoodies = await prisma.category.findUnique({ where: { slug: 'hoodies' } });
+  const adidas = await prisma.brand.findUnique({ where: { slug: 'adidas' } });
+  const ivydaleStreet = await prisma.brand.findUnique({ where: { slug: 'ivydale-street' } });
+  const capeTownKicks = await prisma.brand.findUnique({ where: { slug: 'cape-town-kicks' } });
+
+  if (shirts && hoodies && adidas && ivydaleStreet && capeTownKicks) {
+    const products = [
+      {
+        name: 'Ivydale Oversized Hoodie',
+        slug: 'ivydale-oversized-hoodie',
+        description: 'Heavyweight cotton hoodie with street fit.',
+        price: 799,
+        comparePrice: 899,
+        stock: 30,
+        isFeatured: true,
+        brandId: ivydaleStreet.id,
+        categoryId: hoodies.id,
+        image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab',
+      },
+      {
+        name: 'Cape Town Graphic Tee',
+        slug: 'cape-town-graphic-tee',
+        description: 'Soft cotton tee with local graphic print.',
+        price: 499,
+        stock: 40,
+        isFeatured: true,
+        brandId: capeTownKicks.id,
+        categoryId: shirts.id,
+        image: 'https://images.unsplash.com/photo-1527719327859-c6ce80353573',
+      },
+      {
+        name: 'Adidas Urban Jersey',
+        slug: 'adidas-urban-jersey',
+        description: 'Breathable jersey for daily wear.',
+        price: 1099,
+        stock: 20,
+        isFeatured: false,
+        brandId: adidas.id,
+        categoryId: shirts.id,
+        image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990',
+      },
+    ];
+
+    for (const product of products) {
+      const created = await prisma.product.upsert({
+        where: { slug: product.slug },
+        update: {
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          comparePrice: product.comparePrice ?? null,
+          stock: product.stock,
+          isFeatured: product.isFeatured,
+          isActive: true,
+          brandId: product.brandId,
+          categoryId: product.categoryId,
+        },
+        create: {
+          name: product.name,
+          slug: product.slug,
+          description: product.description,
+          price: product.price,
+          comparePrice: product.comparePrice ?? null,
+          stock: product.stock,
+          isFeatured: product.isFeatured,
+          isActive: true,
+          brandId: product.brandId,
+          categoryId: product.categoryId,
+        },
+      });
+
+      const imageCount = await prisma.productImage.count({
+        where: { productId: created.id },
+      });
+      if (imageCount === 0) {
+        await prisma.productImage.create({
+          data: {
+            productId: created.id,
+            url: product.image,
+            publicId: `${created.slug}-seed-image`,
+            alt: product.name,
+            position: 0,
+          },
+        });
+      }
+    }
+    console.log('✅ Sample products created');
+  }
 
   await prisma.blogTag.upsert({ where: { slug: 'fashion' }, update: {}, create: { name: 'Fashion', slug: 'fashion' } });
   await prisma.blogTag.upsert({ where: { slug: 'style' }, update: {}, create: { name: 'Style', slug: 'style' } });

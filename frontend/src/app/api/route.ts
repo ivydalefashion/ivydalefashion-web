@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
 
 export const API_ROUTES = {
 	AUTH: {
@@ -15,7 +15,13 @@ export const API_ROUTES = {
 		MY_COURSES: `${API_BASE_URL}/api/courses/mycourses`,
 	},
 	PRODUCTS: {
-		GET_ALL: `${API_BASE_URL}/api/commerce/products/`,
+		GET_ALL: `${API_BASE_URL}/api/product`,
+	},
+	CATEGORIES: {
+		GET_ALL: `${API_BASE_URL}/api/categories`,
+	},
+	BRANDS: {
+		GET_ALL: `${API_BASE_URL}/api/brands`,
 	},
 	INSTRUCTORS: {
 		GET_ONE: (id: string) => `${API_BASE_URL}/api/instructors/${id}`,

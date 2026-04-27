@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import styles from '../_styles/signupComponent.module.scss';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { Form, Button } from 'react-bootstrap';
 import { useRouter } from 'next/navigation';
 
@@ -26,24 +26,50 @@ const schema = yup.object().shape({
 		.oneOf([yup.ref('password')], 'Passwords must match.'),
 });
 
-// User interface:
-interface User {
-	displayName: string | null;
-	email: string | null;
-	uid: string;
-}
-
 const SignupComponent = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [errorMessage, setErrorMessage] = useState<string>('');
+	const router = useRouter();
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(schema) });
 
-	const onSubmit = (data: any) => {
-		console.log(data);
-		// Handle form submission here
+	const onSubmit = async (data: {
+		firstname: string;
+		lastname: string;
+		email: string;
+		password: string;
+	}) => {
+		setIsLoading(true);
+		setErrorMessage('');
+		try {
+			const response = await fetch('/api/auth/register', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					firstName: data.firstname,
+					lastName: data.lastname,
+					email: data.email,
+					password: data.password,
+				}),
+			});
+
+			const result = await response.json();
+			if (!response.ok) {
+				throw new Error(result?.message || 'Failed to create account.');
+			}
+
+			if (result?.token) {
+				localStorage.setItem('ivydale_token', result.token);
+			}
+			router.push('/commerce');
+		} catch (error: any) {
+			setErrorMessage(error.message || 'Unable to sign up right now.');
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return (
@@ -57,6 +83,10 @@ const SignupComponent = () => {
 				</Row>
 
 				<Row>
+					{errorMessage ? (
+						<p className={styles.errorMessage}>{errorMessage}</p>
+					) : null}
+
 					<form onSubmit={handleSubmit(onSubmit)} className={`${styles.mainForm}`}>
 						<Form.Group>
 							{errors.firstname && (
@@ -129,8 +159,8 @@ const SignupComponent = () => {
 							/>
 						</Form.Group>
 
-						<Button type="submit" className={`${styles.loginButton}`}>
-							SIGN UP
+						<Button type="submit" className={`${styles.loginButton}`} disabled={isLoading}>
+							{isLoading ? 'CREATING ACCOUNT...' : 'SIGN UP'}
 						</Button>
 
 						<br />

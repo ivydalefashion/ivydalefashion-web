@@ -5,9 +5,24 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const expressApp = app.getHttpAdapter().getInstance() as Record<string, any>;
+
+  // Compatibility shim for AdminJS Nest loader expecting app.router.
+  if (!Object.prototype.hasOwnProperty.call(expressApp, 'router')) {
+    Object.defineProperty(expressApp, 'router', {
+      configurable: true,
+      enumerable: false,
+      get() {
+        return this._router;
+      },
+      set(value) {
+        this._router = value;
+      },
+    });
+  }
 
   // Global prefix
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('backend');
 
   // CORS
   app.enableCors({
@@ -39,7 +54,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api/docs', app, document);
+  SwaggerModule.setup('backend/docs', app, document);
 
   const port = process.env.PORT || 3001;
   await app.listen(port);
@@ -58,7 +73,7 @@ async function bootstrap() {
     console.log('\n');
   
   console.log(`🚀 Server running on http://localhost:${port}`);
-  console.log(`📖 Swagger: http://localhost:${port}/api/docs`);
+  console.log(`📖 Swagger: http://localhost:${port}/backend/docs`);
   console.log(`🔧 Admin: http://localhost:${port}/admin`);
 }
 

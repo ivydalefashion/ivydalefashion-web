@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
+import { Form, Button, Container, Row, InputGroup } from 'react-bootstrap';
 import styles from '../_styles/signinComponent.module.scss';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -19,17 +19,37 @@ const schema = yup.object().shape({
 const SigninComponent = () => {
 	const router = useRouter();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [errorMessage, setErrorMessage] = useState<string>('');
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(schema) });
 
-	const onSubmit = (data: any) => {
-		console.log(data);
-		// Handle form submission here
+	const onSubmit = async (data: { email: string; password: string }) => {
+		setIsLoading(true);
+		setErrorMessage('');
+		try {
+			const response = await fetch('/api/auth/login', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(data),
+			});
 
-		router.push('/commerce');
+			const result = await response.json();
+			if (!response.ok) {
+				throw new Error(result?.message || 'Invalid email or password.');
+			}
+
+			if (result?.token) {
+				localStorage.setItem('ivydale_token', result.token);
+			}
+			router.push('/commerce');
+		} catch (error: any) {
+			setErrorMessage(error.message || 'Unable to sign in right now.');
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return (
@@ -42,10 +62,9 @@ const SigninComponent = () => {
 					</label>
 				</Row>
 
-				<AlertDismissible
-					color="red"
-					information="Username or Password incorrect."
-				></AlertDismissible>
+				{errorMessage ? (
+					<AlertDismissible color="red" information={errorMessage}></AlertDismissible>
+				) : null}
 
 				<Row>
 					<form onSubmit={handleSubmit(onSubmit)} className={` ${styles.mainForm}`}>
@@ -90,8 +109,8 @@ const SigninComponent = () => {
 						</InputGroup>
 
 						{/* Login button */}
-						<Button type="submit" className={`${styles.loginButton}`}>
-							LOGIN
+						<Button type="submit" className={`${styles.loginButton}`} disabled={isLoading}>
+							{isLoading ? 'LOGGING IN...' : 'LOGIN'}
 						</Button>
 
 						<br />

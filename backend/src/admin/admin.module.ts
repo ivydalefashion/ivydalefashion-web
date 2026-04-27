@@ -1,19 +1,75 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
+
+const nativeImport = new Function(
+  'modulePath',
+  'return import(modulePath)',
+) as (modulePath: string) => Promise<any>;
 
 @Module({})
 export class AdminModule {
   static async forRoot(): Promise<DynamicModule> {
     try {
-      // Dynamic imports with explicit paths
-      const adminjs = await import('adminjs');
-      const nestjsAdmin = await import('@adminjs/nestjs');
-      const prismaAdapter = await import('@adminjs/prisma');
+      // Keep ESM imports native to support AdminJS packages in CommonJS output.
+      const adminjs = await nativeImport('adminjs');
+      const nestjsAdmin = await nativeImport('@adminjs/nestjs');
+      const prismaAdapter = await nativeImport('@adminjs/prisma');
 
       const AdminJS = adminjs.default;
       const { AdminModule: NestJSAdminModule } = nestjsAdmin;
+      const ExpressLoader = nestjsAdmin.ExpressLoader as {
+        prototype?: { reorderRoutes?: (app: any) => void };
+      };
       const { Database, Resource, getModelByName } = prismaAdapter;
+
+      if (ExpressLoader?.prototype?.reorderRoutes) {
+        ExpressLoader.prototype.reorderRoutes = function reorderRoutes(app: any) {
+          const routerStack = app?._router?.stack;
+          if (!routerStack) return;
+
+          let jsonParser: any[] = [];
+          let urlencodedParser: any[] = [];
+          let admin: any[] = [];
+
+          const jsonParserIndex = routerStack.findIndex(
+            (layer: any) => layer.name === 'jsonParser',
+          );
+          if (jsonParserIndex >= 0) {
+            jsonParser = routerStack.splice(jsonParserIndex, 1);
+          }
+
+          const urlencodedParserIndex = routerStack.findIndex(
+            (layer: any) => layer.name === 'urlencodedParser',
+          );
+          if (urlencodedParserIndex >= 0) {
+            urlencodedParser = routerStack.splice(urlencodedParserIndex, 1);
+          }
+
+          const adminIndex = routerStack.findIndex(
+            (layer: any) => layer.name === 'admin',
+          );
+          if (adminIndex >= 0) {
+            admin = routerStack.splice(adminIndex, 1);
+          }
+
+          const corsIndex = routerStack.findIndex(
+            (layer: any) => layer.name === 'corsMiddleware',
+          );
+          const expressInitIndex = routerStack.findIndex(
+            (layer: any) => layer.name === 'expressInit',
+          );
+          const initIndex = (corsIndex >= 0 ? corsIndex : expressInitIndex) + 1;
+          routerStack.splice(
+            initIndex,
+            0,
+            ...admin,
+            ...jsonParser,
+            ...urlencodedParser,
+          );
+        };
+      }
 
       // Register Prisma adapter
       AdminJS.registerAdapter({ Database, Resource });
@@ -28,15 +84,25 @@ export class AdminModule {
               // Create resources function
               const prismaService = new PrismaService();
               
-              // Get all model names from Prisma
-              const modelNames = Object.keys(prismaService).filter(
-                key => !key.startsWith('_') && !key.startsWith('$') && typeof prismaService[key] === 'object'
+              const delegateKeys = new Set(
+                Object.keys(prismaService).filter(
+                  key =>
+                    !key.startsWith('_') &&
+                    !key.startsWith('$') &&
+                    typeof prismaService[key] === 'object',
+                ),
               );
 
-              // Create resources
-              const resources = modelNames.map(modelName => ({
+              // AdminJS Prisma adapter expects model names from Prisma schema (e.g. "User").
+              const resources = Prisma.dmmf.datamodel.models
+                .filter(model => {
+                  const delegateKey =
+                    model.name.charAt(0).toLowerCase() + model.name.slice(1);
+                  return delegateKeys.has(delegateKey);
+                })
+                .map(model => ({
                 resource: {
-                  model: getModelByName(modelName),
+                  model: getModelByName(model.name),
                   client: prismaService,
                 },
                 options: {
